@@ -85,12 +85,15 @@ function fetchLogForJob(jobId) {
 }
 
 function addSearchFeature($tree, $input) {
-  let oldPattern = "";
+  let oldPattern = null;
   
   function searchWrapper(e) {
     
     if (e.keyCode == 13) return;
-    if (e.keyCode == 27) $input.val("");
+    if (e.keyCode == 27) {
+      $input.val("");
+      if (oldPattern != "") $tree.treeview('collapseAll', { silent: true });
+    }
     
     return function search(e) {
       let pattern = $input.val();
@@ -103,7 +106,11 @@ function addSearchFeature($tree, $input) {
           //exactMatch: false,    // like or equals
           revealResults: true,  // reveal matching nodes
         }]);
-      
+
+        if (results.length > 0) {
+          $tree.find("li:not(.search-result)").hide();
+        }
+        
         var output = "[" + pattern + "] " + results.length + ' matches found';
         console.log(output);
     
