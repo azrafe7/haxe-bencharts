@@ -16,7 +16,8 @@ const $search = $('#search');
 const $tree = $('#tree');
 const $chart = $('#chart');
 
-let testCases = null;
+let testCases = [];
+let treeData = [];
 let apiUrl = "";
 let travisUrl = "";
 let travisInfo = { };
@@ -168,7 +169,7 @@ function createTree(el, treeData) {
 
 function collectTreeData(testCases) {
   //testCases = testCases.splice(0, 10); // test a small sample
-  let testcaseClass = "fas fa-suitcase";
+  let testCaseClass = "fas fa-suitcase";
   let nodes = [];
   let benchs = { };
   let suites = { };
@@ -190,7 +191,7 @@ function collectTreeData(testCases) {
   
   let idx = 0;
   testCases.map(t => {
-    let node = createNode(t.caseName, {arrayIdx: idx++, icon: testcaseClass});
+    let node = createNode(t.caseName, {arrayIdx: idx++, icon: testCaseClass});
     node.nodes = undefined;
     suites[t.suiteName].nodes.push(node);
   });
@@ -201,9 +202,7 @@ function collectTreeData(testCases) {
     node.selectable = numChildren == 0;
     node.tags = [numChildren > 0 ? '' + numChildren : ''];
   });
-  
-  testCases = testCases;
-  
+
   console.log("nodes: ", nodes);
   
   return nodes;
@@ -211,7 +210,7 @@ function collectTreeData(testCases) {
 
 function onNodeSelected(evt, data) {
   console.log("selected: ", data);
-  $("#chart").html(evt, data);
+  $("#chart").html("<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>");
 }
 
 
@@ -228,8 +227,6 @@ function main() {
   };
 
   let parser = new TravisLogParser();
-  let testCases = [];
-  let treeData = [];
 
   if (!(urlParams["build"] || urlParams["job"] || urlParams["latest"])) {
     travisParams.jobId = TEST_JOB_ID;
