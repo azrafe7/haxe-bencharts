@@ -1,4 +1,6 @@
 
+@:expose
+@:native("hxutils")
 class Utils {
 
 	static public function contains(s:String, substr:String):Bool {

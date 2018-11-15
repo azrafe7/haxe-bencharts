@@ -143,7 +143,7 @@ TravisLogParser.prototype = {
 		var caseName = null;
 		var numSamples = null;
 		var lines = [];
-		var match = Utils.matchBetween(log,CHECKOUT_FOLD_START_REGEXP,CHECKOUT_FOLD_END_REGEXP);
+		var match = hxutils.matchBetween(log,CHECKOUT_FOLD_START_REGEXP,CHECKOUT_FOLD_END_REGEXP);
 		if(match.matched) {
 			lines = new EReg("\r?\n","g").split(match.matchedString);
 			var _g = 0;
@@ -211,32 +211,32 @@ TravisLogParser.prototype = {
 		return results;
 	}
 };
-var Utils = function() { };
-Utils.__name__ = true;
-Utils.contains = function(s,substr) {
+var hxutils = $hx_exports["hxutils"] = function() { };
+hxutils.__name__ = true;
+hxutils.contains = function(s,substr) {
 	return s.indexOf(substr) >= 0;
 };
-Utils.toFixed = function(f,decimals) {
+hxutils.toFixed = function(f,decimals) {
 	if(decimals == null) {
 		decimals = 2;
 	}
 	var exp = Math.pow(10,decimals);
 	return Math.round(f * exp) / exp;
 };
-Utils.toMetric = function(value,decimals) {
+hxutils.toMetric = function(value,decimals) {
 	if(decimals == null) {
 		decimals = 2;
 	}
 	var divisors = [1000,1000000,1000000000];
 	if(value < divisors[0]) {
-		return Std.string(Utils.toFixed(value,decimals));
+		return Std.string(hxutils.toFixed(value,decimals));
 	}
 	var suffixes = ["K","M","G"];
 	var idx = 0;
 	while(idx < divisors.length && value >= divisors[idx]) ++idx;
-	return "" + Utils.toFixed(value / divisors[idx - 1],decimals) + suffixes[idx - 1];
+	return "" + hxutils.toFixed(value / divisors[idx - 1],decimals) + suffixes[idx - 1];
 };
-Utils.download = function(filename,text) {
+hxutils.download = function(filename,text) {
 	var document = window.document;
 	var element = document.createElement("a");
 	element.setAttribute("href","data:text/plain;charset=utf-8," + encodeURIComponent(text));
@@ -246,7 +246,7 @@ Utils.download = function(filename,text) {
 	element.click();
 	document.body.removeChild(element);
 };
-Utils.matchBetween = function(str,startRegexp,endRegexp) {
+hxutils.matchBetween = function(str,startRegexp,endRegexp) {
 	var res = { matched : false};
 	if(startRegexp.match(str)) {
 		var start = startRegexp.matchedPos();
