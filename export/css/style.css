@@ -1,0 +1,35 @@
+#info li i, #info li img {
+  padding-right: 5px;
+}
+
+#info {
+  padding-bottom: 5px;
+}
+
+#info li img {
+  vertical-align: text-bottom;
+}
+
+#info li #message {
+  margin: auto;
+}
+
+.container {
+  width: 100% !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.treeview .list-group-item {
+  font-size: .9em;
+  padding: 8px 10px;
+}
+
+.treeview span.indent {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.treeview span.glyphicon {
+  
+}

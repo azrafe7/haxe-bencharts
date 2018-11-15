@@ -1,0 +1,5 @@
+-cp src
+TravisLogParser
+-js export/js/travisLogParser.js
+
+#-debug

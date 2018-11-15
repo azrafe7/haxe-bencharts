@@ -1,0 +1,2691 @@
+travis_fold:start:worker_info[0K[33;1mWorker information[0m
+hostname: 9e80be09-7e48-4405-9f85-48dc3181cc42@1.production-2-worker-org-gce-1tbp
+version: v4.6.2 https://github.com/travis-ci/worker/tree/7004f7c9e22c7896b5b35cec84e6912047c55c3e
+instance: travis-job-5061f2be-7a92-4a47-a1f4-b279dd5e5d5a travis-ci-garnet-trusty-1512502259-986baf0 (via amqp)
+startup: 6.636954442s
+travis_fold:end:worker_info[0Ktravis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: ruby
+Build group: stable
+Build dist: trusty
+Build id: 452838555
+Job id: 452838557
+Runtime kernel version: 4.4.0-101-generic
+travis-build version: 0b82a5a31
+[34m[1mBuild image provisioning date and time[0m
+Tue Dec  5 19:58:13 UTC 2017
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.5 LTS
+Release:	14.04
+Codename:	trusty
+[34m[1mCookbooks Version[0m
+7c2c6a6 https://github.com/travis-ci/travis-cookbooks/tree/7c2c6a6
+[34m[1mgit version[0m
+git version 2.15.1
+[34m[1mbash version[0m
+GNU bash, version 4.3.11(1)-release (x86_64-pc-linux-gnu)
+[34m[1mgcc version[0m
+gcc (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4
+Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mdocker version[0m
+Client:
+ Version:      17.09.0-ce
+ API version:  1.32
+ Go version:   go1.8.3
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:42:38 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      17.09.0-ce
+ API version:  1.32 (minimum version 1.12)
+ Go version:   go1.8.3
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:41:20 2017
+ OS/Arch:      linux/amd64
+ Experimental: false
+[34m[1mclang version[0m
+clang version 5.0.0 (tags/RELEASE_500/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/local/clang-5.0.0/bin
+[34m[1mjq version[0m
+jq-1.5
+[34m[1mbats version[0m
+Bats 0.4.0
+[34m[1mshellcheck version[0m
+0.4.6
+[34m[1mshfmt version[0m
+v2.0.0
+[34m[1mccache version[0m
+ccache version 3.1.9
+
+Copyright (C) 2002-2007 Andrew Tridgell
+Copyright (C) 2009-2011 Joel Rosdahl
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
+[34m[1mcmake version[0m
+cmake version 3.9.2
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+[34m[1mheroku version[0m
+heroku-cli/6.14.39-addc925 (linux-x64) node-v9.2.0
+[34m[1mimagemagick version[0m
+Version: ImageMagick 6.7.7-10 2017-07-31 Q16 http://www.imagemagick.org
+[34m[1mmd5deep version[0m
+4.2
+[34m[1mmercurial version[0m
+Mercurial Distributed SCM (version 4.2.2)
+(see https://mercurial-scm.org for more information)
+
+Copyright (C) 2005-2017 Matt Mackall and others
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+[34m[1mmysql version[0m
+mysql  Ver 14.14 Distrib 5.6.33, for debian-linux-gnu (x86_64) using  EditLine wrapper
+[34m[1mopenssl version[0m
+OpenSSL 1.0.1f 6 Jan 2014
+[34m[1mpacker version[0m
+Packer v1.0.2
+
+Your version of Packer is out of date! The latest version
+is 1.1.2. You can update by downloading from www.packer.io
+[34m[1mpostgresql client version[0m
+psql (PostgreSQL) 9.6.6
+[34m[1mragel version[0m
+Ragel State Machine Compiler version 6.8 Feb 2013
+Copyright (c) 2001-2009 by Adrian Thurston
+[34m[1msubversion version[0m
+svn, version 1.8.8 (r1568071)
+   compiled Aug 10 2017, 17:20:39 on x86_64-pc-linux-gnu
+
+Copyright (C) 2013 The Apache Software Foundation.
+This software consists of contributions made by many people;
+see the NOTICE file for more information.
+Subversion is open source software, see http://subversion.apache.org/
+
+The following repository access (RA) modules are available:
+
+* ra_svn : Module for accessing a repository using the svn network protocol.
+  - with Cyrus SASL authentication
+  - handles 'svn' scheme
+* ra_local : Module for accessing a repository on local disk.
+  - handles 'file' scheme
+* ra_serf : Module for accessing a repository via WebDAV protocol using serf.
+  - using serf 1.3.3
+  - handles 'http' scheme
+  - handles 'https' scheme
+
+[34m[1msudo version[0m
+Sudo version 1.8.9p5
+Configure options: --prefix=/usr -v --with-all-insults --with-pam --with-fqdn --with-logging=syslog --with-logfac=authpriv --with-env-editor --with-editor=/usr/bin/editor --with-timeout=15 --with-password-timeout=0 --with-passprompt=[sudo] password for %p:  --without-lecture --with-tty-tickets --disable-root-mailer --enable-admin-flag --with-sendmail=/usr/sbin/sendmail --with-timedir=/var/lib/sudo --mandir=/usr/share/man --libexecdir=/usr/lib/sudo --with-sssd --with-sssd-lib=/usr/lib/x86_64-linux-gnu --with-selinux
+Sudoers policy plugin version 1.8.9p5
+Sudoers file grammar version 43
+
+Sudoers path: /etc/sudoers
+Authentication methods: 'pam'
+Syslog facility if syslog is being used for logging: authpriv
+Syslog priority to use when user authenticates successfully: notice
+Syslog priority to use when user authenticates unsuccessfully: alert
+Send mail if the user is not in sudoers
+Use a separate timestamp for each user/tty combo
+Lecture user the first time they run sudo
+Root may run sudo
+Allow some information gathering to give useful error messages
+Require fully-qualified hostnames in the sudoers file
+Visudo will honor the EDITOR environment variable
+Set the LOGNAME and USER environment variables
+Length at which to wrap log file lines (0 for no wrap): 80
+Authentication timestamp timeout: 15.0 minutes
+Password prompt timeout: 0.0 minutes
+Number of tries to enter a password: 3
+Umask to use or 0777 to use user's: 022
+Path to mail program: /usr/sbin/sendmail
+Flags for mail program: -t
+Address to send mail to: root
+Subject line for mail messages: *** SECURITY information for %h ***
+Incorrect password message: Sorry, try again.
+Path to authentication timestamp dir: /var/lib/sudo
+Default password prompt: [sudo] password for %p: 
+Default user to run commands as: root
+Value to override user's $PATH with: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+Path to the editor for use by visudo: /usr/bin/editor
+When to require a password for 'list' pseudocommand: any
+When to require a password for 'verify' pseudocommand: all
+File descriptors >= 3 will be closed before executing a command
+Environment variables to check for sanity:
+	TZ
+	TERM
+	LINGUAS
+	LC_*
+	LANGUAGE
+	LANG
+	COLORTERM
+Environment variables to remove:
+	RUBYOPT
+	RUBYLIB
+	PYTHONUSERBASE
+	PYTHONINSPECT
+	PYTHONPATH
+	PYTHONHOME
+	TMPPREFIX
+	ZDOTDIR
+	READNULLCMD
+	NULLCMD
+	FPATH
+	PERL5DB
+	PERL5OPT
+	PERL5LIB
+	PERLLIB
+	PERLIO_DEBUG 
+	JAVA_TOOL_OPTIONS
+	SHELLOPTS
+	GLOBIGNORE
+	PS4
+	BASH_ENV
+	ENV
+	TERMCAP
+	TERMPATH
+	TERMINFO_DIRS
+	TERMINFO
+	_RLD*
+	LD_*
+	PATH_LOCALE
+	NLSPATH
+	HOSTALIASES
+	RES_OPTIONS
+	LOCALDOMAIN
+	CDPATH
+	IFS
+Environment variables to preserve:
+	JAVA_HOME
+	TRAVIS
+	CI
+	DEBIAN_FRONTEND
+	XAUTHORIZATION
+	XAUTHORITY
+	PS2
+	PS1
+	PATH
+	LS_COLORS
+	KRB5CCNAME
+	HOSTNAME
+	HOME
+	DISPLAY
+	COLORS
+Locale to use while parsing sudoers: C
+Directory in which to store input/output logs: /var/log/sudo-io
+File in which to store the input/output log: %{seq}
+Add an entry to the utmp/utmpx file when allocating a pty
+PAM service name to use
+PAM service name to use for login shells
+Create a new PAM session for the command to run in
+Maximum I/O log sequence number: 0
+
+Local IP address and netmask pairs:
+	10.240.0.28/255.255.255.255
+	172.17.0.1/255.255.0.0
+
+Sudoers I/O plugin version 1.8.9p5
+[34m[1mgzip version[0m
+gzip 1.6
+Copyright (C) 2007, 2010, 2011 Free Software Foundation, Inc.
+Copyright (C) 1993 Jean-loup Gailly.
+This is free software.  You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Jean-loup Gailly.
+[34m[1mzip version[0m
+Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
+This is Zip 3.0 (July 5th 2008), by Info-ZIP.
+Currently maintained by E. Gordon.  Please send bug reports to
+the authors using the web page at www.info-zip.org; see README for details.
+
+Latest sources and executables are at ftp://ftp.info-zip.org/pub/infozip,
+as of above date; see http://www.info-zip.org/ for other sites.
+
+Compiled with gcc 4.8.2 for Unix (Linux ELF) on Oct 21 2013.
+
+Zip special compilation options:
+	USE_EF_UT_TIME       (store Universal Time)
+	BZIP2_SUPPORT        (bzip2 library version 1.0.6, 6-Sept-2010)
+	    bzip2 code and library copyright (c) Julian R Seward
+	    (See the bzip2 license for terms of use)
+	SYMLINK_SUPPORT      (symbolic links supported)
+	LARGE_FILE_SUPPORT   (can read and write large files on file system)
+	ZIP64_SUPPORT        (use Zip64 to store large files in archives)
+	UNICODE_SUPPORT      (store and read UTF-8 Unicode paths)
+	STORE_UNIX_UIDs_GIDs (store UID/GID sizes/values using new extra field)
+	UIDGID_NOT_16BIT     (old Unix 16-bit UID/GID extra field not used)
+	[encryption, version 2.91 of 05 Jan 2007] (modified for Zip 3)
+
+Encryption notice:
+	The encryption code of this program is not copyrighted and is
+	put in the public domain.  It was originally written in Europe
+	and, to the best of our knowledge, can be freely distributed
+	in both source and object forms from any country, including
+	the USA under License Exception TSU of the U.S. Export
+	Administration Regulations (section 740.13(e)) of 6 June 2002.
+
+Zip environment options:
+             ZIP:  [none]
+          ZIPOPT:  [none]
+[34m[1mvim version[0m
+VIM - Vi IMproved 7.4 (2013 Aug 10, compiled Nov 24 2016 16:43:18)
+Included patches: 1-52
+Extra patches: 8.0.0056
+Modified by pkg-vim-maintainers@lists.alioth.debian.org
+Compiled by buildd@
+Huge version without GUI.  Features included (+) or not (-):
++acl             +farsi           +mouse_netterm   +syntax
++arabic          +file_in_path    +mouse_sgr       +tag_binary
++autocmd         +find_in_path    -mouse_sysmouse  +tag_old_static
+-balloon_eval    +float           +mouse_urxvt     -tag_any_white
+-browse          +folding         +mouse_xterm     -tcl
+++builtin_terms  -footer          +multi_byte      +terminfo
++byte_offset     +fork()          +multi_lang      +termresponse
++cindent         +gettext         -mzscheme        +textobjects
+-clientserver    -hangul_input    +netbeans_intg   +title
+-clipboard       +iconv           +path_extra      -toolbar
++cmdline_compl   +insert_expand   -perl            +user_commands
++cmdline_hist    +jumplist        +persistent_undo +vertsplit
++cmdline_info    +keymap          +postscript      +virtualedit
++comments        +langmap         +printer         +visual
++conceal         +libcall         +profile         +visualextra
++cryptv          +linebreak       +python          +viminfo
++cscope          +lispindent      -python3         +vreplace
++cursorbind      +listcmds        +quickfix        +wildignore
++cursorshape     +localmap        +reltime         +wildmenu
++dialog_con      -lua             +rightleft       +windows
++diff            +menu            -ruby            +writebackup
++digraphs        +mksession       +scrollbind      -X11
+-dnd             +modify_fname    +signs           -xfontset
+-ebcdic          +mouse           +smartindent     -xim
++emacs_tags      -mouseshape      -sniff           -xsmp
++eval            +mouse_dec       +startuptime     -xterm_clipboard
++ex_extra        +mouse_gpm       +statusline      -xterm_save
++extra_search    -mouse_jsbterm   -sun_workshop    -xpm
+   system vimrc file: "$VIM/vimrc"
+     user vimrc file: "$HOME/.vimrc"
+ 2nd user vimrc file: "~/.vim/vimrc"
+      user exrc file: "$HOME/.exrc"
+  fall-back for $VIM: "/usr/share/vim"
+Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1      
+Linking: gcc   -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux  -lacl -lattr -lgpm -ldl    -L/usr/lib/python2.7/config-x86_64-linux-gnu -lpython2.7 -lpthread -ldl -lutil -lm -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions      
+[34m[1miptables version[0m
+iptables v1.4.21
+[34m[1mcurl version[0m
+curl 7.35.0 (x86_64-pc-linux-gnu) libcurl/7.35.0 OpenSSL/1.0.1f zlib/1.2.8 libidn/1.28 librtmp/2.3
+[34m[1mwget version[0m
+GNU Wget 1.15 built on linux-gnu.
+[34m[1mrsync version[0m
+rsync  version 3.1.0  protocol version 31
+[34m[1mgimme version[0m
+v1.2.0
+[34m[1mnvm version[0m
+0.33.6
+[34m[1mperlbrew version[0m
+/home/travis/perl5/perlbrew/bin/perlbrew  - App::perlbrew/0.80
+[34m[1mphpenv version[0m
+rbenv 1.1.1-25-g6aa70b6
+[34m[1mrvm version[0m
+rvm 1.29.3 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
+[34m[1mdefault ruby version[0m
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mElasticSearch version[0m
+5.5.0
+[34m[1mInstalled Firefox version[0m
+firefox 56.0.2
+[34m[1mMongoDB version[0m
+MongoDB 3.4.10
+[34m[1mPhantomJS version[0m
+2.1.1
+[34m[1mPre-installed PostgreSQL versions[0m
+9.2.24
+9.3.20
+9.4.15
+9.5.10
+9.6.6
+[34m[1mRabbitMQ Version[0m
+3.6.14
+[34m[1mRedis version[0m
+redis-server 4.0.6
+[34m[1mriak version[0m
+2.2.3
+[34m[1mPre-installed Go versions[0m
+1.7.4
+[34m[1mant version[0m
+Apache Ant(TM) version 1.9.3 compiled on April 8 2014
+[34m[1mmvn version[0m
+Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T07:58:13Z)
+Maven home: /usr/local/maven-3.5.2
+Java version: 1.8.0_151, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.4.0-98-generic", arch: "amd64", family: "unix"
+[34m[1mgradle version[0m
+
+------------------------------------------------------------
+Gradle 4.0.1
+------------------------------------------------------------
+
+Build time:   2017-07-07 14:02:41 UTC
+Revision:     38e5dc0f772daecca1d2681885d3d85414eb6826
+
+Groovy:       2.4.11
+Ant:          Apache Ant(TM) version 1.9.6 compiled on June 29 2015
+JVM:          1.8.0_151 (Oracle Corporation 25.151-b12)
+OS:           Linux 4.4.0-98-generic amd64
+
+[34m[1mlein version[0m
+Leiningen 2.8.1 on Java 1.8.0_151 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mPre-installed Node.js versions[0m
+v4.8.6
+v6.12.0
+v6.12.1
+v8.9
+v8.9.1
+[34m[1mphpenv versions[0m
+  system
+  5.6
+* 5.6.32 (set by /home/travis/.phpenv/version)
+  7.0
+  7.0.25
+  7.1
+  7.1.11
+  hhvm
+  hhvm-stable
+[34m[1mcomposer --version[0m
+Composer version 1.5.2 2017-09-11 16:59:25
+[34m[1mPre-installed Ruby versions[0m
+ruby-2.2.7
+ruby-2.3.4
+ruby-2.4.1
+travis_fold:end:system_info[0K
+Setting APT mirror in /etc/apt/sources.list: http://us-east-1.ec2.archive.ubuntu.com/ubuntu/
+
+travis_fold:start:git.checkout[0Ktravis_time:start:17386e64[0K$ git clone --depth=50 --branch=echart_travis_fiddle https://github.com/azrafe7/haxe.git azrafe7/haxe
+Cloning into 'azrafe7/haxe'...
+travis_time:end:17386e64:start=1541764430570489912,finish=1541764432543945052,duration=1973455140[0K$ cd azrafe7/haxe
+$ git checkout -qf c631fe8d0707d8ef0b701aa0b6363103cf0ec28a
+travis_fold:end:git.checkout[0K
+travis_fold:start:git.submodule[0Ktravis_time:start:0556f09a[0K$ git submodule update --init --recursive
+Submodule 'extra/haxelib_src' (https://github.com/HaxeFoundation/haxelib.git) registered for path 'extra/haxelib_src'
+Submodule 'libs' (https://github.com/HaxeFoundation/ocamllibs.git) registered for path 'libs'
+Cloning into '/home/travis/build/azrafe7/haxe/extra/haxelib_src'...
+Cloning into '/home/travis/build/azrafe7/haxe/libs'...
+Submodule path 'extra/haxelib_src': checked out '0161c1a1af2adcc51943a2cb006954790b8eb0bd'
+Submodule 'hx3compat' (https://github.com/haxefoundation/hx3compat) registered for path 'extra/haxelib_src/hx3compat'
+Cloning into '/home/travis/build/azrafe7/haxe/extra/haxelib_src/hx3compat'...
+Submodule path 'extra/haxelib_src/hx3compat': checked out 'f1f18201e5c0479cb5adf5f6028788b37f37b730'
+Submodule path 'libs': checked out '47b5801cbfca8d45de3b4790aa49576da1a1212d'
+travis_time:end:0556f09a:start=1541764432886147549,finish=1541764434946312965,duration=2060165416[0Ktravis_fold:end:git.submodule[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export OPAMYES=1
+$ export ADD_REVISION=1
+$ export 3H17bkXG4rzaSn2LV5PJLOxSjw0ziBUMY=[secure]
+[31;1mThe previous command failed, possibly due to a malformed secure environment variable.[0K
+[31;1mPlease be sure to escape special characters such as ' ' and '$'.[0K
+[31;1mFor more information, see https://docs.travis-ci.com/user/encryption-keys.[0K
+$ export WQ=[secure]
+$ export TEST=macro,hl,js,php,flash9,as3,java,cs,python,lua
+$ export SAUCE=1
+
+travis_fold:start:rvm[0Ktravis_time:start:0e2455c3[0K$ rvm use default
+Using /home/travis/.rvm/gems/ruby-2.4.1
+
+[32;1m** Updating RubyGems to the latest version for security reasons. **[0m
+[32;1m** If you need an older version, you can downgrade with 'gem update --system OLD_VERSION'. **[0m
+
+travis_time:end:0e2455c3:start=1541764434964641730,finish=1541764439318023528,duration=4353381798[0Ktravis_fold:end:rvm[0K
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=${TRAVIS_HOME}/.casher
+travis_time:start:0f611a34[0K$ Installing caching utilities
+travis_time:end:0f611a34:start=1541764440103705567,finish=1541764440249211480,duration=145505913[0Ktravis_time:start:0bc0b7c4[0Ktravis_time:end:0bc0b7c4:start=1541764440255270988,finish=1541764440258523759,duration=3252771[0Ktravis_time:start:01df1b52[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching echart_travis_fiddle/cache-linux-trusty-239e25f3c76590c05bd88d13682cfc65109b8c1bcf1e56bd307940d5820ca6ab--rvm-default--gemfile-Gemfile.tgz[0m
+[32;1mfound cache[0m
+travis_time:end:01df1b52:start=1541764440263251968,finish=1541764442192832051,duration=1929580083[0Ktravis_time:start:0675a5f3[0Ktravis_time:end:0675a5f3:start=1541764442197373084,finish=1541764442200331827,duration=2958743[0Ktravis_time:start:0038f06d[0K[32;1madding /home/travis/.opam to cache[0m
+[32;1mcreating directory /home/travis/.opam[0m
+[32;1madding /home/travis/neko to cache[0m
+[32;1mcreating directory /home/travis/neko[0m
+[32;1madding /home/travis/apt-cache to cache[0m
+[32;1mcreating directory /home/travis/apt-cache[0m
+[32;1madding /home/travis/hxcache to cache[0m
+[32;1mcreating directory /home/travis/hxcache[0m
+[32;1madding /home/travis/lua_env to cache[0m
+[32;1mcreating directory /home/travis/lua_env[0m
+[32;1madding /home/travis/.luarocks to cache[0m
+[32;1mcreating directory /home/travis/.luarocks[0m
+/home/travis/apt-cache/partial: Permission denied
+travis_time:end:0038f06d:start=1541764442204464695,finish=1541764451311681475,duration=9107216780[0Ktravis_fold:end:cache.1[0Ktravis_fold:start:ruby.versions[0K$ ruby --version
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+$ rvm --version
+rvm 1.29.3 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
+$ bundle --version
+Bundler version 1.16.6
+$ gem --version
+2.7.8
+travis_fold:end:ruby.versions[0K
+travis_fold:start:before_install.1[0Ktravis_time:start:053d9126[0K$ export DISPLAY=:99.0
+travis_time:end:053d9126:start=1541764451752816792,finish=1541764451755961169,duration=3144377[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:10f9be46[0K$ sh -e /etc/init.d/xvfb start
+Starting virtual X frame buffer: Xvfb.
+travis_time:end:10f9be46:start=1541764451761347094,finish=1541764451769709853,duration=8362759[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:2455bb20[0K$ export AUDIODEV=null
+travis_time:end:2455bb20:start=1541764451777507859,finish=1541764451780649563,duration=3141704[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:install.1[0Ktravis_time:start:031cdd10[0K$ export APT_CACHE_DIR=~/apt-cache && mkdir -pv $APT_CACHE_DIR
+travis_time:end:031cdd10:start=1541764451785904096,finish=1541764451791240704,duration=5336608[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0077c1ba[0K$ sudo apt-get install --reinstall ca-certificates
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 260 not upgraded.
+Need to get 167 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu trusty-updates/main amd64 ca-certificates all 20170717~14.04.1 [167 kB]
+Preconfiguring packages ...
+Fetched 167 kB in 0s (879 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 93695 files and directories currently installed.)
+Preparing to unpack .../ca-certificates_20170717~14.04.1_all.deb ...
+Unpacking ca-certificates (20170717~14.04.1) over (20170717~14.04.1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up ca-certificates (20170717~14.04.1) ...
+Processing triggers for ca-certificates (20170717~14.04.1) ...
+Updating certificates in /etc/ssl/certs... 0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d....
+done.
+done.
+travis_time:end:0077c1ba:start=1541764451797638345,finish=1541764456679000049,duration=4881361704[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:03672cfc[0K$ sudo add-apt-repository ppa:haxe/ocaml -y
+gpg: keyring `/tmp/tmpqfjkny9o/secring.gpg' created
+gpg: keyring `/tmp/tmpqfjkny9o/pubring.gpg' created
+gpg: requesting key A9AACE33 from hkp server keyserver.ubuntu.com
+gpg: /tmp/tmpqfjkny9o/trustdb.gpg: trustdb created
+gpg: key A9AACE33: public key "Launchpad PPA for Haxe Foundation" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+OK
+travis_time:end:03672cfc:start=1541764456684017993,finish=1541764458199120777,duration=1515102784[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:2837f634[0K$ sudo apt-get update -y
+Ign:1 http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 InRelease
+Hit:2 http://apt.postgresql.org/pub/repos/apt trusty-pgdg InRelease
+Hit:3 http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 Release
+Ign:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu trusty InRelease
+Hit:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu trusty-updates InRelease
+Hit:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu trusty-backports InRelease
+Hit:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu trusty Release
+Get:5 http://dl.bintray.com/apache/cassandra 39x InRelease [3,168 B]
+Hit:10 http://ppa.launchpad.net/chris-lea/redis-server/ubuntu trusty InRelease
+Hit:11 http://security.ubuntu.com/ubuntu trusty-security InRelease
+Ign:7 http://toolbelt.heroku.com/ubuntu ./ InRelease
+Ign:12 http://dl.google.com/linux/chrome/deb stable InRelease
+Hit:14 https://dl.hhvm.com/ubuntu trusty InRelease
+Hit:15 https://download.docker.com/linux/ubuntu trusty InRelease
+Hit:17 http://dl.google.com/linux/chrome/deb stable Release
+Hit:13 http://toolbelt.heroku.com/ubuntu ./ Release
+Ign:18 http://ppa.launchpad.net/couchdb/stable/ubuntu trusty InRelease
+Hit:20 http://ppa.launchpad.net/git-core/ppa/ubuntu trusty InRelease
+Get:21 http://ppa.launchpad.net/haxe/ocaml/ubuntu trusty InRelease [15.9 kB]
+Hit:24 https://packagecloud.io/computology/apt-backport/ubuntu trusty InRelease
+Hit:25 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu trusty InRelease
+Hit:26 https://packagecloud.io/github/git-lfs/ubuntu trusty InRelease
+Hit:27 https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu trusty InRelease
+Hit:28 http://ppa.launchpad.net/pollinate/ppa/ubuntu trusty InRelease
+Hit:29 http://ppa.launchpad.net/webupd8team/java/ubuntu trusty InRelease
+Hit:30 http://ppa.launchpad.net/couchdb/stable/ubuntu trusty Release
+Get:32 http://ppa.launchpad.net/haxe/ocaml/ubuntu trusty/main amd64 Packages [4,351 B]
+Get:33 http://ppa.launchpad.net/haxe/ocaml/ubuntu trusty/main i386 Packages [4,363 B]
+Get:34 http://ppa.launchpad.net/haxe/ocaml/ubuntu trusty/main Translation-en [3,341 B]
+Fetched 31.2 kB in 2s (13.5 kB/s)
+Reading package lists...
+W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/trusty/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
+travis_time:end:2837f634:start=1541764458204164638,finish=1541764462161695602,duration=3957530964[0Ktravis_fold:end:install.4[0Ktravis_fold:start:install.5[0Ktravis_time:start:12304350[0K$ sudo apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y ocaml ocaml-native-compilers ocaml-findlib aspcud libpcre3-dev zlib1g-dev libgtk2.0-dev ninja-build awscli $JOB_DEPENDENCIES
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libpcre3-dev is already the newest version (1:8.31-2ubuntu2.3).
+libpcre3-dev set to manually installed.
+The following additional packages will be installed:
+  camlp4 clasp debhelper dh-apparmor docutils-common gir1.2-atk-1.0
+  gir1.2-gtk-2.0 gir1.2-pango-1.0 gringo intltool-debian libatk1.0-dev
+  libcamlp4-ocaml-dev libfindlib-ocaml libfindlib-ocaml-dev libharfbuzz-dev
+  libharfbuzz-gobject0 libharfbuzz-icu0 liblua5.1-0 libmail-sendmail-perl
+  libpango1.0-dev libpaper-utils libpaper1 libsys-hostname-long-perl libtbb2
+  libwebp5 libwebpmux1 libxcomposite-dev libxcursor-dev libxcursor1 libxi-dev
+  libxinerama-dev libxml2-utils libxrandr-dev ocaml-base ocaml-base-nox
+  ocaml-compiler-libs ocaml-interp ocaml-nox po-debconf python3-bcdoc
+  python3-botocore python3-chardet python3-colorama python3-dateutil
+  python3-docutils python3-jmespath python3-pil python3-pkg-resources
+  python3-ply python3-pygments python3-requests python3-roman python3-rsa
+  python3-six python3-urllib3 x11proto-composite-dev x11proto-randr-dev
+  x11proto-xinerama-dev zlib1g
+Suggested packages:
+  potassco-guide dh-make apparmor-easyprof libgtk2.0-doc libpango1.0-doc
+  ocaml-doc tuareg-mode | ocaml-mode libmail-box-perl
+  texlive-latex-recommended texlive-latex-base texlive-lang-french
+  fonts-linuxlibertine | ttf-linux-libertine docutils-doc python-pil-doc
+  python3-pil-dbg python3-setuptools python-ply-doc ttf-bitstream-vera
+Recommended packages:
+  ledit | readline-editor
+The following NEW packages will be installed:
+  aspcud awscli camlp4 clasp debhelper dh-apparmor docutils-common
+  gir1.2-atk-1.0 gir1.2-gtk-2.0 gir1.2-pango-1.0 gringo intltool-debian
+  libatk1.0-dev libcamlp4-ocaml-dev libfindlib-ocaml libfindlib-ocaml-dev
+  libgtk2.0-dev libharfbuzz-dev libharfbuzz-gobject0 libharfbuzz-icu0
+  liblua5.1-0 libmail-sendmail-perl libpango1.0-dev libpaper-utils libpaper1
+  libsys-hostname-long-perl libtbb2 libwebp5 libwebpmux1 libxcomposite-dev
+  libxcursor-dev libxi-dev libxinerama-dev libxml2-utils libxrandr-dev
+  ninja-build ocaml ocaml-base ocaml-base-nox ocaml-compiler-libs
+  ocaml-findlib ocaml-interp ocaml-native-compilers ocaml-nox po-debconf
+  python3-bcdoc python3-botocore python3-chardet python3-colorama
+  python3-dateutil python3-docutils python3-jmespath python3-pil
+  python3-pkg-resources python3-ply python3-pygments python3-requests
+  python3-roman python3-rsa python3-six python3-urllib3 x11proto-composite-dev
+  x11proto-randr-dev x11proto-xinerama-dev
+The following packages will be upgraded:
+  libxcursor1 zlib1g zlib1g-dev
+Extracting templates from packages: 44%Extracting templates from packages: 89%Extracting templates from packages: 100%
+Preconfiguring packages ...
+3 upgraded, 64 newly installed, 0 to remove and 257 not upgraded.
+Need to get 0 B/46.4 MB of archives.
+After this operation, 291 MB of additional disk space will be used.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 93695 files and directories currently installed.)
+Preparing to unpack .../zlib1g-dev_1%3a1.2.8.dfsg-1ubuntu1.1_amd64.deb ...
+Unpacking zlib1g-dev:amd64 (1:1.2.8.dfsg-1ubuntu1.1) over (1:1.2.8.dfsg-1ubuntu1) ...
+Preparing to unpack .../zlib1g_1%3a1.2.8.dfsg-1ubuntu1.1_amd64.deb ...
+Unpacking zlib1g:amd64 (1:1.2.8.dfsg-1ubuntu1.1) over (1:1.2.8.dfsg-1ubuntu1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up zlib1g:amd64 (1:1.2.8.dfsg-1ubuntu1.1) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.13) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 93695 files and directories currently installed.)
+Preparing to unpack .../libxcursor1_1%3a1.1.14-1ubuntu0.14.04.2_amd64.deb ...
+Unpacking libxcursor1:amd64 (1:1.1.14-1ubuntu0.14.04.2) over (1:1.1.14-1ubuntu0.14.04.1) ...
+Setting up libxcursor1:amd64 (1:1.1.14-1ubuntu0.14.04.2) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.13) ...
+Selecting previously unselected package libharfbuzz-gobject0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 93695 files and directories currently installed.)
+Preparing to unpack .../libharfbuzz-gobject0_0.9.27-1ubuntu1.1_amd64.deb ...
+Unpacking libharfbuzz-gobject0:amd64 (0.9.27-1ubuntu1.1) ...
+Selecting previously unselected package libharfbuzz-icu0:amd64.
+Preparing to unpack .../libharfbuzz-icu0_0.9.27-1ubuntu1.1_amd64.deb ...
+Unpacking libharfbuzz-icu0:amd64 (0.9.27-1ubuntu1.1) ...
+Selecting previously unselected package liblua5.1-0:amd64.
+Preparing to unpack .../liblua5.1-0_5.1.5-5ubuntu0.1_amd64.deb ...
+Unpacking liblua5.1-0:amd64 (5.1.5-5ubuntu0.1) ...
+Selecting previously unselected package libpaper1:amd64.
+Preparing to unpack .../libpaper1_1.1.24+nmu2ubuntu3_amd64.deb ...
+Unpacking libpaper1:amd64 (1.1.24+nmu2ubuntu3) ...
+Selecting previously unselected package libwebp5:amd64.
+Preparing to unpack .../libwebp5_0.4.0-4_amd64.deb ...
+Unpacking libwebp5:amd64 (0.4.0-4) ...
+Selecting previously unselected package libwebpmux1:amd64.
+Preparing to unpack .../libwebpmux1_0.4.0-4_amd64.deb ...
+Unpacking libwebpmux1:amd64 (0.4.0-4) ...
+Selecting previously unselected package python3-six.
+Preparing to unpack .../python3-six_1.5.2-1ubuntu1.1_all.deb ...
+Unpacking python3-six (1.5.2-1ubuntu1.1) ...
+Selecting previously unselected package python3-ply.
+Preparing to unpack .../python3-ply_3.4-3ubuntu2_all.deb ...
+Unpacking python3-ply (3.4-3ubuntu2) ...
+Selecting previously unselected package python3-jmespath.
+Preparing to unpack .../python3-jmespath_0.2.1-1_all.deb ...
+Unpacking python3-jmespath (0.2.1-1) ...
+Selecting previously unselected package python3-dateutil.
+Preparing to unpack .../python3-dateutil_2.0+dfsg1-1_all.deb ...
+Unpacking python3-dateutil (2.0+dfsg1-1) ...
+Selecting previously unselected package python3-pkg-resources.
+Preparing to unpack .../python3-pkg-resources_3.3-1ubuntu2_all.deb ...
+Unpacking python3-pkg-resources (3.3-1ubuntu2) ...
+Selecting previously unselected package python3-chardet.
+Preparing to unpack .../python3-chardet_2.2.1-2~ubuntu1_all.deb ...
+Unpacking python3-chardet (2.2.1-2~ubuntu1) ...
+Selecting previously unselected package python3-urllib3.
+Preparing to unpack .../python3-urllib3_1.7.1-1ubuntu4.1_all.deb ...
+Unpacking python3-urllib3 (1.7.1-1ubuntu4.1) ...
+Selecting previously unselected package python3-requests.
+Preparing to unpack .../python3-requests_2.2.1-1ubuntu0.4_all.deb ...
+Unpacking python3-requests (2.2.1-1ubuntu0.4) ...
+Selecting previously unselected package python3-botocore.
+Preparing to unpack .../python3-botocore_0.29.0+repack-2ubuntu0.1_all.deb ...
+Unpacking python3-botocore (0.29.0+repack-2ubuntu0.1) ...
+Selecting previously unselected package python3-roman.
+Preparing to unpack .../python3-roman_2.0.0-1_all.deb ...
+Unpacking python3-roman (2.0.0-1) ...
+Selecting previously unselected package docutils-common.
+Preparing to unpack .../docutils-common_0.11-3_all.deb ...
+Unpacking docutils-common (0.11-3) ...
+Selecting previously unselected package python3-docutils.
+Preparing to unpack .../python3-docutils_0.11-3_all.deb ...
+Unpacking python3-docutils (0.11-3) ...
+Selecting previously unselected package python3-rsa.
+Preparing to unpack .../python3-rsa_3.1.2-1ubuntu0.1_all.deb ...
+Unpacking python3-rsa (3.1.2-1ubuntu0.1) ...
+Selecting previously unselected package python3-colorama.
+Preparing to unpack .../python3-colorama_0.2.5-0.1ubuntu2_all.deb ...
+Unpacking python3-colorama (0.2.5-0.1ubuntu2) ...
+Selecting previously unselected package python3-bcdoc.
+Preparing to unpack .../python3-bcdoc_0.12.0-2_all.deb ...
+Unpacking python3-bcdoc (0.12.0-2) ...
+Selecting previously unselected package awscli.
+Preparing to unpack .../awscli_1.2.9-2_all.deb ...
+Unpacking awscli (1.2.9-2) ...
+Selecting previously unselected package ocaml-base-nox.
+Preparing to unpack .../ocaml-base-nox_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-base-nox (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package ocaml-compiler-libs.
+Preparing to unpack .../ocaml-compiler-libs_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-compiler-libs (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package ocaml-interp.
+Preparing to unpack .../ocaml-interp_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-interp (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package ocaml-nox.
+Preparing to unpack .../ocaml-nox_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-nox (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package libcamlp4-ocaml-dev.
+Preparing to unpack .../libcamlp4-ocaml-dev_4.02.1+3-2~ubuntu14.04.1_amd64.deb ...
+Unpacking libcamlp4-ocaml-dev (4.02.1+3-2~ubuntu14.04.1) ...
+Selecting previously unselected package camlp4.
+Preparing to unpack .../camlp4_4.02.1+3-2~ubuntu14.04.1_amd64.deb ...
+Unpacking camlp4 (4.02.1+3-2~ubuntu14.04.1) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../intltool-debian_0.35.0+20060710.1_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.1) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../po-debconf_1.0.16+nmu2ubuntu1_all.deb ...
+Unpacking po-debconf (1.0.16+nmu2ubuntu1) ...
+Selecting previously unselected package dh-apparmor.
+Preparing to unpack .../dh-apparmor_2.10.95-0ubuntu2.6~14.04.4_all.deb ...
+Unpacking dh-apparmor (2.10.95-0ubuntu2.6~14.04.4) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../debhelper_9.20131227ubuntu1_all.deb ...
+Unpacking debhelper (9.20131227ubuntu1) ...
+Selecting previously unselected package gir1.2-atk-1.0.
+Preparing to unpack .../gir1.2-atk-1.0_2.10.0-2ubuntu2_amd64.deb ...
+Unpacking gir1.2-atk-1.0 (2.10.0-2ubuntu2) ...
+Selecting previously unselected package gir1.2-pango-1.0.
+Preparing to unpack .../gir1.2-pango-1.0_1.36.3-1ubuntu1.1_amd64.deb ...
+Unpacking gir1.2-pango-1.0 (1.36.3-1ubuntu1.1) ...
+Selecting previously unselected package gir1.2-gtk-2.0.
+Preparing to unpack .../gir1.2-gtk-2.0_2.24.23-0ubuntu1.4_amd64.deb ...
+Unpacking gir1.2-gtk-2.0 (2.24.23-0ubuntu1.4) ...
+Selecting previously unselected package libtbb2.
+Preparing to unpack .../libtbb2_4.2~20130725-1.1ubuntu1_amd64.deb ...
+Unpacking libtbb2 (4.2~20130725-1.1ubuntu1) ...
+Selecting previously unselected package gringo.
+Preparing to unpack .../gringo_4.2.1-4_amd64.deb ...
+Unpacking gringo (4.2.1-4) ...
+Selecting previously unselected package libatk1.0-dev.
+Preparing to unpack .../libatk1.0-dev_2.10.0-2ubuntu2_amd64.deb ...
+Unpacking libatk1.0-dev (2.10.0-2ubuntu2) ...
+Selecting previously unselected package libfindlib-ocaml.
+Preparing to unpack .../libfindlib-ocaml_1.5.5-2build1~ubuntu14.04.1_amd64.deb ...
+Unpacking libfindlib-ocaml (1.5.5-2build1~ubuntu14.04.1) ...
+Selecting previously unselected package libfindlib-ocaml-dev.
+Preparing to unpack .../libfindlib-ocaml-dev_1.5.5-2build1~ubuntu14.04.1_amd64.deb ...
+Unpacking libfindlib-ocaml-dev (1.5.5-2build1~ubuntu14.04.1) ...
+Selecting previously unselected package libharfbuzz-dev.
+Preparing to unpack .../libharfbuzz-dev_0.9.27-1ubuntu1.1_amd64.deb ...
+Unpacking libharfbuzz-dev (0.9.27-1ubuntu1.1) ...
+Selecting previously unselected package libpango1.0-dev.
+Preparing to unpack .../libpango1.0-dev_1.36.3-1ubuntu1.1_amd64.deb ...
+Unpacking libpango1.0-dev (1.36.3-1ubuntu1.1) ...
+Selecting previously unselected package x11proto-xinerama-dev.
+Preparing to unpack .../x11proto-xinerama-dev_1.2.1-2_all.deb ...
+Unpacking x11proto-xinerama-dev (1.2.1-2) ...
+Selecting previously unselected package libxinerama-dev:amd64.
+Preparing to unpack .../libxinerama-dev_2%3a1.1.3-1_amd64.deb ...
+Unpacking libxinerama-dev:amd64 (2:1.1.3-1) ...
+Selecting previously unselected package libxi-dev.
+Preparing to unpack .../libxi-dev_2%3a1.7.1.901-1ubuntu1.1_amd64.deb ...
+Unpacking libxi-dev (2:1.7.1.901-1ubuntu1.1) ...
+Selecting previously unselected package x11proto-randr-dev.
+Preparing to unpack .../x11proto-randr-dev_1.5.0-1~trusty2_all.deb ...
+Unpacking x11proto-randr-dev (1.5.0-1~trusty2) ...
+Selecting previously unselected package libxrandr-dev:amd64.
+Preparing to unpack .../libxrandr-dev_2%3a1.5.0-1~trusty1_amd64.deb ...
+Unpacking libxrandr-dev:amd64 (2:1.5.0-1~trusty1) ...
+Selecting previously unselected package libxcursor-dev:amd64.
+Preparing to unpack .../libxcursor-dev_1%3a1.1.14-1ubuntu0.14.04.2_amd64.deb ...
+Unpacking libxcursor-dev:amd64 (1:1.1.14-1ubuntu0.14.04.2) ...
+Selecting previously unselected package x11proto-composite-dev.
+Preparing to unpack .../x11proto-composite-dev_1%3a0.4.2-2_all.deb ...
+Unpacking x11proto-composite-dev (1:0.4.2-2) ...
+Selecting previously unselected package libxcomposite-dev.
+Preparing to unpack .../libxcomposite-dev_1%3a0.4.4-1_amd64.deb ...
+Unpacking libxcomposite-dev (1:0.4.4-1) ...
+Selecting previously unselected package libxml2-utils.
+Preparing to unpack .../libxml2-utils_2.9.1+dfsg1-3ubuntu4.13_amd64.deb ...
+Unpacking libxml2-utils (2.9.1+dfsg1-3ubuntu4.13) ...
+Selecting previously unselected package libgtk2.0-dev.
+Preparing to unpack .../libgtk2.0-dev_2.24.23-0ubuntu1.4_amd64.deb ...
+Unpacking libgtk2.0-dev (2.24.23-0ubuntu1.4) ...
+Selecting previously unselected package libsys-hostname-long-perl.
+Preparing to unpack .../libsys-hostname-long-perl_1.4-3_all.deb ...
+Unpacking libsys-hostname-long-perl (1.4-3) ...
+Selecting previously unselected package libmail-sendmail-perl.
+Preparing to unpack .../libmail-sendmail-perl_0.79.16-1_all.deb ...
+Unpacking libmail-sendmail-perl (0.79.16-1) ...
+Selecting previously unselected package libpaper-utils.
+Preparing to unpack .../libpaper-utils_1.1.24+nmu2ubuntu3_amd64.deb ...
+Unpacking libpaper-utils (1.1.24+nmu2ubuntu3) ...
+Selecting previously unselected package ninja-build.
+Preparing to unpack .../ninja-build_1.3.4-1.1ubuntu0.14.04.1_amd64.deb ...
+Unpacking ninja-build (1.3.4-1.1ubuntu0.14.04.1) ...
+Selecting previously unselected package ocaml-base.
+Preparing to unpack .../ocaml-base_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-base (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package ocaml.
+Preparing to unpack .../ocaml_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package ocaml-findlib.
+Preparing to unpack .../ocaml-findlib_1.5.5-2build1~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-findlib (1.5.5-2build1~ubuntu14.04.1) ...
+Selecting previously unselected package ocaml-native-compilers.
+Preparing to unpack .../ocaml-native-compilers_4.02.3-5ubuntu2~ubuntu14.04.1_amd64.deb ...
+Unpacking ocaml-native-compilers (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Selecting previously unselected package python3-pil.
+Preparing to unpack .../python3-pil_2.3.0-1ubuntu3.4_amd64.deb ...
+Unpacking python3-pil (2.3.0-1ubuntu3.4) ...
+Selecting previously unselected package python3-pygments.
+Preparing to unpack .../python3-pygments_1.6+dfsg-1ubuntu1.1_all.deb ...
+Unpacking python3-pygments (1.6+dfsg-1ubuntu1.1) ...
+Selecting previously unselected package clasp.
+Preparing to unpack .../clasp_2.1.4-1ubuntu1_amd64.deb ...
+Unpacking clasp (2.1.4-1ubuntu1) ...
+Selecting previously unselected package aspcud.
+Preparing to unpack .../aspcud_1%3a1.8.0-2_amd64.deb ...
+Unpacking aspcud (1:1.8.0-2) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Processing triggers for shared-mime-info (1.2-0ubuntu3) ...
+Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
+Setting up zlib1g-dev:amd64 (1:1.2.8.dfsg-1ubuntu1.1) ...
+Setting up libharfbuzz-gobject0:amd64 (0.9.27-1ubuntu1.1) ...
+Setting up libharfbuzz-icu0:amd64 (0.9.27-1ubuntu1.1) ...
+Setting up liblua5.1-0:amd64 (5.1.5-5ubuntu0.1) ...
+Setting up libpaper1:amd64 (1.1.24+nmu2ubuntu3) ...
+
+Creating config file /etc/papersize with new version
+Setting up libwebp5:amd64 (0.4.0-4) ...
+Setting up libwebpmux1:amd64 (0.4.0-4) ...
+Setting up python3-six (1.5.2-1ubuntu1.1) ...
+Setting up python3-ply (3.4-3ubuntu2) ...
+Setting up python3-jmespath (0.2.1-1) ...
+Setting up python3-dateutil (2.0+dfsg1-1) ...
+Setting up python3-pkg-resources (3.3-1ubuntu2) ...
+Setting up python3-chardet (2.2.1-2~ubuntu1) ...
+Setting up python3-urllib3 (1.7.1-1ubuntu4.1) ...
+Setting up python3-requests (2.2.1-1ubuntu0.4) ...
+Setting up python3-botocore (0.29.0+repack-2ubuntu0.1) ...
+Setting up python3-roman (2.0.0-1) ...
+Setting up docutils-common (0.11-3) ...
+Setting up python3-rsa (3.1.2-1ubuntu0.1) ...
+Setting up python3-colorama (0.2.5-0.1ubuntu2) ...
+Setting up ocaml-base-nox (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.16+nmu2ubuntu1) ...
+Setting up dh-apparmor (2.10.95-0ubuntu2.6~14.04.4) ...
+Setting up debhelper (9.20131227ubuntu1) ...
+Setting up gir1.2-atk-1.0 (2.10.0-2ubuntu2) ...
+Setting up gir1.2-pango-1.0 (1.36.3-1ubuntu1.1) ...
+Setting up gir1.2-gtk-2.0 (2.24.23-0ubuntu1.4) ...
+Setting up libtbb2 (4.2~20130725-1.1ubuntu1) ...
+Setting up gringo (4.2.1-4) ...
+Setting up libatk1.0-dev (2.10.0-2ubuntu2) ...
+Setting up libfindlib-ocaml (1.5.5-2build1~ubuntu14.04.1) ...
+Setting up libharfbuzz-dev (0.9.27-1ubuntu1.1) ...
+Setting up libpango1.0-dev (1.36.3-1ubuntu1.1) ...
+Setting up x11proto-xinerama-dev (1.2.1-2) ...
+Setting up libxinerama-dev:amd64 (2:1.1.3-1) ...
+Setting up libxi-dev (2:1.7.1.901-1ubuntu1.1) ...
+Setting up x11proto-randr-dev (1.5.0-1~trusty2) ...
+Setting up libxrandr-dev:amd64 (2:1.5.0-1~trusty1) ...
+Setting up libxcursor-dev:amd64 (1:1.1.14-1ubuntu0.14.04.2) ...
+Setting up x11proto-composite-dev (1:0.4.2-2) ...
+Setting up libxcomposite-dev (1:0.4.4-1) ...
+Setting up libxml2-utils (2.9.1+dfsg1-3ubuntu4.13) ...
+Setting up libgtk2.0-dev (2.24.23-0ubuntu1.4) ...
+Setting up libsys-hostname-long-perl (1.4-3) ...
+Setting up libmail-sendmail-perl (0.79.16-1) ...
+Setting up libpaper-utils (1.1.24+nmu2ubuntu3) ...
+Setting up ninja-build (1.3.4-1.1ubuntu0.14.04.1) ...
+Setting up ocaml-base (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Setting up ocaml-findlib (1.5.5-2build1~ubuntu14.04.1) ...
+Setting up python3-pil (2.3.0-1ubuntu3.4) ...
+Setting up python3-pygments (1.6+dfsg-1ubuntu1.1) ...
+Setting up clasp (2.1.4-1ubuntu1) ...
+Setting up aspcud (1:1.8.0-2) ...
+Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
+Setting up python3-docutils (0.11-3) ...
+update-alternatives: using /usr/share/docutils/scripts/python3/rst-buildhtml to provide /usr/bin/rst-buildhtml (rst-buildhtml) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2html to provide /usr/bin/rst2html (rst2html) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2latex to provide /usr/bin/rst2latex (rst2latex) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2man to provide /usr/bin/rst2man (rst2man) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2odt to provide /usr/bin/rst2odt (rst2odt) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2odt_prepstyles to provide /usr/bin/rst2odt_prepstyles (rst2odt_prepstyles) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2pseudoxml to provide /usr/bin/rst2pseudoxml (rst2pseudoxml) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2s5 to provide /usr/bin/rst2s5 (rst2s5) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2xetex to provide /usr/bin/rst2xetex (rst2xetex) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rst2xml to provide /usr/bin/rst2xml (rst2xml) in auto mode
+update-alternatives: using /usr/share/docutils/scripts/python3/rstpep2html to provide /usr/bin/rstpep2html (rstpep2html) in auto mode
+Setting up python3-bcdoc (0.12.0-2) ...
+Setting up awscli (1.2.9-2) ...
+Setting up ocaml-compiler-libs (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Setting up ocaml-interp (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Setting up ocaml-nox (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Setting up libcamlp4-ocaml-dev (4.02.1+3-2~ubuntu14.04.1) ...
+Setting up camlp4 (4.02.1+3-2~ubuntu14.04.1) ...
+Setting up libfindlib-ocaml-dev (1.5.5-2build1~ubuntu14.04.1) ...
+Setting up ocaml (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Setting up ocaml-native-compilers (4.02.3-5ubuntu2~ubuntu14.04.1) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.13) ...
+travis_time:end:12304350:start=1541764462168133214,finish=1541764484944046129,duration=22775912915[0Ktravis_fold:end:install.5[0Ktravis_fold:start:install.6[0Ktravis_time:start:260ea6b8[0K$ if [ ! $DEPLOY_NIGHTLIES ]; then sudo add-apt-repository ppa:haxe/snapshots -y; sudo apt-get -o dir::cache::archives="$APT_CACHE_DIR" update -qqy; sudo apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -qqy neko neko-dev; else if [ ! -d "$HOME/neko" ]; then mkdir $HOME/neko; pushd $HOME/neko; git clone https://github.com/HaxeFoundation/neko.git .; git submodule update --init --recursive; else pushd $HOME/neko; if [ ! -d "$HOME/neko/.git" ]; then git clone https://github.com/HaxeFoundation/neko.git .; git submodule update --init --recursive; else git fetch --all; git reset --hard origin/master; git submodule update --init --recursive; fi; fi; cmake . -DSTATIC_DEPS=all -G Ninja || (git clean -dfx && cmake . -DSTATIC_DEPS=all -G Ninja); ninja download_static_deps || ninja download_static_deps || ninja download_static_deps; ninja -j 4; sudo ninja install; popd; fi
+gpg: keyring `/tmp/tmpoi1f218d/secring.gpg' created
+gpg: keyring `/tmp/tmpoi1f218d/pubring.gpg' created
+gpg: requesting key A9AACE33 from hkp server keyserver.ubuntu.com
+gpg: /tmp/tmpoi1f218d/trustdb.gpg: trustdb created
+gpg: key A9AACE33: public key "Launchpad PPA for Haxe Foundation" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+OK
+W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/trusty/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
+Selecting previously unselected package libneko2:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 97556 files and directories currently installed.)
+Preparing to unpack .../libneko2_2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1_amd64.deb ...
+Unpacking libneko2:amd64 (2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1) ...
+Selecting previously unselected package neko.
+Preparing to unpack .../neko_2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1_amd64.deb ...
+Unpacking neko (2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1) ...
+Selecting previously unselected package neko-dev:amd64.
+Preparing to unpack .../neko-dev_2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1_amd64.deb ...
+Unpacking neko-dev:amd64 (2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up libneko2:amd64 (2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1) ...
+Setting up neko (2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1) ...
+Setting up neko-dev:amd64 (2.1.0+1SNAPSHOT20171207094315+40f9a76-1~ubuntu14.04.1~ppa1) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.13) ...
+travis_time:end:260ea6b8:start=1541764484949762659,finish=1541764492393807475,duration=7444044816[0Ktravis_fold:end:install.6[0Ktravis_fold:start:install.7[0Ktravis_time:start:14e8497c[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+update-java-alternatives: directory does not exist: /usr/lib/jvm/java-7-oracle
+travis_time:end:14e8497c:start=1541764492398664784,finish=1541764492412462739,duration=13797955[0Ktravis_fold:end:install.7[0Ktravis_fold:start:install.8[0Ktravis_time:start:0217d494[0K$ java -version
+java version "1.8.0_151"
+Java(TM) SE Runtime Environment (build 1.8.0_151-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)
+travis_time:end:0217d494:start=1541764492417413242,finish=1541764492761597727,duration=344184485[0Ktravis_fold:end:install.8[0Ktravis_fold:start:install.9[0Ktravis_time:start:014ec178[0K$ wget -nv https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin system
+2018-11-09 11:54:52 URL:https://raw.githubusercontent.com/ocaml/opam/master/shell/opam_installer.sh [2566/2566] -> "-" [1]
+Downloading opam...
+You don't have write access to /usr/local/bin: sudo may ask for your password
+Initializing with compiler system
+OPAM has already been initialized.
+In normal operation, OPAM only alters files within ~/.opam.
+
+During this initialisation, you can allow OPAM to add information to two
+other files for best results. You can also make these additions manually
+if you wish.
+
+If you agree, OPAM will modify:
+
+  - ~/.bash_profile (or a file you specify) to set the right environment
+    variables and to load the auto-completion scripts for your shell (bash)
+    on startup. Specifically, it checks for and appends the following line:
+
+    . /home/travis/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+
+  - ~/.ocamlinit to ensure that non-system installations of `ocamlfind`
+    (i.e. those installed by OPAM) will work correctly when running the
+    OCaml toplevel. It does this by adding $OCAML_TOPLEVEL_PATH to the list
+    of include directories.
+
+If you choose to not configure your system now, you can either configure
+OPAM manually (instructions will be displayed) or launch the automatic setup
+later by running:
+
+   opam config setup -a
+
+
+Do you want OPAM to modify ~/.bash_profile and ~/.ocamlinit?
+(default is 'no', use 'f' to name a file other than ~/.bash_profile)
+    [N/y/f] 
+Global configuration:
+  ~/.opam/opam-init/init.sh is already up-to-date.
+  ~/.opam/opam-init/init.zsh is already up-to-date.
+  ~/.opam/opam-init/init.csh is already up-to-date.
+  ~/.opam/opam-init/init.fish is already up-to-date.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+1. To configure OPAM in the current shell session, you need to run:
+
+      eval `opam config env`
+
+2. To correctly configure OPAM for subsequent use, add the following
+   line to your profile file (for instance ~/.bash_profile):
+
+      . /home/travis/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+3. To avoid issues related to non-system installations of `ocamlfind`
+   add the following lines to ~/.ocamlinit (create it if necessary):
+
+      let () =
+        try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
+        with Not_found -> ()
+      ;;
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Installation done. If you need to uninstall, simply remove /usr/local/bin/opam
+and ~/.opam
+travis_time:end:014ec178:start=1541764492766733310,finish=1541764493969803524,duration=1203070214[0Ktravis_fold:end:install.9[0Ktravis_fold:start:install.10[0Ktravis_time:start:09bd6150[0K$ opam update
+
+=-=- Updating package repositories =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[default: http] Command started
+[default: http] Command started
+[default] synchronized from https://opam.ocaml.org/1.2.2
+
+Updates available for system, apply them with 'opam upgrade':
+===== ↗  1 =====
+travis_time:end:09bd6150:start=1541764493974861733,finish=1541764515274513698,duration=21299651965[0Ktravis_fold:end:install.10[0Ktravis_fold:start:install.11[0Ktravis_time:start:02adc59e[0K$ opam pin add haxe . --no-action
+[NOTE] Package haxe is already path-pinned to /home/travis/build/azrafe7/haxe.
+       This will erase any previous custom definition.
+Proceed ? [Y/n] y
+
+[haxe: local]
+[haxe] /home/travis/build/azrafe7/haxe/ synchronized
+[haxe] Installing new package description from /home/travis/build/azrafe7/haxe
+
+travis_time:end:02adc59e:start=1541764515279669533,finish=1541764516138431675,duration=858762142[0Ktravis_fold:end:install.11[0Ktravis_fold:start:install.12[0Ktravis_time:start:1f4c9cfc[0K$ opam install haxe --deps-only
+
+=-=- Synchronising pinned packages =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[haxe: local] Command started
+[haxe] /home/travis/build/azrafe7/haxe/ already up-to-date
+travis_time:end:1f4c9cfc:start=1541764516143585241,finish=1541764525295721088,duration=9152135847[0Ktravis_fold:end:install.12[0Ktravis_fold:start:install.13[0Ktravis_time:start:0349b3f8[0K$ make package_src -s
+travis_time:end:0349b3f8:start=1541764525300312912,finish=1541764528194859686,duration=2894546774[0Ktravis_fold:end:install.13[0Ktravis_fold:start:install.14[0Ktravis_time:start:3efc505c[0K$ opam config exec -- make -s STATICLINK=1 libs
+travis_time:end:3efc505c:start=1541764528200216128,finish=1541764531560566468,duration=3360350340[0Ktravis_fold:end:install.14[0Ktravis_fold:start:install.15[0Ktravis_time:start:0e250021[0K$ opam config exec -- make -s -j STATICLINK=1 haxe
+travis_time:end:0e250021:start=1541764531565879188,finish=1541764551241858053,duration=19675978865[0Ktravis_fold:end:install.15[0Ktravis_fold:start:install.16[0Ktravis_time:start:18b3bb78[0K$ opam config exec -- make -s haxelib
+travis_time:end:18b3bb78:start=1541764551246737456,finish=1541764552300200602,duration=1053463146[0Ktravis_fold:end:install.16[0Ktravis_fold:start:install.17[0Ktravis_time:start:12f6a883[0K$ make package_bin -s
+travis_time:end:12f6a883:start=1541764552305428673,finish=1541764553650546517,duration=1345117844[0Ktravis_fold:end:install.17[0Ktravis_fold:start:install.18[0Ktravis_time:start:1175b70b[0K$ ls -l out
+total 13552
+-rw-rw-r-- 1 travis travis 6087394 Nov  9 11:55 haxe_20181109115244_c631fe8_bin.tar.gz
+-rw-rw-r-- 1 travis travis 7782632 Nov  9 11:55 haxe_20181109115244_c631fe8_src.tar.gz
+travis_time:end:1175b70b:start=1541764553656126809,finish=1541764553662723259,duration=6596450[0Ktravis_fold:end:install.18[0Ktravis_fold:start:install.19[0Ktravis_time:start:0ac0d880[0K$ ldd -v ./haxe
+	linux-vdso.so.1 =>  (0x00007f35cffd9000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f35cfb9b000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f35cf895000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f35cf691000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f35cf2c8000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f35cfdb9000)
+
+	Version information:
+	./haxe:
+		libdl.so.2 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libdl.so.2
+		libm.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libm.so.6
+		libc.so.6 (GLIBC_2.15) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.7) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.17) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.14) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.2) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.11) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+		libpthread.so.0 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libpthread.so.0
+		libpthread.so.0 (GLIBC_2.3.2) => /lib/x86_64-linux-gnu/libpthread.so.0
+	/lib/x86_64-linux-gnu/libpthread.so.0:
+		ld-linux-x86-64.so.2 (GLIBC_2.2.5) => /lib64/ld-linux-x86-64.so.2
+		ld-linux-x86-64.so.2 (GLIBC_2.3) => /lib64/ld-linux-x86-64.so.2
+		ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+		libc.so.6 (GLIBC_2.14) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.2) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_PRIVATE) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libm.so.6:
+		libc.so.6 (GLIBC_PRIVATE) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libdl.so.2:
+		ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+		libc.so.6 (GLIBC_PRIVATE) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libc.so.6:
+		ld-linux-x86-64.so.2 (GLIBC_2.3) => /lib64/ld-linux-x86-64.so.2
+		ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+travis_time:end:0ac0d880:start=1541764553667783389,finish=1541764553681598021,duration=13814632[0Ktravis_fold:end:install.19[0Ktravis_fold:start:install.20[0Ktravis_time:start:12b334de[0K$ ldd -v ./haxelib
+	linux-vdso.so.1 =>  (0x00007fff8d099000)
+	libneko.so.2 => /usr/lib/x86_64-linux-gnu/libneko.so.2 (0x00007f5e78630000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f5e78412000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f5e78049000)
+	libgc.so.1 => /usr/lib/x86_64-linux-gnu/libgc.so.1 (0x00007f5e77ddd000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f5e77bd9000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f5e778d3000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f5e7884a000)
+
+	Version information:
+	./haxelib:
+		libpthread.so.0 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libpthread.so.0
+		libc.so.6 (GLIBC_2.3.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/usr/lib/x86_64-linux-gnu/libneko.so.2:
+		libdl.so.2 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libdl.so.2
+		libm.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libm.so.6
+		libpthread.so.0 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libpthread.so.0
+		libc.so.6 (GLIBC_2.11) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.14) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libpthread.so.0:
+		ld-linux-x86-64.so.2 (GLIBC_2.2.5) => /lib64/ld-linux-x86-64.so.2
+		ld-linux-x86-64.so.2 (GLIBC_2.3) => /lib64/ld-linux-x86-64.so.2
+		ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+		libc.so.6 (GLIBC_2.14) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.2) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_PRIVATE) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libc.so.6:
+		ld-linux-x86-64.so.2 (GLIBC_2.3) => /lib64/ld-linux-x86-64.so.2
+		ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+	/usr/lib/x86_64-linux-gnu/libgc.so.1:
+		libdl.so.2 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libdl.so.2
+		ld-linux-x86-64.so.2 (GLIBC_2.3) => /lib64/ld-linux-x86-64.so.2
+		libpthread.so.0 (GLIBC_2.3.3) => /lib/x86_64-linux-gnu/libpthread.so.0
+		libpthread.so.0 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libpthread.so.0
+		libc.so.6 (GLIBC_2.3) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.11) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.14) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.3.2) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.4) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libdl.so.2:
+		ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+		libc.so.6 (GLIBC_PRIVATE) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+	/lib/x86_64-linux-gnu/libm.so.6:
+		libc.so.6 (GLIBC_PRIVATE) => /lib/x86_64-linux-gnu/libc.so.6
+		libc.so.6 (GLIBC_2.2.5) => /lib/x86_64-linux-gnu/libc.so.6
+travis_time:end:12b334de:start=1541764553687507103,finish=1541764553713066862,duration=25559759[0Ktravis_fold:end:install.20[0Ktravis_fold:start:install.21[0Ktravis_time:start:15ba7b1e[0K$ export PATH="$PATH:$TRAVIS_BUILD_DIR"
+travis_time:end:15ba7b1e:start=1541764553718779576,finish=1541764553723689043,duration=4909467[0Ktravis_fold:end:install.21[0Ktravis_fold:start:install.22[0Ktravis_time:start:0f1be606[0K$ export HAXE_STD_PATH="$TRAVIS_BUILD_DIR/std"
+travis_time:end:0f1be606:start=1541764553728701759,finish=1541764553732368180,duration=3666421[0Ktravis_fold:end:install.22[0Ktravis_fold:start:sauce_connect.start[0K[33;1mStarting Sauce Connect[0m
+travis_time:start:2ba485fc[0K$ travis_start_sauce_connect
+This script runs only when Sauce credentials are present
+Please set SAUCE_USERNAME and SAUCE_ACCESS_KEY env variables
+export SAUCE_USERNAME=ur-username
+export SAUCE_ACCESS_KEY=ur-access-key
+travis_time:end:2ba485fc:start=1541764553738556643,finish=1541764553742843798,duration=4287155[0Ktravis_fold:end:sauce_connect.start[0Ktravis_time:start:2a0e8b00[0K$ pushd tests
+~/build/azrafe7/haxe/tests ~/build/azrafe7/haxe
+travis_time:end:2a0e8b00:start=1541764553749751851,finish=1541764553753088175,duration=3336324[0K[32;1mThe command "pushd tests" exited with 0.[0m
+
+travis_time:start:0a9e2f30[0K$ mkdir ~/haxelib && haxelib setup ~/haxelib
+haxelib repository is now /home/travis/haxelib
+travis_time:end:0a9e2f30:start=1541764553757630035,finish=1541764553778718404,duration=21088369[0K[32;1mThe command "mkdir ~/haxelib && haxelib setup ~/haxelib" exited with 0.[0m
+
+travis_time:start:030744cb[0K$ haxe -version
+4.0.0-preview.5+c631fe8
+travis_time:end:030744cb:start=1541764553783909794,finish=1541764553793946146,duration=10036352[0K[32;1mThe command "haxe -version" exited with 0.[0m
+
+travis_time:start:1c5f2790[0K$ haxe RunCi.hxml
+[36mGoing to test: [macro,hl,js,php,flash9,as3,java,cs,python,lua][0m
+travis_fold:start:test-macro
+[36mtest macro[0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/unit/
+[36mCommand: haxe [compile-macro.hxml,-D,travis][0m
+src/unit/TestMain.hx:50: Generated at: 2018-11-09 11:55:54
+src/unit/TestMain.hx:52: START
+src/unit/Test.hx:222: DONE [8178 tests]
+src/unit/Test.hx:223: SUCCESS: true
+src/unit/Test.hx:234: TIME: 0.0856008529663086
+[32mCommand exited with 0 in 3s: haxe [compile-macro.hxml,-D,travis][0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/display/
+[36mCommand: haxe [build.hxml][0m
+Issue5767 7 tests, 0 failures
+Issue7063 5 tests, 0 failures
+Issue7053 106 tests, 0 failures
+Issue7319 1 tests, 0 failures
+Issue7068 2 tests, 0 failures
+Issue7224 3 tests, 0 failures
+VsHaxeIssue198 1 tests, 0 failures
+ArrayAccessSignature 42 tests, 0 failures
+Issue6029 2 tests, 0 failures
+PropertyAccessors 4 tests, 0 failures
+Issue7471 1 tests, 0 failures
+Issue6399 12 tests, 0 failures
+Issue7089 1 tests, 0 failures
+Issue7171 1 tests, 0 failures
+Issue7029 26 tests, 0 failures
+Issue5967 15 tests, 0 failures
+Issue7172 2 tests, 0 failures
+Issue6381 3 tests, 0 failures
+ArrowFunctions 6 tests, 0 failures
+Issue6951 1 tests, 0 failures
+Issue6943 1 tests, 0 failures
+Issue7219 5 tests, 0 failures
+Issue6396 2 tests, 0 failures
+Issue6068 2 tests, 0 failures
+Issue7252 4 tests, 0 failures
+Issue7326 8 tests, 0 failures
+Issue6779 1 tests, 0 failures
+Issue7111 1 tests, 0 failures
+Basic 18 tests, 0 failures
+Override 6 tests, 0 failures
+Issue7148 2 tests, 0 failures
+Issue4345 2 tests, 0 failures
+Issue6923 10 tests, 0 failures
+Issue7102 1 tests, 0 failures
+Issue7055 6 tests, 0 failures
+Issue6020 2 tests, 0 failures
+Issue6442 2 tests, 0 failures
+Issue7069 5 tests, 0 failures
+BuildMacro 7 tests, 0 failures
+Toplevel 53 tests, 0 failures
+Issue7057 2 tests, 0 failures
+Issue6227 1 tests, 0 failures
+Issue7060 1 tests, 0 failures
+Issue7137 4 tests, 0 failures
+Issue5173 6 tests, 0 failures
+Issue7075 2 tests, 0 failures
+Issue7020 3 tests, 0 failures
+Issue5712 4 tests, 0 failures
+Issue7211 1 tests, 0 failures
+StaticExtension 4 tests, 0 failures
+Issue7046 2 tests, 0 failures
+Issue5649 1 tests, 0 failures
+Issue6004 1 tests, 0 failures
+Issue6416 3 tests, 0 failures
+Issue5775 1 tests, 0 failures
+Type 1 tests, 0 failures
+Issue6423 2 tests, 0 failures
+DocumentSymbols 0 tests, 0 failures
+IssueTemplate 0 tests, 0 failures
+Issue7051 8 tests, 0 failures
+Issue6405 5 tests, 0 failures
+Super 7 tests, 0 failures
+Issue7084 2 tests, 0 failures
+Issue7022 1 tests, 0 failures
+Issue7061 4 tests, 0 failures
+Issue7158 1 tests, 0 failures
+Issue5417 1 tests, 0 failures
+Resuming 5 tests, 0 failures
+Issue7027 1 tests, 0 failures
+Metadata 24 tests, 0 failures
+Issue7071 2 tests, 0 failures
+Issue7281 8 tests, 0 failures
+Completion 10 tests, 0 failures
+Issue7098 1 tests, 0 failures
+Issue5172 4 tests, 0 failures
+Issue7136 4 tests, 0 failures
+Issue6265 13 tests, 0 failures
+Issue5999 1 tests, 0 failures
+Issue7086 0 tests, 0 failures
+Issue5796 2 tests, 0 failures
+Issue6997 10 tests, 0 failures
+Issue7248 2 tests, 0 failures
+Issue5988 1 tests, 0 failures
+Signature 259 tests, 0 failures
+Issue7320 5 tests, 0 failures
+Issue7050 1 tests, 0 failures
+Issue6434 2 tests, 0 failures
+Abstract 8 tests, 0 failures
+IImport 23 tests, 0 failures
+Issue7082 0 tests, 0 failures
+Issue7133 1 tests, 0 failures
+Issue5684 1 tests, 0 failures
+Issue5141 12 tests, 0 failures
+Issue7023 2 tests, 0 failures
+Issue6421 1 tests, 0 failures
+TypeHints 20 tests, 0 failures
+Issue7092 1 tests, 0 failures
+Issue7059 1 tests, 0 failures
+Issue5171 1 tests, 0 failures
+Issue6417 2 tests, 0 failures
+Issue5166 2 tests, 0 failures
+Issue7066 4 tests, 0 failures
+StructureCompletion 98 tests, 0 failures
+Issue6422 1 tests, 0 failures
+Issue7072 0 tests, 0 failures
+Issue5729 1 tests, 0 failures
+Issue7047 1 tests, 0 failures
+Issue6756 1 tests, 0 failures
+Issue6740 1 tests, 0 failures
+Issue4155 1 tests, 0 failures
+Issue6275 3 tests, 0 failures
+InMacro 6 tests, 0 failures
+Finished with 994 tests, 0 failures
+[32mCommand exited with 0 in 33s: haxe [build.hxml][0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/sourcemaps/
+[36mCommand: haxe [run.hxml][0m
+Downloading sourcemap-1,0,0.zip...
+1024/5805 (17%)2048/5805 (35%)3072/5805 (52%)4096/5805 (70%)5120/5805 (88%)5805/5805 (100%)Download complete : 5805 bytes in 0.6s (9.1KB/s)
+Installing sourcemap...
+  Current version is now 1.0.0
+Done
+[Testing Js]
+cases.Trace: 1 tests, 0 failures
+[Testing Php]
+cases.Trace: 1 tests, 0 failures
+[32mCommand exited with 0 in 4s: haxe [run.hxml][0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/misc/
+[36mCommand: sudo [apt-get,-o,dir::cache::archives=/home/travis/apt-cache,install,-qqy,mono-devel,mono-mcs][0m
+Extracting templates from packages: 15%Extracting templates from packages: 31%Extracting templates from packages: 46%Extracting templates from packages: 62%Extracting templates from packages: 77%Extracting templates from packages: 93%Extracting templates from packages: 100%
+Selecting previously unselected package cli-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 97594 files and directories currently installed.)
+Preparing to unpack .../cli-common_0.9_all.deb ...
+Unpacking cli-common (0.9) ...
+Selecting previously unselected package libgdiplus.
+Preparing to unpack .../libgdiplus_2.11+git20131008.9732566-5ubuntu1_amd64.deb ...
+Unpacking libgdiplus (2.11+git20131008.9732566-5ubuntu1) ...
+Selecting previously unselected package libmonoboehm-2.0-1.
+Preparing to unpack .../libmonoboehm-2.0-1_3.2.8+dfsg-4ubuntu1.1_amd64.deb ...
+Unpacking libmonoboehm-2.0-1 (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmonoboehm-2.0-dev.
+Preparing to unpack .../libmonoboehm-2.0-dev_3.2.8+dfsg-4ubuntu1.1_amd64.deb ...
+Unpacking libmonoboehm-2.0-dev (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-2.0-dev.
+Preparing to unpack .../libmono-2.0-dev_3.2.8+dfsg-4ubuntu1.1_amd64.deb ...
+Unpacking libmono-2.0-dev (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-corlib4.5-cil.
+Preparing to unpack .../libmono-corlib4.5-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-corlib4.5-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-xml4.0-cil.
+Preparing to unpack .../libmono-system-xml4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-xml4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-security4.0-cil.
+Preparing to unpack .../libmono-system-security4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-security4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-configuration4.0-cil.
+Preparing to unpack .../libmono-system-configuration4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-configuration4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system4.0-cil.
+Preparing to unpack .../libmono-system4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-security4.0-cil.
+Preparing to unpack .../libmono-security4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-security4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-4.0-gac.
+Preparing to unpack .../mono-4.0-gac_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking mono-4.0-gac (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-gac.
+Preparing to unpack .../mono-gac_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking mono-gac (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-runtime-common.
+Preparing to unpack .../mono-runtime-common_3.2.8+dfsg-4ubuntu1.1_amd64.deb ...
+Unpacking mono-runtime-common (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-runtime-sgen.
+Preparing to unpack .../mono-runtime-sgen_3.2.8+dfsg-4ubuntu1.1_amd64.deb ...
+Unpacking mono-runtime-sgen (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-runtime.
+Preparing to unpack .../mono-runtime_3.2.8+dfsg-4ubuntu1.1_amd64.deb ...
+Unpacking mono-runtime (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-corlib2.0-cil.
+Preparing to unpack .../libmono-corlib2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-corlib2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-accessibility2.0-cil.
+Preparing to unpack .../libmono-accessibility2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-accessibility2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-accessibility4.0-cil.
+Preparing to unpack .../libmono-accessibility4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-accessibility4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-c5-1.1-cil.
+Preparing to unpack .../libmono-c5-1.1-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-c5-1.1-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-cairo2.0-cil.
+Preparing to unpack .../libmono-cairo2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-cairo2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-cairo4.0-cil.
+Preparing to unpack .../libmono-cairo4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-cairo4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-posix2.0-cil.
+Preparing to unpack .../libmono-posix2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-posix2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-security2.0-cil.
+Preparing to unpack .../libmono-security2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-security2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system2.0-cil.
+Preparing to unpack .../libmono-system2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-cecil-private-cil.
+Preparing to unpack .../libmono-cecil-private-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-cecil-private-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-sharpzip2.84-cil.
+Preparing to unpack .../libmono-sharpzip2.84-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-sharpzip2.84-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-data-tds2.0-cil.
+Preparing to unpack .../libmono-data-tds2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-data-tds2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data2.0-cil.
+Preparing to unpack .../libmono-system-data2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-sqlite2.0-cil.
+Preparing to unpack .../libmono-sqlite2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-sqlite2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-messaging2.0-cil.
+Preparing to unpack .../libmono-messaging2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-messaging2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-messaging2.0-cil.
+Preparing to unpack .../libmono-system-messaging2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-messaging2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-wcf3.0a-cil.
+Preparing to unpack .../libmono-wcf3.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-wcf3.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data-linq2.0-cil.
+Preparing to unpack .../libmono-system-data-linq2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data-linq2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-runtime2.0-cil.
+Preparing to unpack .../libmono-system-runtime2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-runtime2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web2.0-cil.
+Preparing to unpack .../libmono-system-web2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono2.0-cil.
+Preparing to unpack .../libmono2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-posix4.0-cil.
+Preparing to unpack .../libmono-posix4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-posix4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-core4.0-cil.
+Preparing to unpack .../libmono-system-core4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-core4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-codecontracts4.0-cil.
+Preparing to unpack .../libmono-codecontracts4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-codecontracts4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-compilerservices-symbolwriter4.0-cil.
+Preparing to unpack .../libmono-compilerservices-symbolwriter4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-compilerservices-symbolwriter4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-corlib4.0-cil.
+Preparing to unpack .../libmono-corlib4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-corlib4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-cscompmgd8.0-cil.
+Preparing to unpack .../libmono-cscompmgd8.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-cscompmgd8.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-csharp4.0c-cil.
+Preparing to unpack .../libmono-csharp4.0c-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-csharp4.0c-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-custommarshalers4.0-cil.
+Preparing to unpack .../libmono-custommarshalers4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-custommarshalers4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-data-tds4.0-cil.
+Preparing to unpack .../libmono-data-tds4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-data-tds4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-transactions4.0-cil.
+Preparing to unpack .../libmono-system-transactions4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-transactions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-enterpriseservices4.0-cil.
+Preparing to unpack .../libmono-system-enterpriseservices4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-enterpriseservices4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data4.0-cil.
+Preparing to unpack .../libmono-system-data4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-db2-1.0-cil.
+Preparing to unpack .../libmono-db2-1.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-db2-1.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-debugger-soft2.0a-cil.
+Preparing to unpack .../libmono-debugger-soft2.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-debugger-soft2.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-debugger-soft4.0a-cil.
+Preparing to unpack .../libmono-debugger-soft4.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-debugger-soft4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-csharp4.0-cil.
+Preparing to unpack .../libmono-microsoft-csharp4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-csharp4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-componentmodel-dataannotations4.0-cil.
+Preparing to unpack .../libmono-system-componentmodel-dataannotations4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-componentmodel-dataannotations4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-runtime-serialization4.0-cil.
+Preparing to unpack .../libmono-system-runtime-serialization4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-runtime-serialization4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-xml-linq4.0-cil.
+Preparing to unpack .../libmono-system-xml-linq4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-xml-linq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-entityframework6.0-cil.
+Preparing to unpack .../libmono-entityframework6.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-entityframework6.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-entityframework-sqlserver6.0-cil.
+Preparing to unpack .../libmono-entityframework-sqlserver6.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-entityframework-sqlserver6.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-sharpzip4.84-cil.
+Preparing to unpack .../libmono-sharpzip4.84-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-sharpzip4.84-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-sqlite4.0-cil.
+Preparing to unpack .../libmono-sqlite4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-sqlite4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-drawing4.0-cil.
+Preparing to unpack .../libmono-system-drawing4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-drawing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-runtime-serialization-formatters-soap4.0-cil.
+Preparing to unpack .../libmono-system-runtime-serialization-formatters-soap4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-runtime-serialization-formatters-soap4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-applicationservices4.0-cil.
+Preparing to unpack .../libmono-system-web-applicationservices4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-applicationservices4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-services4.0-cil.
+Preparing to unpack .../libmono-system-web-services4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-services4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-web4.0-cil.
+Preparing to unpack .../libmono-web4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-web4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web4.0-cil.
+Preparing to unpack .../libmono-system-web4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-http4.0-cil.
+Preparing to unpack .../libmono-http4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-http4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n-west2.0-cil.
+Preparing to unpack .../libmono-i18n-west2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n-west2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n2.0-cil.
+Preparing to unpack .../libmono-i18n2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n4.0-cil.
+Preparing to unpack .../libmono-i18n4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n-cjk4.0-cil.
+Preparing to unpack .../libmono-i18n-cjk4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n-cjk4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n-mideast4.0-cil.
+Preparing to unpack .../libmono-i18n-mideast4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n-mideast4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n-other4.0-cil.
+Preparing to unpack .../libmono-i18n-other4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n-other4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n-rare4.0-cil.
+Preparing to unpack .../libmono-i18n-rare4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n-rare4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n-west4.0-cil.
+Preparing to unpack .../libmono-i18n-west4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n-west4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-i18n4.0-all.
+Preparing to unpack .../libmono-i18n4.0-all_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-i18n4.0-all (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-ldap2.0-cil.
+Preparing to unpack .../libmono-ldap2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-ldap2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-ldap4.0-cil.
+Preparing to unpack .../libmono-ldap4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-ldap4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-management2.0-cil.
+Preparing to unpack .../libmono-management2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-management2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-management4.0-cil.
+Preparing to unpack .../libmono-management4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-management4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-messaging4.0-cil.
+Preparing to unpack .../libmono-messaging4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-messaging4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-rabbitmq2.0-cil.
+Preparing to unpack .../libmono-rabbitmq2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-rabbitmq2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-messaging-rabbitmq2.0-cil.
+Preparing to unpack .../libmono-messaging-rabbitmq2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-messaging-rabbitmq2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-rabbitmq4.0-cil.
+Preparing to unpack .../libmono-rabbitmq4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-rabbitmq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-messaging-rabbitmq4.0-cil.
+Preparing to unpack .../libmono-messaging-rabbitmq4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-messaging-rabbitmq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft8.0-cil.
+Preparing to unpack .../libmono-microsoft8.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft8.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-xbuild-tasks2.0-cil.
+Preparing to unpack .../libmono-xbuild-tasks2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-xbuild-tasks2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-build2.0-cil.
+Preparing to unpack .../libmono-microsoft-build2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-build2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-build-framework4.0-cil.
+Preparing to unpack .../libmono-microsoft-build-framework4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-build-framework4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-build4.0-cil.
+Preparing to unpack .../libmono-microsoft-build4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-build4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-build-utilities-v4.0-4.0-cil.
+Preparing to unpack .../libmono-microsoft-build-utilities-v4.0-4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-build-utilities-v4.0-4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-build-engine4.0-cil.
+Preparing to unpack .../libmono-microsoft-build-engine4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-build-engine4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-xbuild-tasks4.0-cil.
+Preparing to unpack .../libmono-xbuild-tasks4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-xbuild-tasks4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-build-tasks-v4.0-4.0-cil.
+Preparing to unpack .../libmono-microsoft-build-tasks-v4.0-4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-build-tasks-v4.0-4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-visualc10.0-cil.
+Preparing to unpack .../libmono-microsoft-visualc10.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-visualc10.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-microsoft-web-infrastructure1.0-cil.
+Preparing to unpack .../libmono-microsoft-web-infrastructure1.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-microsoft-web-infrastructure1.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-npgsql2.0-cil.
+Preparing to unpack .../libmono-npgsql2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-npgsql2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-npgsql4.0-cil.
+Preparing to unpack .../libmono-npgsql4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-npgsql4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-opensystem-c4.0-cil.
+Preparing to unpack .../libmono-opensystem-c4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-opensystem-c4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-oracle2.0-cil.
+Preparing to unpack .../libmono-oracle2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-oracle2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-oracle4.0-cil.
+Preparing to unpack .../libmono-oracle4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-oracle4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-parallel4.0-cil.
+Preparing to unpack .../libmono-parallel4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-parallel4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-peapi2.0a-cil.
+Preparing to unpack .../libmono-peapi2.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-peapi2.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-peapi4.0a-cil.
+Preparing to unpack .../libmono-peapi4.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-peapi4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-relaxng2.0-cil.
+Preparing to unpack .../libmono-relaxng2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-relaxng2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-relaxng4.0-cil.
+Preparing to unpack .../libmono-relaxng4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-relaxng4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-sharpzip2.6-cil.
+Preparing to unpack .../libmono-sharpzip2.6-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-sharpzip2.6-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-simd2.0-cil.
+Preparing to unpack .../libmono-simd2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-simd2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-simd4.0-cil.
+Preparing to unpack .../libmono-simd4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-simd4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-componentmodel-composition4.0-cil.
+Preparing to unpack .../libmono-system-componentmodel-composition4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-componentmodel-composition4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-configuration-install4.0-cil.
+Preparing to unpack .../libmono-system-configuration-install4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-configuration-install4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data-datasetextensions4.0-cil.
+Preparing to unpack .../libmono-system-data-datasetextensions4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data-datasetextensions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data-linq4.0-cil.
+Preparing to unpack .../libmono-system-data-linq4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data-linq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-windowsbase3.0-cil.
+Preparing to unpack .../libmono-windowsbase3.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-windowsbase3.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data-services2.0-cil.
+Preparing to unpack .../libmono-system-data-services2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data-services2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data-services-client4.0-cil.
+Preparing to unpack .../libmono-system-data-services-client4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data-services-client4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-identitymodel4.0-cil.
+Preparing to unpack .../libmono-system-identitymodel4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-identitymodel4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-identitymodel-selectors4.0-cil.
+Preparing to unpack .../libmono-system-identitymodel-selectors4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-identitymodel-selectors4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-webbrowser4.0-cil.
+Preparing to unpack .../libmono-webbrowser4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-webbrowser4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-windows-forms4.0-cil.
+Preparing to unpack .../libmono-system-windows-forms4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-windows-forms4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-messaging4.0-cil.
+Preparing to unpack .../libmono-system-messaging4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-messaging4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-servicemodel4.0a-cil.
+Preparing to unpack .../libmono-system-servicemodel4.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-servicemodel4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-servicemodel-activation4.0-cil.
+Preparing to unpack .../libmono-system-servicemodel-activation4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-servicemodel-activation4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-extensions4.0-cil.
+Preparing to unpack .../libmono-system-web-extensions4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-extensions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-servicemodel-web4.0-cil.
+Preparing to unpack .../libmono-system-servicemodel-web4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-servicemodel-web4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-data-services4.0-cil.
+Preparing to unpack .../libmono-system-data-services4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-data-services4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-drawing-design4.0-cil.
+Preparing to unpack .../libmono-system-drawing-design4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-drawing-design4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-design4.0-cil.
+Preparing to unpack .../libmono-system-design4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-design4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-dynamic4.0-cil.
+Preparing to unpack .../libmono-system-dynamic4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-dynamic4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-io-compression4.0-cil.
+Preparing to unpack .../libmono-system-io-compression4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-io-compression4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-io-compression-filesystem4.0-cil.
+Preparing to unpack .../libmono-system-io-compression-filesystem4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-io-compression-filesystem4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-json2.0-cil.
+Preparing to unpack .../libmono-system-json2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-json2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-json4.0-cil.
+Preparing to unpack .../libmono-system-json4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-json4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-json-microsoft4.0-cil.
+Preparing to unpack .../libmono-system-json-microsoft4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-json-microsoft4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-ldap2.0-cil.
+Preparing to unpack .../libmono-system-ldap2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-ldap2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-ldap4.0-cil.
+Preparing to unpack .../libmono-system-ldap4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-ldap4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-ldap-protocols4.0-cil.
+Preparing to unpack .../libmono-system-ldap-protocols4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-ldap-protocols4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-management4.0-cil.
+Preparing to unpack .../libmono-system-management4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-management4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-net2.0-cil.
+Preparing to unpack .../libmono-system-net2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-net2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-net4.0-cil.
+Preparing to unpack .../libmono-system-net4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-net4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-net-http4.0-cil.
+Preparing to unpack .../libmono-system-net-http4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-net-http4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-net-http-formatting4.0-cil.
+Preparing to unpack .../libmono-system-net-http-formatting4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-net-http-formatting4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-net-http-webrequest4.0-cil.
+Preparing to unpack .../libmono-system-net-http-webrequest4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-net-http-webrequest4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-numerics4.0-cil.
+Preparing to unpack .../libmono-system-numerics4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-numerics4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-interfaces2.2-cil.
+Preparing to unpack .../libmono-system-reactive-interfaces2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-interfaces2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-core2.2-cil.
+Preparing to unpack .../libmono-system-reactive-core2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-core2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-linq2.2-cil.
+Preparing to unpack .../libmono-system-reactive-linq2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-linq2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-debugger2.2-cil.
+Preparing to unpack .../libmono-system-reactive-debugger2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-debugger2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-experimental2.2-cil.
+Preparing to unpack .../libmono-system-reactive-experimental2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-experimental2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-providers2.2-cil.
+Preparing to unpack .../libmono-system-reactive-providers2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-providers2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-observable-aliases0.0-cil.
+Preparing to unpack .../libmono-system-reactive-observable-aliases0.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-observable-aliases0.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-platformservices2.2-cil.
+Preparing to unpack .../libmono-system-reactive-platformservices2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-platformservices2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-runtime-remoting2.2-cil.
+Preparing to unpack .../libmono-system-reactive-runtime-remoting2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-runtime-remoting2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-windows-forms2.2-cil.
+Preparing to unpack .../libmono-system-reactive-windows-forms2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-windows-forms2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-xaml4.0-cil.
+Preparing to unpack .../libmono-system-xaml4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-xaml4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-windowsbase4.0-cil.
+Preparing to unpack .../libmono-windowsbase4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-windowsbase4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-reactive-windows-threading2.2-cil.
+Preparing to unpack .../libmono-system-reactive-windows-threading2.2-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-reactive-windows-threading2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-runtime4.0-cil.
+Preparing to unpack .../libmono-system-runtime4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-runtime4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-runtime-caching4.0-cil.
+Preparing to unpack .../libmono-system-runtime-caching4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-runtime-caching4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-runtime-durableinstancing4.0-cil.
+Preparing to unpack .../libmono-system-runtime-durableinstancing4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-runtime-durableinstancing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-servicemodel-discovery4.0-cil.
+Preparing to unpack .../libmono-system-servicemodel-discovery4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-servicemodel-discovery4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-servicemodel-routing4.0-cil.
+Preparing to unpack .../libmono-system-servicemodel-routing4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-servicemodel-routing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-serviceprocess4.0-cil.
+Preparing to unpack .../libmono-system-serviceprocess4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-serviceprocess4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-threading-tasks-dataflow4.0-cil.
+Preparing to unpack .../libmono-system-threading-tasks-dataflow4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-threading-tasks-dataflow4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-abstractions4.0-cil.
+Preparing to unpack .../libmono-system-web-abstractions4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-abstractions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-dynamicdata4.0-cil.
+Preparing to unpack .../libmono-system-web-dynamicdata4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-dynamicdata4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-extensions-design4.0-cil.
+Preparing to unpack .../libmono-system-web-extensions-design4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-extensions-design4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-http4.0-cil.
+Preparing to unpack .../libmono-system-web-http4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-http4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-http-selfhost4.0-cil.
+Preparing to unpack .../libmono-system-web-http-selfhost4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-http-selfhost4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-http-webhost4.0-cil.
+Preparing to unpack .../libmono-system-web-http-webhost4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-http-webhost4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-mvc1.0-cil.
+Preparing to unpack .../libmono-system-web-mvc1.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-mvc1.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-mvc2.0-cil.
+Preparing to unpack .../libmono-system-web-mvc2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-mvc2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-razor2.0-cil.
+Preparing to unpack .../libmono-system-web-razor2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-razor2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-webpages-deployment2.0-cil.
+Preparing to unpack .../libmono-system-web-webpages-deployment2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-webpages-deployment2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-webpages2.0-cil.
+Preparing to unpack .../libmono-system-web-webpages2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-webpages2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-webpages-razor2.0-cil.
+Preparing to unpack .../libmono-system-web-webpages-razor2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-webpages-razor2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-mvc3.0-cil.
+Preparing to unpack .../libmono-system-web-mvc3.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-mvc3.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-web-routing4.0-cil.
+Preparing to unpack .../libmono-system-web-routing4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-web-routing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-windows4.0-cil.
+Preparing to unpack .../libmono-system-windows4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-windows4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-windows-forms-datavisualization4.0a-cil.
+Preparing to unpack .../libmono-system-windows-forms-datavisualization4.0a-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-windows-forms-datavisualization4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-system-xml-serialization4.0-cil.
+Preparing to unpack .../libmono-system-xml-serialization4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-system-xml-serialization4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-tasklets2.0-cil.
+Preparing to unpack .../libmono-tasklets2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-tasklets2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-tasklets4.0-cil.
+Preparing to unpack .../libmono-tasklets4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-tasklets4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-webbrowser2.0-cil.
+Preparing to unpack .../libmono-webbrowser2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-webbrowser2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-webmatrix-data4.0-cil.
+Preparing to unpack .../libmono-webmatrix-data4.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-webmatrix-data4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libmono-winforms2.0-cil.
+Preparing to unpack .../libmono-winforms2.0-cil_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-winforms2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package libnunit2.6-cil.
+Preparing to unpack .../libnunit2.6-cil_2.6.0.12051+dfsg-2_all.deb ...
+Unpacking libnunit2.6-cil (2.6.0.12051+dfsg-2) ...
+Selecting previously unselected package libnunit-cil-dev.
+Preparing to unpack .../libnunit-cil-dev_2.6.0.12051+dfsg-2_all.deb ...
+Unpacking libnunit-cil-dev (2.6.0.12051+dfsg-2) ...
+Selecting previously unselected package libmono-cil-dev.
+Preparing to unpack .../libmono-cil-dev_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking libmono-cil-dev (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-csharp-shell.
+Preparing to unpack .../mono-csharp-shell_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking mono-csharp-shell (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-mcs.
+Preparing to unpack .../mono-mcs_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking mono-mcs (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-xbuild.
+Preparing to unpack .../mono-xbuild_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking mono-xbuild (3.2.8+dfsg-4ubuntu1.1) ...
+Selecting previously unselected package mono-devel.
+Preparing to unpack .../mono-devel_3.2.8+dfsg-4ubuntu1.1_all.deb ...
+Unpacking mono-devel (3.2.8+dfsg-4ubuntu1.1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Processing triggers for mime-support (3.54ubuntu1.1) ...
+Setting up cli-common (0.9) ...
+Setting up libgdiplus (2.11+git20131008.9732566-5ubuntu1) ...
+Setting up libmonoboehm-2.0-1 (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmonoboehm-2.0-dev (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-2.0-dev (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-runtime-sgen (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-runtime (3.2.8+dfsg-4ubuntu1.1) ...
+update-alternatives: using /usr/bin/mono to provide /usr/bin/cli (cli) in auto mode
+Setting up libmono-corlib4.5-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-corlib2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-accessibility2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-accessibility4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-c5-1.1-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-cairo2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-cairo4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-security2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-corlib4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-custommarshalers4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n-west2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n-cjk4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n-mideast4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n-other4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n-rare4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n-west4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-i18n4.0-all (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft8.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-build-framework4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-visualc10.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-opensystem-c4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-peapi2.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-peapi4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-sharpzip2.6-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-numerics4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-tasklets2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-tasklets4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-security4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-xml4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-cecil-private-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-sharpzip2.84-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-data-tds2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-sqlite2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-messaging2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-messaging2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-wcf3.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data-linq2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-cscompmgd8.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-debugger-soft2.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-runtime-serialization-formatters-soap4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-ldap2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-rabbitmq2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-messaging-rabbitmq2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-xbuild-tasks2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-build2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-npgsql2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-oracle2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-relaxng2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-simd2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-windowsbase3.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data-services2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-json2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-ldap2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-net2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-webbrowser2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-configuration4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-security4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-4.0-gac (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-gac (3.2.8+dfsg-4ubuntu1.1) ...
+update-alternatives: using /usr/bin/gacutil to provide /usr/bin/cli-gacutil (global-assembly-cache-tool) in auto mode
+Setting up mono-runtime-common (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-posix2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-posix4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-core4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-codecontracts4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-compilerservices-symbolwriter4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-csharp4.0c-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-data-tds4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-transactions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-enterpriseservices4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-db2-1.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-debugger-soft4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-csharp4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-componentmodel-dataannotations4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-runtime-serialization4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-xml-linq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-entityframework6.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-entityframework-sqlserver6.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-sharpzip4.84-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-sqlite4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-drawing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-applicationservices4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-web4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-ldap4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-management2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-management4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-messaging4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-rabbitmq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-messaging-rabbitmq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-build4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-build-utilities-v4.0-4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-build-engine4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-xbuild-tasks4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-build-tasks-v4.0-4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-npgsql4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-oracle4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-parallel4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-relaxng4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-simd4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-componentmodel-composition4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-configuration-install4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data-datasetextensions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data-linq4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data-services-client4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-identitymodel4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-identitymodel-selectors4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-webbrowser4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-windows-forms4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-messaging4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-servicemodel-activation4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-drawing-design4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-dynamic4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-io-compression4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-io-compression-filesystem4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-json4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-json-microsoft4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-ldap4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-ldap-protocols4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-management4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-net4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-net-http4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-net-http-formatting4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-net-http-webrequest4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-interfaces2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-core2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-linq2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-debugger2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-experimental2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-providers2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-observable-aliases0.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-platformservices2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-runtime-remoting2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-windows-forms2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-xaml4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-windowsbase4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-reactive-windows-threading2.2-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-runtime-caching4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-runtime-durableinstancing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-serviceprocess4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-threading-tasks-dataflow4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-http4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-mvc1.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-mvc2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-razor2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-windows4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-windows-forms-datavisualization4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-webmatrix-data4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-csharp-shell (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-mcs (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-xbuild (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-runtime2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-http4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-microsoft-web-infrastructure1.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-design4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-runtime4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-abstractions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-extensions-design4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-http-webhost4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-webpages-deployment2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-webpages2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-webpages-razor2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-routing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-winforms2.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libnunit2.6-cil (2.6.0.12051+dfsg-2) ...
+* Installing 5 assemblies from libnunit2.6-cil into Mono
+Setting up libnunit-cil-dev (2.6.0.12051+dfsg-2) ...
+Setting up libmono-system-web-services4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-servicemodel4.0a-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-extensions4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-servicemodel-web4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-data-services4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-servicemodel-discovery4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-servicemodel-routing4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-dynamicdata4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-http-selfhost4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-web-mvc3.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-system-xml-serialization4.0-cil (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up libmono-cil-dev (3.2.8+dfsg-4ubuntu1.1) ...
+Setting up mono-devel (3.2.8+dfsg-4ubuntu1.1) ...
+update-alternatives: using /usr/bin/mono-csc to provide /usr/bin/cli-csc (c-sharp-compiler) in auto mode
+update-alternatives: using /usr/bin/resgen to provide /usr/bin/cli-resgen (resource-file-generator) in auto mode
+update-alternatives: using /usr/bin/al to provide /usr/bin/cli-al (assembly-linker) in auto mode
+update-alternatives: using /usr/bin/sn to provide /usr/bin/cli-sn (strong-name-tool) in auto mode
+Processing triggers for libc-bin (2.19-0ubuntu6.13) ...
+[32mCommand exited with 0 in 19s: sudo [apt-get,-o,dir::cache::archives=/home/travis/apt-cache,install,-qqy,mono-devel,mono-mcs][0m
+[36mCommand: mono [--version][0m
+Mono JIT compiler version 3.2.8 (Debian 3.2.8+dfsg-4ubuntu1.1)
+Copyright (C) 2002-2014 Novell, Inc, Xamarin Inc and Contributors. www.mono-project.com
+	TLS:           __thread
+	SIGSEGV:       altstack
+	Notifications: epoll
+	Architecture:  amd64
+	Disabled:      none
+	Misc:          softdebug 
+	LLVM:          supported, not enabled.
+	GC:            sgen
+[32mCommand exited with 0 in 0s: mono [--version][0m
+[36mCommand: haxelib [git,hxcs,https://github.com/HaxeFoundation/hxcs][0m
+Installing hxcs from https://github.com/HaxeFoundation/hxcs
+Library hxcs current version is now git
+[32mCommand exited with 0 in 2s: haxelib [git,hxcs,https://github.com/HaxeFoundation/hxcs][0m
+[36mpython3 has already been installed.[0m
+[36mCommand: python3 [-V][0m
+Python 3.4.3
+[32mCommand exited with 0 in 0s: python3 [-V][0m
+[36mCommand: wget [-nv,https://bitbucket.org/pypy/pypy/downloads/pypy3-2.4.0-linux64.tar.bz2][0m
+2018-11-09 11:56:56 URL:https://bbuseruploads.s3.amazonaws.com/pypy/pypy/downloads/pypy3-2.4.0-linux64.tar.bz2?Signature=elhjtfi5KWHr9voNpxa6PoyUP6M%3D&Expires=1541766415&AWSAccessKeyId=AKIAIQWXW6WLXMB5QZAQ&versionId=null&response-content-disposition=attachment%3B%20filename%3D%22pypy3-2.4.0-linux64.tar.bz2%22 [12701152/12701152] -> "pypy3-2.4.0-linux64.tar.bz2" [1]
+[32mCommand exited with 0 in 1s: wget [-nv,https://bitbucket.org/pypy/pypy/downloads/pypy3-2.4.0-linux64.tar.bz2][0m
+[36mCommand: tar [-xf,pypy3-2.4.0-linux64.tar.bz2][0m
+[32mCommand exited with 0 in 3s: tar [-xf,pypy3-2.4.0-linux64.tar.bz2][0m
+[36mCommand: /home/travis/build/azrafe7/haxe/tests/misc/pypy3-2.4.0-linux64/bin/pypy3.2 [-V][0m
+Python 3.2.5 (b2091e973da6, Oct 19 2014, 18:29:55)
+[PyPy 2.4.0 with GCC 4.6.3]
+[32mCommand exited with 0 in 0s: /home/travis/build/azrafe7/haxe/tests/misc/pypy3-2.4.0-linux64/bin/pypy3.2 [-V][0m
+[36mCommand: haxe [compile.hxml][0m
+Running haxe projects/Issue4651/compile.hxml
+Running haxe projects/Issue2993/compile.hxml
+Running haxe projects/Issue6826/compile-fail.hxml
+Running haxe projects/Issue4270/test.hxml
+Running haxe projects/Issue4265/compile.hxml
+Running haxe projects/Issue4712/compile.hxml
+Running haxe projects/Issue4456/compile.hxml
+Running haxe projects/Issue3607/compile-fail.hxml
+Running haxe projects/Issue4660/compile.hxml
+Running haxe projects/Issue3457/compile-fail.hxml
+Running haxe projects/Issue5375/compile-fail.hxml
+Running haxe projects/Issue7227/compile-fail.hxml
+Running haxe projects/Issue3830/compile-fail.hxml
+Running haxe projects/Issue3783/compile-fail.hxml
+Running haxe projects/Issue3802/compile-fail.hxml
+Running haxe projects/Issue3781/compile-fail.hxml
+Running haxe projects/Issue4904/compile-fail.hxml
+Running haxe projects/Issue6992/compile.hxml
+Running haxe projects/Issue2969/compile-fail.hxml
+Running haxe projects/Issue2232/compile2-fail.hxml
+Running haxe projects/Issue2232/compile1-fail.hxml
+Running haxe projects/Issue3931/compile2.hxml
+Running haxe projects/Issue3931/compile1.hxml
+Running haxe projects/Issue5005/compile.hxml
+Main.hx:3: {}
+
+Running haxe projects/Issue5644/compile-fail.hxml
+Running haxe projects/Issue6427/compile.hxml
+Running haxe projects/Issue3417/compile-fail.hxml
+Running haxe projects/display-package/compile2.hxml
+Running haxe projects/display-package/compile3.hxml
+Running haxe projects/display-package/compile1.hxml
+Running haxe projects/Issue6772/compile.hxml
+Running haxe projects/Issue4378/compile-fail.hxml
+Running haxe projects/Issue2938/compile.hxml
+Running haxe projects/Issue6950/compile-fail.hxml
+Running haxe projects/Issue6699/compile-fail.hxml
+Running haxe projects/Issue5010/compile-fail.hxml
+Running haxe projects/Issue6402/compile.hxml
+Running haxe projects/Issue5152/compile.hxml
+Running haxe projects/Issue6757/compile-fail.hxml
+Running haxe projects/Issue5888/compile-fail.hxml
+Running haxe projects/Issue3500/compile.hxml
+Running haxe projects/Issue4907/compile-fail.hxml
+Running haxe projects/Issue4803/compile-fail.hxml
+Running haxe projects/Issue5145/compile.hxml
+Running haxe projects/Issue5126/compile-fail.hxml
+Running haxe projects/Issue3726/compile-2-fail.hxml
+Running haxe projects/Issue3726/compile-1-fail.hxml
+Running haxe projects/Issue3678/compile-fail.hxml
+Running haxe projects/Issue5118/compile2.hxml
+Running haxe projects/Issue5118/compile1.hxml
+Running haxe projects/Issue6584/compile2-fail.hxml
+Running haxe projects/Issue6584/compile3-fail.hxml
+Running haxe projects/Issue6584/compile1-fail.hxml
+Running haxe projects/Issue6584/compile5-fail.hxml
+Running haxe projects/Issue6584/compile4-fail.hxml
+Running haxe projects/Issue4580/compile-fail.hxml
+Running haxe projects/Issue3129/compile.hxml
+Running haxe projects/Issue4114/compile2-fail.hxml
+Running haxe projects/Issue4114/compile1-fail.hxml
+Running haxe projects/Issue4825/compile.hxml
+Running haxe projects/Issue4404/compile1.hxml
+Running haxe projects/Issue7333/compile-fail.hxml
+Running haxe projects/Issue4720/compile.hxml
+Running haxe projects/Issue4754/compile1-fail.hxml
+Running haxe projects/Issue6878/compile-fail.hxml
+Running haxe projects/Issue6878/compile1-fail.hxml
+Running haxe projects/Issue3956/compile.hxml
+Running haxe projects/Issue3310/test.hxml
+Running haxe projects/Issue3102/keep-field2.hxml
+Running haxe projects/Issue3102/keep-pack4-fail.hxml
+Running haxe projects/Issue3102/keep-module-not-rec-fail.hxml
+Running haxe projects/Issue3102/keep-module2.hxml
+Running haxe projects/Issue3102/keep-type-not-rec.hxml
+Running haxe projects/Issue3102/keep-field.hxml
+Running haxe projects/Issue3102/keep-module.hxml
+Running haxe projects/Issue3102/keep-pack1-not-rec-fail.hxml
+Running haxe projects/Issue3102/keep-pack2.hxml
+Running haxe projects/Issue3102/keep-field-not-rec.hxml
+Running haxe projects/Issue3102/keep-pack2-not-rec.hxml
+Running haxe projects/Issue3102/keep-type.hxml
+Running haxe projects/Issue3102/keep-pack1.hxml
+Running haxe projects/Issue3102/keep-pack3-fail.hxml
+Running haxe projects/Issue3298/test.hxml
+Running haxe projects/Issue1310/compile1-fail.hxml
+Running haxe projects/Issue2263/subtype-static-completion.hxml
+Running haxe projects/Issue2263/import-completion.hxml
+Running haxe projects/Issue2263/type-completion.hxml
+Running haxe projects/Issue4764/compile1-fail.hxml
+Running haxe projects/Issue3714/compile-fail.hxml
+Running haxe projects/Issue4247/compile-fail.hxml
+Running haxe projects/Issue4458/compile2-fail.hxml
+Running haxe projects/Issue4458/compile-pass1.hxml
+Running haxe projects/Issue4458/compile1-fail.hxml
+Running haxe projects/Issue4458/compile-pass2.hxml
+Running haxe projects/Issue6005/compile1.hxml
+Running haxe projects/Issue4364/compile-fail.hxml
+Running haxe projects/Issue5125/compile.hxml
+Running haxe projects/Issue3975/compile-fail.hxml
+Running haxe projects/Issue3710/compile-2-fail.hxml
+Running haxe projects/Issue3710/compile-1-fail.hxml
+Running haxe projects/Issue6707/compile-fail.hxml
+Running haxe projects/Issue3621/compile-fail.hxml
+Running haxe projects/Issue4563/compile.hxml
+Running haxe projects/Issue7076/compile-fail.hxml
+Running haxe projects/Issue4742/compile-fail.hxml
+Running haxe projects/Issue4370/compile-fail.hxml
+Running haxe projects/Issue2508/compile.hxml
+Running haxe projects/Issue6542/compile-fail.hxml
+Running haxe projects/Issue4448/compile1-fail.hxml
+Running haxe projects/Issue4982/compile-fail.hxml
+Running haxe projects/Issue4293/compile-enum-ctor-fail.hxml
+Running haxe projects/Issue4293/compile-typedef-fail.hxml
+Running haxe projects/Issue4293/compile-field-fail.hxml
+Running haxe projects/Issue4293/compile-abstract-fail.hxml
+Running haxe projects/Issue4293/compile-class-fail.hxml
+Running haxe projects/Issue4293/compile-enum-fail.hxml
+Running haxe projects/Issue4466/compile-fail.hxml
+Running haxe projects/Issue4218/build.hxml
+Running haxe projects/Issue4399/compile.hxml
+Running haxe projects/Issue4766/compile1-fail.hxml
+Running haxe projects/Issue5123/compile.hxml
+Running haxe projects/Issue4891/compile-fail.hxml
+Running haxe projects/Issue4540/compile-fail.hxml
+Running haxe projects/Issue4816/compile1-fail.hxml
+Running haxe projects/Issue7526/compile-fail.hxml
+Running haxe projects/Issue2996/compile2.hxml
+Running haxe projects/Issue2996/compile1.hxml
+Running haxe projects/Issue4954/compile-fail.hxml
+Running haxe projects/Issue3361/compile.hxml
+Running haxe projects/Issue3361/compile2-fail.hxml
+Running haxe projects/Issue3361/compile1-fail.hxml
+Running haxe projects/Issue5833/compile-fail.hxml
+Running haxe projects/Issue4689/compile-fail.hxml
+Running haxe projects/Issue6445/compile-fail.hxml
+Running haxe projects/display-type/compile.hxml
+Running haxe projects/Issue2991/compile.hxml
+Running haxe projects/Issue6030/compile-fail.hxml
+Unbound variable, please report this
+{
+	v_id = 355;
+	v_name = `this;
+	v_type = Main1;
+	v_capture = false;
+	v_extra = None;
+	v_meta = [];
+}
+
+Running haxe projects/Issue5128/compile.hxml
+Running haxe projects/Issue4679/compile.hxml
+Running haxe projects/Issue2472/compile-fail.hxml
+Running haxe projects/Issue5559/build.hxml
+Running haxe projects/Issue7017/compile.hxml
+Running haxe projects/Issue6922/compile.hxml
+test message
+
+Running haxe projects/Issue5206/compile-fail.hxml
+Running haxe projects/Issue3288/with-type.hxml
+Running haxe projects/Issue3288/with-empty-type.hxml
+Running haxe projects/Issue3288/without-type.hxml
+Running haxe projects/Issue6443/compile.hxml
+Running haxe projects/Issue5940/compile-fail.hxml
+Running haxe projects/Issue6965/compile-fail.hxml
+Running haxe projects/Issue5924/compile-fail.hxml
+Running haxe projects/Issue4761/compile1-fail.hxml
+Running haxe projects/Issue5871/parent-no-constructor-fail.hxml
+Running haxe projects/Issue5871/parent-constructor-fail.hxml
+Running haxe projects/Issue6550/compile-fail.hxml
+Running haxe projects/Issue4662/compile.hxml
+Running haxe projects/Issue3699/compile-var-fail.hxml
+Running haxe projects/Issue5321/compile.hxml
+Running haxe projects/Issue4250/compile-fail.hxml
+Running haxe projects/Issue1968/compile.hxml
+Running haxe projects/Issue7039/compile-fail.hxml
+Running haxe projects/Issue7096/compile.hxml
+Main.hx:5: 0
+
+Running haxe projects/Issue5122/compile.hxml
+Running haxe projects/Issue3192/compile1-fail.hxml
+Running haxe projects/Issue4775/compile1-fail.hxml
+Running haxe projects/Issue5856/compile.hxml
+Running haxe projects/Issue2538/compile-fail.hxml
+Running haxe projects/Issue3907/compile.hxml
+Running haxe projects/Issue6765/compile-fail.hxml
+Running haxe projects/Issue2995/usage.hxml
+Running haxe projects/Issue2995/position.hxml
+Running haxe projects/Issue3542/compile.hxml
+Running haxe projects/Issue6841/compile.hxml
+Running haxe projects/Issue4957/compile-fail.hxml
+Running haxe projects/Issue5268/compile-fail.hxml
+Running haxe projects/Issue4160/compile.hxml
+Running haxe projects/Issue4671/compile2-fail.hxml
+Running haxe projects/Issue4671/compile1-fail.hxml
+Running haxe projects/Issue2148/compile1-fail.hxml
+Running haxe projects/Issue2997/compile1.hxml
+Running haxe projects/Issue7210/compile.hxml
+Running haxe projects/Issue4454/compile.hxml
+Running haxe projects/Issue2087/compile-fail.hxml
+Running haxe projects/Issue3300/test-cwd-fail.hxml
+Running haxe projects/Issue3300/test-cwd.hxml
+Haxe Compiler 4.0.0-preview.5+c631fe8 - (C)2005-2018 Haxe Foundation
+Usage: haxe <target> [options] [hxml files...]
+
+Target:
+  --js <file>                 compile code to JavaScript file
+  --lua <file>                compile code to Lua file
+  --swf <file>                compile code to Flash SWF file
+  --as3 <directory>           generate AS3 code into target directory
+  --neko <file>               compile code to Neko Binary
+  --php <directory>           generate PHP code into target directory
+  --cpp <directory>           generate C++ code into target directory
+  --cppia <file>              generate Cppia code into target file
+  --cs <directory>            generate C# code into target directory
+  --java <directory>          generate Java code into target directory
+  --python <file>             generate Python code as target file
+  --hl <file>                 compile HL code as target file
+  --interp                    interpret the program using internal macro system
+
+Compilation:
+  -p, --class-path <path>     add a directory to find source files
+  -m, --main <class>          select startup class
+  -L, --library <name[:ver]>  use a haxelib library
+  -D, --define <var[=value]>  define a conditional compilation flag
+
+Debug:
+  -v, --verbose               turn on verbose mode
+  --debug                     add debug information to the compiled code
+
+Miscellaneous:
+  --version                   print version and exit
+  -h, --help                  show extended help information
+  --help-defines              print help for all compiler specific defines
+  --help-metas                print help for all compiler metadatas
+  --run <module> [args...]    compile and execute a Haxe module with command line arguments
+  -- [args...]                args that will be passed to the macro interpreter
+
+Running haxe projects/Issue1138/compile2.hxml
+Running haxe projects/Issue1138/compile3-fail.hxml
+Running haxe projects/Issue1138/compile4-fail.hxml
+Running haxe projects/Issue1138/compile1.hxml
+Running haxe projects/Issue5134/compile-fail.hxml
+Running haxe projects/Issue4116/compile.hxml
+haxelib run hxcs hxcs_build.txt --haxe-version 4000 --feature-level 1
+
+Running haxe projects/Issue6583/compile.hxml
+Running haxe projects/Issue3238/not-last-fail.hxml
+Running haxe projects/Issue3238/optional-fail.hxml
+Running haxe projects/Issue3238/default-value-fail.hxml
+Running haxe projects/Issue3238/non-extern-fail.hxml
+Done running 196 tests with 0 failures
+[32mCommand exited with 0 in 17s: haxe [compile.hxml][0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/sys/
+[36mCommand: haxelib [install,utest][0m
+Downloading utest-1,9,0.zip...
+1024/56262 (1%)2048/56262 (3%)3072/56262 (5%)4096/56262 (7%)5120/56262 (9%)5368/56262 (9%)6392/56262 (11%)7416/56262 (13%)8440/56262 (15%)9464/56262 (16%)10488/56262 (18%)11512/56262 (20%)11892/56262 (21%)12916/56262 (22%)13940/56262 (24%)14964/56262 (26%)15988/56262 (28%)17012/56262 (30%)18036/56262 (32%)19060/56262 (33%)19132/56262 (34%)20156/56262 (35%)21180/56262 (37%)22204/56262 (39%)22980/56262 (40%)24004/56262 (42%)25028/56262 (44%)25876/56262 (45%)26900/56262 (47%)27924/56262 (49%)28276/56262 (50%)29300/56262 (52%)29724/56262 (52%)30748/56262 (54%)31772/56262 (56%)32796/56262 (58%)33820/56262 (60%)34844/56262 (61%)35868/56262 (63%)36892/56262 (65%)37916/56262 (67%)38940/56262 (69%)39964/56262 (71%)40988/56262 (72%)42012/56262 (74%)43036/56262 (76%)44060/56262 (78%)44660/56262 (79%)45684/56262 (81%)46708/56262 (83%)47732/56262 (84%)48756/56262 (86%)49780/56262 (88%)50804/56262 (90%)51828/56262 (92%)52852/56262 (93%)53876/56262 (95%)54300/56262 (96%)55324/56262 (98%)56262/56262 (100%)Download complete : 56262 bytes in 0.8s (66.9KB/s)
+Installing utest...
+  Current version is now 1.9.0
+Done
+[32mCommand exited with 0 in 3s: haxelib [install,utest][0m
+[36mCommand: haxe [compile-macro.hxml][0m
+utest/ui/text/PrintReport.hx:52: 
+assertations: 31
+successes: 31
+errors: 0
+failures: 0
+warnings: 0
+execution time: 0
+
+results: ALL TESTS OK (success: true)
+
+utest/ui/text/PrintReport.hx:52: 
+assertations: 31
+successes: 31
+errors: 0
+failures: 0
+warnings: 0
+execution time: 0
+
+results: ALL TESTS OK (success: true)
+
+utest/ui/text/PrintReport.hx:52: 
+assertations: 423
+successes: 423
+errors: 0
+failures: 0
+warnings: 0
+execution time: 15.228
+
+results: ALL TESTS OK (success: true)
+
+[32mCommand exited with 0 in 16s: haxe [compile-macro.hxml][0m
+[36mCommand: haxe [compile-each.hxml,--run,Main][0m
+utest/ui/text/PrintReport.hx:52: 
+assertations: 31
+successes: 31
+errors: 0
+failures: 0
+warnings: 0
+execution time: 0
+
+results: ALL TESTS OK (success: true)
+
+utest/ui/text/PrintReport.hx:52: 
+assertations: 31
+successes: 31
+errors: 0
+failures: 0
+warnings: 0
+execution time: 0
+
+results: ALL TESTS OK (success: true)
+
+utest/ui/text/PrintReport.hx:52: 
+assertations: 423
+successes: 423
+errors: 0
+failures: 0
+warnings: 0
+execution time: 13.866
+
+results: ALL TESTS OK (success: true)
+
+[32mCommand exited with 0 in 15s: haxe [compile-each.hxml,--run,Main][0m
+travis_fold:end:test-macro
+[32mtest macro succeeded[0m
+travis_fold:start:bench-macro
+[36mbench macro[0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/benchs/
+[36mCommand: haxe [build.hxml,-D,test=,--run,Main][0m
+Case: StringIterator
+  Suite: length 100
+          0...length + fastCodeAt: 90,074 (100.00%)
+    StringKeyValueIteratorUnicode: 85,551 ( 94.97%)
+
+  Suite: length 1000
+          0...length + fastCodeAt: 9,520 (100.00%)
+    StringKeyValueIteratorUnicode: 8,986 ( 94.39%)
+
+  Suite: length 10000
+          0...length + fastCodeAt: 940 (100.00%)
+    StringKeyValueIteratorUnicode: 905 ( 96.27%)
+
+  Suite: length 100 of 4-bytes characters
+          0...length + fastCodeAt: 83,060 (100.00%)
+    StringKeyValueIteratorUnicode: 77,438 ( 93.23%)
+
+Case: Ds
+  Suite: create
+        Array: 4,110,110 (100.00%)
+       Vector: 3,849,849 ( 93.64%)
+       IntMap: 3,622,622 ( 88.11%)
+    StringMap: 3,591,591 ( 87.38%)
+    ObjectMap: 2,962,962 ( 72.08%)
+
+  Suite: read
+        Array: 4,530,530 (100.00%)
+       Vector: 4,448,448 ( 98.19%)
+       IntMap: 3,409,409 ( 75.26%)
+    ObjectMap: 3,039,039 ( 67.10%)
+    StringMap: 3,027,027 ( 66.82%)
+
+  Suite: write
+       Vector: 3,705,705 (100.00%)
+        Array: 3,684,684 ( 99.41%)
+       IntMap: 3,314,314 ( 89.42%)
+    StringMap: 3,154,154 ( 85.11%)
+    ObjectMap: 2,590,590 ( 69.89%)
+
+  Suite: read + write
+       Vector: 3,547,547 (100.00%)
+        Array: 3,494,494 ( 98.48%)
+       IntMap: 1,946,946 ( 54.87%)
+    StringMap: 1,833,833 ( 51.67%)
+    ObjectMap: 1,584,584 ( 44.67%)
+
+  Suite: iterate + write
+       Vector: 573 (100.00%)
+        Array: 567 ( 98.95%)
+    ObjectMap: 457 ( 79.75%)
+       IntMap: 303 ( 52.87%)
+    StringMap: 112 ( 19.54%)
+
+  Suite: map
+    Vector: 314 (100.00%)
+     Array: 282 ( 89.80%)
+
+  Suite: join
+    Vector: 121 (100.00%)
+     Array: 116 ( 95.86%)
+
+  Suite: copy
+    StringMap: 3,556,556 (100.00%)
+       IntMap: 3,549,549 ( 99.78%)
+    ObjectMap:     2,584 (  0.07%)
+       Vector:     2,186 (  0.06%)
+        Array:     2,183 (  0.06%)
+
+Case: StringScan
+  Suite: length 20003
+           indexOf hit: 2,560,560 (100.00%)
+       lastIndexOf hit: 2,284,284 ( 89.22%)
+          indexOf find:     7,459 (  0.29%)
+      lastIndexOf find:     6,268 (  0.24%)
+        indexOf nofind:     3,753 (  0.14%)
+    lastIndexOf nofind:     3,189 (  0.12%)
+            split find:     2,930 (  0.11%)
+          split nofind:     2,845 (  0.11%)
+
+Case: CharacterAccess
+  Suite: length 1
+    fastCodeAt(0): 3,642,642 (100.00%)
+    charCodeAt(0): 3,351,351 ( 92.02%)
+        charAt(0): 2,624,624 ( 72.04%)
+
+  Suite: length 100
+         fastCodeAt(99): 3,586,586 (100.00%)
+          fastCodeAt(0): 3,556,556 ( 99.14%)
+         fastCodeAt(50): 3,540,540 ( 98.70%)
+         charCodeAt(50): 3,257,257 ( 90.81%)
+          charCodeAt(0): 3,237,237 ( 90.27%)
+         charCodeAt(99): 3,235,235 ( 90.20%)
+             charAt(99): 2,543,543 ( 70.92%)
+              charAt(0): 2,538,538 ( 70.78%)
+             charAt(50): 2,506,506 ( 69.88%)
+    fastCodeAt(erratic): 2,279,279 ( 63.55%)
+    charCodeAt(erratic): 2,136,136 ( 59.55%)
+        charAt(erratic): 1,768,768 ( 49.29%)
+
+  Suite: length 10000
+          fastCodeAt(0): 3,571,571 (100.00%)
+       fastCodeAt(5000): 3,563,563 ( 99.77%)
+       fastCodeAt(9999): 3,488,488 ( 97.66%)
+       charCodeAt(9999): 3,253,253 ( 91.08%)
+          charCodeAt(0): 3,239,239 ( 90.71%)
+       charCodeAt(5000): 3,213,213 ( 89.96%)
+              charAt(0): 2,552,552 ( 71.45%)
+           charAt(5000): 2,542,542 ( 71.19%)
+           charAt(9999): 2,512,512 ( 70.34%)
+    fastCodeAt(erratic): 2,250,250 ( 63.00%)
+    charCodeAt(erratic): 2,117,117 ( 59.28%)
+        charAt(erratic): 1,760,760 ( 49.28%)
+
+  Suite: length 1000000
+          fastCodeAt(0): 3,534,534 (100.00%)
+     fastCodeAt(999999): 3,533,533 ( 99.95%)
+     fastCodeAt(500000): 3,434,434 ( 97.16%)
+     charCodeAt(999999): 3,239,239 ( 91.63%)
+          charCodeAt(0): 3,228,228 ( 91.33%)
+     charCodeAt(500000): 3,192,192 ( 90.32%)
+         charAt(999999): 2,518,518 ( 71.24%)
+         charAt(500000): 2,504,504 ( 70.86%)
+    fastCodeAt(erratic): 2,273,273 ( 64.30%)
+    charCodeAt(erratic): 2,122,122 ( 60.05%)
+              charAt(0): 2,082,082 ( 58.90%)
+        charAt(erratic): 1,763,763 ( 49.88%)
+
+Case: Access
+  Suite: real
+               .Float?: 4,612,612 (100.00%)
+                  .Int: 4,543,543 ( 98.52%)
+                .Float: 4,538,538 ( 98.41%)
+                 .Int?: 4,501,501 ( 97.60%)
+        .String.length: 4,373,373 ( 94.83%)
+             .sub.Int?: 4,266,266 ( 92.51%)
+              .sub.Int: 4,227,227 ( 91.66%)
+            .sub.Float: 4,216,216 ( 91.42%)
+           .sub.Float?: 4,205,205 ( 91.18%)
+                 Int[]: 4,201,201 ( 91.10%)
+               Float[]: 4,163,163 ( 90.27%)
+    .sub.String.length: 4,035,035 ( 87.50%)
+            .sub.Int[]: 3,978,978 ( 86.26%)
+          .sub.Float[]: 3,966,966 ( 86.00%)
+
+  Suite: json
+               .Float?: 4,617,617 (100.00%)
+                  .Int: 4,586,586 ( 99.33%)
+                 .Int?: 4,580,580 ( 99.19%)
+                .Float: 4,516,516 ( 97.81%)
+        .String.length: 4,344,344 ( 94.08%)
+             .sub.Int?: 4,241,241 ( 91.86%)
+               Float[]: 4,234,234 ( 91.70%)
+              .sub.Int: 4,214,214 ( 91.27%)
+            .sub.Float: 4,214,214 ( 91.27%)
+                 Int[]: 4,189,189 ( 90.74%)
+           .sub.Float?: 4,170,170 ( 90.33%)
+    .sub.String.length: 3,999,999 ( 86.61%)
+            .sub.Int[]: 3,867,867 ( 83.76%)
+          .sub.Float[]: 3,849,849 ( 83.36%)
+
+  Suite: dynamic
+               .Float?: 3,549,549 (100.00%)
+                  .Int: 3,491,491 ( 98.37%)
+                 .Int?: 3,490,490 ( 98.33%)
+                .Float: 3,427,427 ( 96.55%)
+                 Int[]: 3,037,037 ( 85.58%)
+               Float[]: 2,983,983 ( 84.06%)
+        .String.length: 2,775,775 ( 78.18%)
+              .sub.Int: 2,667,667 ( 75.15%)
+             .sub.Int?: 2,657,657 ( 74.88%)
+           .sub.Float?: 2,600,600 ( 73.27%)
+            .sub.Float: 2,573,573 ( 72.49%)
+            .sub.Int[]: 2,394,394 ( 67.45%)
+          .sub.Float[]: 2,391,391 ( 67.38%)
+    .sub.String.length: 2,241,241 ( 63.13%)
+
+Case: Calls
+  Suite: call with 0 args
+            static: 3,443,443 (100.00%)
+    static closure: 3,365,365 ( 97.73%)
+     field closure: 2,944,944 ( 85.50%)
+         interface: 2,927,927 ( 85.01%)
+          instance: 2,916,916 ( 84.71%)
+             final: 2,892,892 ( 84.00%)
+          override: 2,327,327 ( 67.60%)
+     local closure: 2,142,142 ( 62.21%)
+           dynamic: 2,100,100 ( 60.99%)
+              anon: 2,099,099 ( 60.96%)
+
+  Suite: call with 1 arg
+            static: 2,949,949 (100.00%)
+    static closure: 2,757,757 ( 93.48%)
+          instance: 2,714,714 ( 92.03%)
+             final: 2,694,694 ( 91.37%)
+         interface: 2,693,693 ( 91.32%)
+     field closure: 2,510,510 ( 85.11%)
+          override: 2,208,208 ( 74.89%)
+              anon: 1,940,940 ( 65.78%)
+           dynamic: 1,931,931 ( 65.48%)
+     local closure: 1,920,920 ( 65.12%)
+
+  Suite: call with 2 args
+    static closure: 2,709,709 (100.00%)
+            static: 2,694,694 ( 99.42%)
+     field closure: 2,600,600 ( 95.96%)
+             final: 2,547,547 ( 93.99%)
+         interface: 2,512,512 ( 92.72%)
+          instance: 2,500,500 ( 92.28%)
+          override: 2,128,128 ( 78.56%)
+              anon: 1,862,862 ( 68.72%)
+           dynamic: 1,852,852 ( 68.38%)
+     local closure: 1,814,814 ( 66.97%)
+
+{"target":"eval","benchmarks":[{"name":"StringIterator","suites":[{"name":"length 100","cases":[{"name":"0...length + fastCodeAt","numSamples":90074},{"name":"StringKeyValueIteratorUnicode","numSamples":85551}]},{"name":"length 1000","cases":[{"name":"0...length + fastCodeAt","numSamples":9520},{"name":"StringKeyValueIteratorUnicode","numSamples":8986}]},{"name":"length 10000","cases":[{"name":"0...length + fastCodeAt","numSamples":940},{"name":"StringKeyValueIteratorUnicode","numSamples":905}]},{"name":"length 100 of 4-bytes characters","cases":[{"name":"0...length + fastCodeAt","numSamples":83060},{"name":"StringKeyValueIteratorUnicode","numSamples":77438}]}]},{"name":"Ds","suites":[{"name":"create","cases":[{"name":"Array","numSamples":4110470},{"name":"Vector","numSamples":3849453},{"name":"IntMap","numSamples":3622064},{"name":"StringMap","numSamples":3591987},{"name":"ObjectMap","numSamples":2962835}]},{"name":"read","cases":[{"name":"Array","numSamples":4530149},{"name":"Vector","numSamples":4448237},{"name":"IntMap","numSamples":3409594},{"name":"ObjectMap","numSamples":3039998},{"name":"StringMap","numSamples":3027275}]},{"name":"write","cases":[{"name":"Vector","numSamples":3705932},{"name":"Array","numSamples":3684192},{"name":"IntMap","numSamples":3314053},{"name":"StringMap","numSamples":3154162},{"name":"ObjectMap","numSamples":2590179}]},{"name":"read + write","cases":[{"name":"Vector","numSamples":3547755},{"name":"Array","numSamples":3494173},{"name":"IntMap","numSamples":1946930},{"name":"StringMap","numSamples":1833244},{"name":"ObjectMap","numSamples":1584822}]},{"name":"iterate + write","cases":[{"name":"Vector","numSamples":573},{"name":"Array","numSamples":567},{"name":"ObjectMap","numSamples":457},{"name":"IntMap","numSamples":303},{"name":"StringMap","numSamples":112}]},{"name":"map","cases":[{"name":"Vector","numSamples":314},{"name":"Array","numSamples":282}]},{"name":"join","cases":[{"name":"Vector","numSamples":121},{"name":"Array","numSamples":116}]},{"name":"copy","cases":[{"name":"StringMap","numSamples":3556809},{"name":"IntMap","numSamples":3549190},{"name":"ObjectMap","numSamples":2584},{"name":"Vector","numSamples":2186},{"name":"Array","numSamples":2183}]}]},{"name":"StringScan","suites":[{"name":"length 20003","cases":[{"name":"indexOf hit","numSamples":2560008},{"name":"lastIndexOf hit","numSamples":2284258},{"name":"indexOf find","numSamples":7459},{"name":"lastIndexOf find","numSamples":6268},{"name":"indexOf nofind","numSamples":3753},{"name":"lastIndexOf nofind","numSamples":3189},{"name":"split find","numSamples":2930},{"name":"split nofind","numSamples":2845}]}]},{"name":"CharacterAccess","suites":[{"name":"length 1","cases":[{"name":"fastCodeAt(0)","numSamples":3642523},{"name":"charCodeAt(0)","numSamples":3351899},{"name":"charAt(0)","numSamples":2624204}]},{"name":"length 100","cases":[{"name":"fastCodeAt(99)","numSamples":3586881},{"name":"fastCodeAt(0)","numSamples":3556366},{"name":"fastCodeAt(50)","numSamples":3540447},{"name":"charCodeAt(50)","numSamples":3257451},{"name":"charCodeAt(0)","numSamples":3237900},{"name":"charCodeAt(99)","numSamples":3235710},{"name":"charAt(99)","numSamples":2543866},{"name":"charAt(0)","numSamples":2538941},{"name":"charAt(50)","numSamples":2506712},{"name":"fastCodeAt(erratic)","numSamples":2279684},{"name":"charCodeAt(erratic)","numSamples":2136302},{"name":"charAt(erratic)","numSamples":1768047}]},{"name":"length 10000","cases":[{"name":"fastCodeAt(0)","numSamples":3571640},{"name":"fastCodeAt(5000)","numSamples":3563637},{"name":"fastCodeAt(9999)","numSamples":3488359},{"name":"charCodeAt(9999)","numSamples":3253341},{"name":"charCodeAt(0)","numSamples":3239909},{"name":"charCodeAt(5000)","numSamples":3213404},{"name":"charAt(0)","numSamples":2552031},{"name":"charAt(5000)","numSamples":2542921},{"name":"charAt(9999)","numSamples":2512510},{"name":"fastCodeAt(erratic)","numSamples":2250196},{"name":"charCodeAt(erratic)","numSamples":2117411},{"name":"charAt(erratic)","numSamples":1760359}]},{"name":"length 1000000","cases":[{"name":"fastCodeAt(0)","numSamples":3534778},{"name":"fastCodeAt(999999)","numSamples":3533348},{"name":"fastCodeAt(500000)","numSamples":3434395},{"name":"charCodeAt(999999)","numSamples":3239050},{"name":"charCodeAt(0)","numSamples":3228662},{"name":"charCodeAt(500000)","numSamples":3192779},{"name":"charAt(999999)","numSamples":2518219},{"name":"charAt(500000)","numSamples":2504887},{"name":"fastCodeAt(erratic)","numSamples":2273115},{"name":"charCodeAt(erratic)","numSamples":2122716},{"name":"charAt(0)","numSamples":2082061},{"name":"charAt(erratic)","numSamples":1763168}]}]},{"name":"Access","suites":[{"name":"real","cases":[{"name":".Float?","numSamples":4612028},{"name":".Int","numSamples":4543974},{"name":".Float","numSamples":4538739},{"name":".Int?","numSamples":4501758},{"name":".String.length","numSamples":4373724},{"name":".sub.Int?","numSamples":4266671},{"name":".sub.Int","numSamples":4227735},{"name":".sub.Float","numSamples":4216412},{"name":".sub.Float?","numSamples":4205466},{"name":"Int[]","numSamples":4201709},{"name":"Float[]","numSamples":4163714},{"name":".sub.String.length","numSamples":4035918},{"name":".sub.Int[]","numSamples":3978796},{"name":".sub.Float[]","numSamples":3966550}]},{"name":"json","cases":[{"name":".Float?","numSamples":4617255},{"name":".Int","numSamples":4586480},{"name":".Int?","numSamples":4580148},{"name":".Float","numSamples":4516373},{"name":".String.length","numSamples":4344285},{"name":".sub.Int?","numSamples":4241486},{"name":"Float[]","numSamples":4234358},{"name":".sub.Int","numSamples":4214602},{"name":".sub.Float","numSamples":4214551},{"name":"Int[]","numSamples":4189830},{"name":".sub.Float?","numSamples":4170831},{"name":".sub.String.length","numSamples":3999041},{"name":".sub.Int[]","numSamples":3867867},{"name":".sub.Float[]","numSamples":3849169}]},{"name":"dynamic","cases":[{"name":".Float?","numSamples":3549458},{"name":".Int","numSamples":3491737},{"name":".Int?","numSamples":3490318},{"name":".Float","numSamples":3427122},{"name":"Int[]","numSamples":3037705},{"name":"Float[]","numSamples":2983682},{"name":".String.length","numSamples":2775138},{"name":".sub.Int","numSamples":2667599},{"name":".sub.Int?","numSamples":2657842},{"name":".sub.Float?","numSamples":2600705},{"name":".sub.Float","numSamples":2573261},{"name":".sub.Int[]","numSamples":2394430},{"name":".sub.Float[]","numSamples":2391797},{"name":".sub.String.length","numSamples":2241075}]}]},{"name":"Calls","suites":[{"name":"call with 0 args","cases":[{"name":"static","numSamples":3443272},{"name":"static closure","numSamples":3365382},{"name":"field closure","numSamples":2944011},{"name":"interface","numSamples":2927329},{"name":"instance","numSamples":2916817},{"name":"final","numSamples":2892352},{"name":"override","numSamples":2327972},{"name":"local closure","numSamples":2142360},{"name":"dynamic","numSamples":2100187},{"name":"anon","numSamples":2099049}]},{"name":"call with 1 arg","cases":[{"name":"static","numSamples":2949267},{"name":"static closure","numSamples":2757038},{"name":"instance","numSamples":2714226},{"name":"final","numSamples":2694817},{"name":"interface","numSamples":2693364},{"name":"field closure","numSamples":2510168},{"name":"override","numSamples":2208952},{"name":"anon","numSamples":1940143},{"name":"dynamic","numSamples":1931219},{"name":"local closure","numSamples":1920704}]},{"name":"call with 2 args","cases":[{"name":"static closure","numSamples":2709675},{"name":"static","numSamples":2694014},{"name":"field closure","numSamples":2600438},{"name":"final","numSamples":2547026},{"name":"interface","numSamples":2512451},{"name":"instance","numSamples":2500641},{"name":"override","numSamples":2128754},{"name":"anon","numSamples":1862240},{"name":"dynamic","numSamples":1852936},{"name":"local closure","numSamples":1814762}]}]}]}
+[32mCommand exited with 0 in 82s: haxe [build.hxml,-D,test=,--run,Main][0m
+travis_fold:end:bench-macro
+[32mbench macro succeeded[0m
+travis_fold:start:test-hl
+[36mtest hl[0m
+Changing directory to /home/travis/build/azrafe7/haxe/tests/unit/
+RunCi.hx:84: characters 7-12 : Uncaught exception unknown target: hl
+travis_time:end:1c5f2790:start=1541764553798842962,finish=1541764752045317293,duration=198246474331[0K[31;1mThe command "haxe RunCi.hxml" exited with 1.[0m
+
+travis_time:start:119b1094[0K$ popd
+~/build/azrafe7/haxe
+travis_time:end:119b1094:start=1541764752050726746,finish=1541764752054088038,duration=3361292[0K[32;1mThe command "popd" exited with 0.[0m
+
+travis_fold:start:before_cache.1[0Ktravis_time:start:1cd635b4[0K$ if [ $TRAVIS_OS_NAME = 'linux' ]; then sudo apt-get autoclean; sudo rm -f $HOME/apt-cache/lock || true; fi
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del chefdk 2.4.17-1 [105 MB]
+travis_time:end:1cd635b4:start=1541764752059102715,finish=1541764752511219198,duration=452116483[0Ktravis_fold:end:before_cache.1[0Ktravis_fold:start:before_cache.2[0Ktravis_time:start:06151c39[0K$ rm -f $HOME/lua_env/lib/liblua51.a
+travis_time:end:06151c39:start=1541764752516467332,finish=1541764752520672629,duration=4205297[0Ktravis_fold:end:before_cache.2[0Ktravis_fold:start:before_cache.3[0Ktravis_time:start:00218fa9[0K$ rm -f $HOME/lua_env/lib/liblua52.a
+travis_time:end:00218fa9:start=1541764752526195554,finish=1541764752530362773,duration=4167219[0Ktravis_fold:end:before_cache.3[0Ktravis_fold:start:before_cache.4[0Ktravis_time:start:01a61991[0K$ rm -f $HOME/lua_env/lib/liblua53.a
+travis_time:end:01a61991:start=1541764752535796453,finish=1541764752540257778,duration=4461325[0Ktravis_fold:end:before_cache.4[0Ktravis_fold:start:before_cache.5[0Ktravis_time:start:1ad22d6e[0K$ rm -f $HOME/lua_env/lib/libluajit-5.1.a
+travis_time:end:1ad22d6e:start=1541764752547060723,finish=1541764752551302215,duration=4241492[0Ktravis_fold:end:before_cache.5[0Ktravis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0f4738a4[0Ktravis_time:end:0f4738a4:start=1541764752557808795,finish=1541764752562900531,duration=5091736[0Ktravis_time:start:1711fa6c[0K/home/travis/apt-cache/partial: Permission denied
+[32;1mchange detected (content changed, file is created, or file is deleted):
+/home/travis/.opam/log/log-16615-4438d8.env
+/home/travis/.opam/log/log-16615-4438d8.err
+/home/travis/.opam/log/log-16615-4438d8.info
+/home/travis/.opam/log/log-16615-4438d8.out
+/home/travis/.opam/log/log-16616-4438d8.env
+/home/travis/.opam/log/log-16616-4438d8.err
+/home/travis/.opam/log/log-16616-4438d8.info
+/home/travis/.opam/log/log-16616-4438d8.out
+/home/travis/.opam/log/log-16667-4438d8.env
+/home/travis/.opam/log/log-16667-4438d8.err
+/home/travis/.opam/log/log-16667-4438d8.info
+/home/travis/.opam/log/log-16667-4438d8.out
+/home/travis/.opam/log/log-16669-4438d8.env
+/home/travis/.opam/log/log-16669-4438d8.err
+/home/travis/.opam/log/log-16669-4438d8.info
+/home/travis/.opam/log/log-16669-4438d8.out
+/home/travis/.opam/log/log-16693-4438d8.env
+/home/travis/.opam/log/log-16693-4438d8.err
+/home/travis/.opam/log/log-16693-4438d8.info
+/home/travis/.opam/log/log-16693-4438d8.out
+/home/travis/.opam/log/log-16695-4438d8.env
+/home/travis/.opam/log/log-16695-4438d8.err
+/home/travis/.opam/log/log-1
+[0m
+[32;1m...
+[0m
+[32;1mchanges detected, packing new archive[0m
+.
+.
+[32;1muploading echart_travis_fiddle/cache-linux-trusty-239e25f3c76590c05bd88d13682cfc65109b8c1bcf1e56bd307940d5820ca6ab--rvm-default--gemfile-Gemfile.tgz[0m
+[32;1mcache uploaded[0m
+travis_time:end:1711fa6c:start=1541764752569598678,finish=1541764770674910474,duration=18105311796[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:sauce_connect.stop[0K[33;1mStopping Sauce Connect[0m
+travis_time:start:17309370[0K$ travis_stop_sauce_connect
+No running Sauce Connect tunnel found
+travis_time:end:17309370:start=1541764770681186816,finish=1541764770684648738,duration=3461922[0Ktravis_fold:end:sauce_connect.stop[0K
+Done. Your build exited with 1.
