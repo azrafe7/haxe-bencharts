@@ -121,6 +121,13 @@ function createNode(text, options) {
   }, options);
 }
 
+function bindTreeEvents() {
+  $tree.on('nodeSelected', onNodeSelected);
+  $("#search-expand").on('click', () => $tree.treeview('expandAll', { silent: true }));
+  $("#search-collapse").on('click', () => $tree.treeview('collapseAll', { silent: true }));
+  $("#search-reset").on('click', () => $tree.treeview('clearSearch', { silent: true }));
+}
+
 function createTree(el, treeData) {
   let options = {
     bootstrap2: false, 
@@ -245,7 +252,7 @@ function main() {
       treeData = collectTreeData(testCases);
       createTree($tree, treeData);
       addSearchFeature($tree, $search);
-      $tree.on('nodeSelected', onNodeSelected);
+      bindTreeEvents();
     });
   });
 }

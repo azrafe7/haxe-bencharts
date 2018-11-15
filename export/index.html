@@ -10,8 +10,8 @@
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
-  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"-->
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -38,6 +38,8 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
+          
+          <!-- search input -->
           <div>
             <label class="text-muted text-uppercase">benchmarks</label>
             <span class="text-small text-muted" style="padding-left:5px">select a case below</span>
@@ -48,9 +50,22 @@
               <span class="fas fa-search form-control-feedback"></span>
             </div>
           </form>
+          
+          <!-- search-related buttons -->
+          <div class="text-center">
+            <div id="search-buttons" class="btn-group" role="group" aria-label="search buttons">
+              <button id="search-expand" type="button" class="btn btn-default btn-sm"><i class="fas fa-plus"></i>expand</button>
+              <button id="search-collapse" type="button" class="btn btn-default btn-sm"><i class="fas fa-minus"></i>collapse</button>
+              <button id="search-reset" type="button" class="btn btn-default btn-sm"><i class="fas fa-times"></i>reset</button>
+            </div>
+          </div>
+          
+          <!-- treeview -->
           <div id="tree"></div>
         </div>
         <div class="col-sm-8 col-md-8 col-lg-8">
+          
+          <!-- echart -->
           <label for="chart" class="text-muted text-uppercase">chart</label>
           <div id="chart"></div>
         </div>
