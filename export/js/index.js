@@ -40,6 +40,11 @@ function getUrlParameters() {
   return urlParams;
 }
 
+// https://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript/3561711#3561711
+function regexpEscape(s) {
+  return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
+
 function handleError(e) {
   console.error(e);
   $log.html(e);
@@ -102,7 +107,7 @@ function addSearchFeature($tree, $input) {
       let results = [];
       
       if (pattern != oldPattern) {
-        results = $tree.treeview('search', [ pattern, {
+        results = $tree.treeview('search', [ regexpEscape(pattern), {
           ignoreCase: true,     // case insensitive
           //exactMatch: false,    // like or equals
           revealResults: true,  // reveal matching nodes
