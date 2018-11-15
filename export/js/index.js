@@ -85,20 +85,34 @@ function fetchLogForJob(jobId) {
 }
 
 function addSearchFeature($tree, $input) {
-  function search(e) {
-    let pattern = $input.val();
+  let oldPattern = "";
+  
+  function searchWrapper(e) {
     
-    let results = $tree.treeview('search', [ pattern, {
-      ignoreCase: true,     // case insensitive
-      //exactMatch: false,    // like or equals
-      revealResults: true,  // reveal matching nodes
-    }]);
+    if (e.keyCode == 13) return;
+    if (e.keyCode == 27) $input.val("");
     
-    var output = "[" + pattern + "] " + results.length + ' matches found';
-    console.log(output);
+    return function search(e) {
+      let pattern = $input.val();
+      
+      let results = [];
+      
+      if (pattern != oldPattern) {
+        results = $tree.treeview('search', [ pattern, {
+          ignoreCase: true,     // case insensitive
+          //exactMatch: false,    // like or equals
+          revealResults: true,  // reveal matching nodes
+        }]);
+      
+        var output = "[" + pattern + "] " + results.length + ' matches found';
+        console.log(output);
+    
+        oldPattern = pattern;
+      }
+    }(e);
   }
-
-  $input.on('keyup', search);
+  
+  $input.on('keyup', searchWrapper);
 }
 
 function traverse(nodes, callback) {
