@@ -92,8 +92,20 @@ function fetchLogForJob(jobId) {
   });
 }
 
+function debounce(func, delay) {
+  let timeoutId;
+  
+  return function() {
+    let context = this;
+    let args = arguments;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(context, args), delay);
+  }
+}
+
 function addSearchFeature($tree, $input) {
   let oldPattern = null;
+  const delay = 250;
   
   function searchWrapper(e) {
     
@@ -128,7 +140,7 @@ function addSearchFeature($tree, $input) {
     }(e);
   }
   
-  $input.on('keyup', searchWrapper);
+  $input.on('keyup', debounce(searchWrapper, delay));
 }
 
 function traverse(nodes, callback) {
