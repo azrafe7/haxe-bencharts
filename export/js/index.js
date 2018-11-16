@@ -14,6 +14,7 @@ const $info = $('#info');
 const $search = $('#search');
 const $tree = $('#tree');
 const $chart = $('#chart');
+let echart = null;
 
 let testCases = [];     // test cases as parsed from the log
 let treeData = [];      // test cases in tree form (passed to treeview)
@@ -259,7 +260,8 @@ function collectTreeData(testCases) {
     // python (f.e.) runs the same tests on both python3 and pypy. This ensure we only keep which ever comes first from the parsed log.
     if (caseNode.targets.filter(targetObj => targetObj.name == t.target).length > 0) return;
     
-    caseNode.targets.push({name: t.target, index: idx++, test: t});
+    caseNode.test = t;
+    caseNode.targets.push({name: t.target, index: idx++});
     caseNode.nodes = undefined;
   });
   
@@ -288,7 +290,126 @@ function collectTreeData(testCases) {
 
 function onNodeSelected(evt, data) {
   console.log("selected: ", data);
-  $("#chart").html("<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>");
+  //$("#chart").html("<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>");
+  plotChart(data);
+}
+
+function plotChart(nodeData) {
+  let labelOptions = {
+    normal: {
+      show: true,
+      position: 'top',
+      distance: 10,
+      align: 'left',
+      verticalAlign: 'middle',
+      rotate: 90,
+      formatter: (params) => '{customLabelStyle|' + hxutils.toMetric(params.value) + '}',
+      rich: {
+        customLabelStyle: {
+          fontSize: 10,
+          //textBorderColor: '#fff',
+          //textBorderWidth: 2
+        }
+      }
+    }
+  };
+  
+  let byTarget = { };
+  let uniqueCaseNames = [];
+  let tests = testCases.filter(t => {
+    let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName;
+    if (ok) {
+      if (!byTarget[t.target]) byTarget[t.target] = { };
+      byTarget[t.target][t.caseName] = t;
+      
+      if (uniqueCaseNames.indexOf(t.caseName) < 0) uniqueCaseNames.push(t.caseName);
+    }
+    
+    return ok;
+  });
+  
+  let labelNames = [];
+  let barColors = [];
+  let series = [];
+  let xAxisLabels = nodeData.name;
+  let targetIdx = -1;
+  for (let target of displayOrder) {
+    if (byTarget[target]) {
+      targetIdx++;
+      labelNames.push(target);
+      barColors.push(targetColors[target]);
+      for (let caseName of uniqueCaseNames) {
+        if (series.length <= targetIdx) series[targetIdx] = [];
+        series[targetIdx].push(byTarget[target][caseName].numSamples);
+      }
+    }
+  }
+  
+  let seriesOptions = [];
+  for (let i = 0; i < series.length; i++) {
+    let serie = series[i];
+    seriesOptions.push({
+      name: labelNames[i],
+      type: 'bar',
+      barGap: 0,
+      label: labelOptions,
+      data: serie
+    });
+  }
+
+  let options = {
+    title: {
+      text: nodeData.test.benchName,
+      subtext: nodeData.test.suiteName
+    },
+    grid: {
+      containLabel: true
+    },
+    color: barColors,
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    legend: {
+      data: labelNames
+    },
+    xAxis: [
+      {
+        name: 'cases',
+        nameLocation: 'center',
+        nameGap: 50,
+        nameTextStyle: {
+          fontWeight: 'bold',
+          fontSize: 14
+        },
+        type: 'category',
+        axisTick: {show: false},
+        axisLabel: {
+          rotate: 90
+        },
+        data: uniqueCaseNames,
+      }
+    ],
+    yAxis: [
+      {
+        name: 'numSamples',
+        nameLocation: 'center',
+        nameGap: 80,
+        nameTextStyle: {
+          fontWeight: 'bold',
+          fontSize: 14
+        },
+        type: 'value'
+      }
+    ],
+    series: seriesOptions
+  };
+
+  console.log("chart data:", options);
+  
+  echart.setOption(options);
 }
 
 
@@ -353,6 +474,7 @@ function main() {
       bindTreeEvents();
       
       $search.focus();
+      echart = echarts.init($chart[0]);
     });
   });
 }
