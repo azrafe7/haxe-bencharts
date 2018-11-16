@@ -15,13 +15,14 @@ const $search = $('#search');
 const $tree = $('#tree');
 const $chart = $('#chart');
 
-let testCases = [];
-let treeData = [];
-let apiEndPoint = "";
-let travisUrl = "";
-let travisInfo = { };
+let testCases = [];     // test cases as parsed from the log
+let treeData = [];      // test cases in tree form (passed to treeview)
+let apiEndPoint = "";   // travis api endpoint
+let travisUrl = "";     // link to travis logs
+let travisInfo = { };   // collected info about owner/repo/branch and commit
 
 main();
+
 
 function getUrlParameters() {
   let search = window.location.search.substring(1);
@@ -124,14 +125,10 @@ function addSearchFeature($tree, $input) {
       if (pattern != oldPattern) {
         results = $tree.treeview('search', [ regexpEscape(pattern), {
           ignoreCase: true,     // case insensitive
-          //exactMatch: false,    // like or equals
+          //exactMatch: false,  // like or equals
           revealResults: true,  // reveal matching nodes
-          includeLineage: true,
+          includeLineage: true, // include parents and children of search results
         }]);
-
-        //if (results.length > 0) {
-        //  $tree.find("li:not(.search-result)").hide();
-        //}
         
         var output = "[" + pattern + "] " + results.length + ' matches found';
         console.log(output);
@@ -283,9 +280,10 @@ function main() {
     travisInfo = extractTravisInfo(json);
     updateInfoOnPage(apiEndPoint);
     
+    // build up requests
     let promises = [];
     if (travisParams.buildId) {
-      for (let job of json.jobs.splice(1, 1)) { // should be splice(0, 3) for haxe tests!
+      for (let job of json.jobs.splice(1, 2)) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
         console.log("job " + job);
         let promise = fetchLogForJob(job.id);
         promises.push(promise);
@@ -295,6 +293,7 @@ function main() {
       promises.push(promise);
     }
     
+    // act when all of them complete
     Promise.all(promises).then(rawLogs => {
       console.log("parsing " + rawLogs.length + " logs");
       for (let rawLog of rawLogs) {
@@ -306,6 +305,7 @@ function main() {
       createTree($tree, treeData);
       addSearchFeature($tree, $search);
       bindTreeEvents();
+      
       $search.focus();
     });
   });
