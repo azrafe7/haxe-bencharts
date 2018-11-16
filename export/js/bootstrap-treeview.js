@@ -526,6 +526,7 @@
 				.addClass(node.state.disabled ? 'node-disabled': '')
 				.addClass(node.state.selected ? 'node-selected' : '')
 				.addClass(node.searchResult ? 'search-result' : '') 
+				.addClass(node.nodes ? '' : 'node-leaf') 
 				.addClass((_this.afterSearch && node.include) ? 'node-include' : '') 
 				.addClass((_this.afterSearch && !(node.searchResult || node.include)) ? 'node-hide' : '') 
 				.attr('data-nodeid', node.nodeId)

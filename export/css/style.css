@@ -34,6 +34,6 @@
   margin-right: 5px !important;
 }
 
-.treeview span.glyphicon {
-  
+.treeview .node-leaf span.glyphicon {
+  display: none;
 }
