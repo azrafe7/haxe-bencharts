@@ -18,7 +18,7 @@ const $chart = $('#chart');
 
 let testCases = [];
 let treeData = [];
-let apiUrl = "";
+let apiEndPoint = "";
 let travisUrl = "";
 let travisInfo = { };
 
@@ -50,10 +50,13 @@ function handleError(e) {
   $log.html(e);
 }
 
-function updateInfoOnPage() {
-  let ownerRepoBranch = [travisInfo.repo, travisInfo.branch].join("/");
-  let commitUrl = GITHUB_URL + travisInfo.repo + "/" + travisInfo.commit.sha;
-  $info.find("#repo").attr("href", GITHUB_URL + ownerRepoBranch).text(ownerRepoBranch).attr("title", "github repo branch");
+function updateInfoOnPage(endPoint) {
+  let regexp = /^(build|job)([\s\S]*)/gmi;
+  if (!regexp.test(endPoint)) throw "Endpoint '" + endPoint + "' doesn't match regexp";
+  endPoint = endPoint.replace(regexp, "$1s$2");
+  travisUrl = TRAVIS_URL + travisInfo.repo + "/" + endPoint;
+  let commitUrl = GITHUB_URL + travisInfo.repo + "/commit/" + travisInfo.commit.sha;
+  $info.find("#repo").attr("href", GITHUB_URL + travisInfo.repo + "/tree/" + travisInfo.branch).text(travisInfo.repo + "/" + travisInfo.branch).attr("title", "github repo branch");
   $info.find("#commit").attr("href", commitUrl).text('"' + travisInfo.commit.message + '"').attr("title", "sha: " + travisInfo.commit.sha.substr(0, 8) + "…");
   $info.find("#travis").attr("href", travisUrl).attr("title", "travis-ci logs");//.text(travisUrl); 
 }
@@ -233,29 +236,28 @@ function main() {
 
   let parser = new TravisLogParser();
 
-  if (!(urlParams["build"] || urlParams["job"] || urlParams["latest"])) {
+  if (!(urlParams["build"] || urlParams["job"])) {
     travisParams.jobId = TEST_JOB_ID;
     //travisParams.buildId = TEST_BUILD_ID;
   }
 
   //return;
   
-  if (travisParams.buildId) {
-    apiUrl = TRAVIS_API + "build/" + travisParams.buildId;
-    travisUrl = TRAVIS_URL + "builds/" + travisParams.buildId;
-  } else if (travisParams.jobId) {
-    apiUrl = TRAVIS_API + "job/" + travisParams.jobId;
-    travisUrl = TRAVIS_URL + "jobs/" + travisParams.jobId;
+  if (travisParams.buildId) apiEndPoint = "build/" + travisParams.buildId;
+  else if (travisParams.jobId) apiEndPoint = "job/" + travisParams.jobId;
+  else {
+    trace("No data!");
+    throw "No data!";
   }
   
-  fetchJson(apiUrl)
+  fetchJson(TRAVIS_API + apiEndPoint)
   .then(json => {
     travisInfo = extractTravisInfo(json);
-    updateInfoOnPage();
+    updateInfoOnPage(apiEndPoint);
     
     let promises = [];
     if (travisInfo.build) {
-      for (let job of json.jobs.splice(0, 1)) {
+      for (let job of json.jobs.splice(0, 1)) { // should be splice 3 for haxe tests!
         console.log("job " + job);
         let promise = fetchLogForJob(job.id);
         promises.push(promise);
