@@ -39,3 +39,7 @@
 .treeview .node-hide {
   display: none;
 }
+
+.treeview span.float-right {
+  float: right;
+}

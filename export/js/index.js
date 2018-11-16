@@ -175,6 +175,7 @@ function createTree(el, treeData) {
   let options = {
     bootstrap2: false, 
     showTags: true,
+    showFloatRight: true,
     levels: 1,
     //enableLinks: true,
     searchResultColor: '#337AB8', //1565c0
@@ -195,6 +196,7 @@ function collectTreeData(testCases) {
   let nodes = [];
   let benchs = { };
   let suites = { };
+  let cases = { };
   
   let idx = 0;
   testCases.map(t => {
@@ -211,16 +213,30 @@ function collectTreeData(testCases) {
       bench.nodes.push(node);
     }
     let suite = suites[suiteId];
-    let node = createNode(t.caseName, {arrayIdx: idx++, icon: testCaseClass});
-    node.nodes = undefined;
-    suite.nodes.push(node);
+    let caseId = t.benchName + t.suiteName + t.caseName;
+    if (cases[caseId] === undefined) {
+      let node = createNode(t.caseName, {icon: testCaseClass});
+      cases[caseId] = node;
+      suite.nodes.push(node);
+      node.targets = [];
+      node.floatRight = '';
+    }
+    let caseNode = cases[caseId];
+    
+    // python (f.e.) runs the same tests on both python3 and pypy. This ensure we only keep which ever comes first from the parsed log.
+    if (caseNode.targets.filter(targetObj => targetObj.name == t.target).length > 0) return;
+    
+    caseNode.floatRight += t.target.substr(0,2);
+    caseNode.targets.push({name: t.target, index: idx++, test: t});
+    caseNode.nodes = undefined;
   });
   
   // add some props
   traverse(nodes, (node, id) => {
     let numChildren = node.nodes ? node.nodes.length : 0;
     node.selectable = numChildren == 0;
-    node.tags = [numChildren > 0 ? '' + numChildren : ''];
+    if (!node.tags) node.tags = [];
+    node.tags.push(numChildren > 0 ? '' + numChildren : '');
   });
 
   console.log("nodes: ", nodes);
@@ -249,8 +265,8 @@ function main() {
   let parser = new TravisLogParser();
 
   if (!(urlParams["build"] || urlParams["job"])) {
-    travisParams.jobId = TEST_JOB_ID;
-    //travisParams.buildId = TEST_BUILD_ID;
+    //travisParams.jobId = TEST_JOB_ID;
+    travisParams.buildId = TEST_BUILD_ID;
   }
 
   //return;
@@ -269,7 +285,7 @@ function main() {
     
     let promises = [];
     if (travisParams.buildId) {
-      for (let job of json.jobs.splice(0, 1)) { // should be splice 3 for haxe tests!
+      for (let job of json.jobs.splice(1, 1)) { // should be splice(0, 3) for haxe tests!
         console.log("job " + job);
         let promise = fetchLogForJob(job.id);
         promises.push(promise);
