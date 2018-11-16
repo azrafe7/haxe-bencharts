@@ -98,9 +98,9 @@ function addSearchFeature($tree, $input) {
   function searchWrapper(e) {
     
     if (e.keyCode == 13) return;
-    if (e.keyCode == 27) {
+    if (e.keyCode == 27 || $input.val() == "") {
       $input.val("");
-      if (oldPattern != "") $tree.treeview('collapseAll', { silent: true });
+      $tree.treeview('collapseAll', { silent: true });
     }
     
     return function search(e) {
@@ -113,11 +113,12 @@ function addSearchFeature($tree, $input) {
           ignoreCase: true,     // case insensitive
           //exactMatch: false,    // like or equals
           revealResults: true,  // reveal matching nodes
+          includeLineage: true,
         }]);
 
-        if (results.length > 0) {
-          $tree.find("li:not(.search-result)").hide();
-        }
+        //if (results.length > 0) {
+        //  $tree.find("li:not(.search-result)").hide();
+        //}
         
         var output = "[" + pattern + "] " + results.length + ' matches found';
         console.log(output);
@@ -163,7 +164,7 @@ function createTree(el, treeData) {
     showTags: true,
     levels: 1,
     //enableLinks: true,
-    searchResultColor: '#eee',
+    searchResultColor: '#1565c0', //1565c0
     expandIcon: "glyphicon glyphicon-chevron-right",
     collapseIcon: "glyphicon glyphicon-chevron-down",
     data: treeData
@@ -275,6 +276,7 @@ function main() {
       createTree($tree, treeData);
       addSearchFeature($tree, $search);
       bindTreeEvents();
+      $search.focus();
     });
   });
 }

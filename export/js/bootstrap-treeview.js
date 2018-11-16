@@ -88,7 +88,8 @@
 		this.$element = $(element);
 		this.elementId = element.id;
 		this.styleId = this.elementId + '-style';
-
+    this.afterSearch = false;
+    
 		this.init(options);
 
 		return {
@@ -519,12 +520,14 @@
 		var _this = this;
 		$.each(nodes, function addNodes(id, node) {
 
-			var treeItem = $(_this.template.item)
+      var treeItem = $(_this.template.item)
 				.addClass('node-' + _this.elementId)
 				.addClass(node.state.checked ? 'node-checked' : '')
 				.addClass(node.state.disabled ? 'node-disabled': '')
 				.addClass(node.state.selected ? 'node-selected' : '')
 				.addClass(node.searchResult ? 'search-result' : '') 
+				.addClass((_this.afterSearch && node.include) ? 'node-include' : '') 
+				.addClass((_this.afterSearch && !(node.searchResult || node.include)) ? 'node-hide' : '') 
 				.attr('data-nodeid', node.nodeId)
 				.attr('style', _this.buildStyleOverride(node));
 
@@ -1105,6 +1108,18 @@
 						identifier;
 	};
 
+  function traverse(nodes, callback) {
+    if (!nodes) return;
+
+    for (let id in nodes) {
+      let node = nodes[id];
+      callback(node, id)
+      if (node.nodes && node.nodes.length > 0) {
+        traverse(node.nodes, callback);
+      }
+    };
+  }
+
 	/**
 		Searches the tree for nodes (text) that match given criteria
 		@param {String} pattern - A given string to match against
@@ -1130,11 +1145,23 @@
 
 			results = this.findNodes(pattern, modifier);
 
-			// Add searchResult property to all matching nodes
+      let _this = this;
+			this.afterSearch = true;
+			
+      // Add searchResult property to all matching nodes
 			// This will be used to apply custom styles
 			// and when identifying result to be cleared
 			$.each(results, function (index, node) {
-				node.searchResult = true;
+        node.searchResult = true;
+        if (options.includeLineage) {
+          let parentNode = null;
+          let currNode = node;
+          while (parentNode = _this.getParent(currNode)) {
+            parentNode.include = true;
+            currNode = parentNode;
+          }
+          traverse(node.nodes, (node, id) => node.include = true);
+        }
 			})
 		}
 
@@ -1159,12 +1186,15 @@
 
 		options = $.extend({}, { render: true }, options);
 
+    this.afterSearch = false;
+    for (let node of this.nodes) node.include = undefined;
+    
 		var results = $.each(this.findNodes('true', 'g', 'searchResult'), function (index, node) {
 			node.searchResult = false;
 		});
 
 		if (options.render) {
-			this.render();	
+			this.render();
 		}
 		
 		this.$element.trigger('searchCleared', $.extend(true, {}, results));
