@@ -40,6 +40,6 @@
   display: none;
 }
 
-.treeview span.float-right {
+.treeview span.float-right-wrapper {
   float: right;
 }

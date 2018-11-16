@@ -21,6 +21,43 @@ let apiEndPoint = "";   // travis api endpoint
 let travisUrl = "";     // link to travis logs
 let travisInfo = { };   // collected info about owner/repo/branch and commit
 
+const targetPill = '•'; // •❚●○⚪⚫⦿▐
+
+const targetColors = { };
+(function setupTargetColors() {
+  targetColors[TargetType.CPP    ] = '#F34B7D';
+  targetColors[TargetType.JS     ] = '#CC4125';
+  targetColors[TargetType.NODEJS ] = '#CC4125';
+  targetColors[TargetType.FLASH  ] = '#E01';
+  targetColors[TargetType.CS     ] = '#178600';
+  targetColors[TargetType.JAVA   ] = '#B07219';
+  targetColors[TargetType.HL     ] = '#FF9900';
+  targetColors[TargetType.NEKO   ] = '#A64D79';
+  targetColors[TargetType.PYTHON ] = '#3572A5';
+  targetColors[TargetType.EVAL   ] = '#342628';
+  targetColors[TargetType.MACRO  ] = '#342628';
+  targetColors[TargetType.LUA    ] = '#DCC';
+  targetColors[TargetType.PHP    ] = '#1B52A5';
+  targetColors[TargetType.UNKNOWN] = '#FFF';
+})();
+
+const displayOrder = [
+  TargetType.CPP,
+  TargetType.JS,
+  TargetType.NODEJS,
+  TargetType.CS,
+  TargetType.JAVA,
+  TargetType.FLASH,
+  TargetType.HL,
+  TargetType.NEKO,
+  TargetType.EVAL,
+  TargetType.MACRO,
+  TargetType.PHP,
+  TargetType.PYTHON,
+  TargetType.LUA,
+  TargetType.UNKNOWN
+];
+
 main();
 
 
@@ -172,7 +209,7 @@ function createTree(el, treeData) {
   let options = {
     bootstrap2: false, 
     showTags: true,
-    showFloatRight: true,
+    showFloatRightHtml: true,
     levels: 1,
     //enableLinks: true,
     searchResultColor: '#337AB8', //1565c0
@@ -216,14 +253,12 @@ function collectTreeData(testCases) {
       cases[caseId] = node;
       suite.nodes.push(node);
       node.targets = [];
-      node.floatRight = '';
     }
     let caseNode = cases[caseId];
     
     // python (f.e.) runs the same tests on both python3 and pypy. This ensure we only keep which ever comes first from the parsed log.
     if (caseNode.targets.filter(targetObj => targetObj.name == t.target).length > 0) return;
     
-    caseNode.floatRight += t.target.substr(0,2);
     caseNode.targets.push({name: t.target, index: idx++, test: t});
     caseNode.nodes = undefined;
   });
@@ -234,6 +269,16 @@ function collectTreeData(testCases) {
     node.selectable = numChildren == 0;
     if (!node.tags) node.tags = [];
     node.tags.push(numChildren > 0 ? '' + numChildren : '');
+    if (node.targets) {
+      node.targets.sort((a, b) => displayOrder.indexOf(a.name) - displayOrder.indexOf(b.name));
+      let spans = node.targets.map(target => {
+        let bgColor;
+        let fgColor = targetColors[target.name];
+        let spanStyle = 'style="background-color:' + bgColor + '; color:' + fgColor + ';"';
+        return '<span class="' + target.name + '" title="' + target.name + '" ' + spanStyle + '>' + targetPill + '</span>';
+      });
+      node.floatRightHtml = spans.join("");
+    }
   });
 
   console.log("nodes: ", nodes);
@@ -283,8 +328,9 @@ function main() {
     // build up requests
     let promises = [];
     if (travisParams.buildId) {
-      for (let job of json.jobs.splice(1, 2)) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
-        console.log("job " + job);
+      for (let i = 0, jobs = json.jobs.splice(1, 2); i < jobs.length; i++) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
+        let job = jobs[i];
+        console.log("job " + i);
         let promise = fetchLogForJob(job.id);
         promises.push(promise);
       }
