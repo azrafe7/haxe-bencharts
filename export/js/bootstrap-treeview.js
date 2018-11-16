@@ -647,7 +647,7 @@
 		}
 
 		if (this.options.highlightSearchResults && node.searchResult && !node.state.disabled) {
-			if (this.options.searchResultColor) {
+			if (this.options.searchResultColor && !node.state.selected) {
 				color = this.options.searchResultColor;
 			}
 			if (this.options.searchResultBackColor) {

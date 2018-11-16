@@ -176,7 +176,8 @@ function createTree(el, treeData) {
     showTags: true,
     levels: 1,
     //enableLinks: true,
-    searchResultColor: '#1565c0', //1565c0
+    searchResultColor: '#337AB8', //1565c0
+    selectedColor: '#FFFFFF',
     expandIcon: "glyphicon glyphicon-chevron-right",
     collapseIcon: "glyphicon glyphicon-chevron-down",
     data: treeData
