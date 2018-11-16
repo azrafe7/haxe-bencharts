@@ -1,4 +1,5 @@
-
+@:expose
+@:native("TargetType")
 @:enum abstract TargetType(String) to String {
 	var EVAL = "eval";
 	var MACRO = "macro";
@@ -15,9 +16,9 @@
 	var LUA = "lua";
 	var UNKNOWN = "unknown";
 
-	static var allValues:Array<String> = macro.Macro.getAbstractEnumValues(TargetType);
+	static public var allValues:Array<String> = macro.Macro.getAbstractEnumValues(TargetType);
 
-	@:from static function fromString(s:String):TargetType {
+	@:from static public function fromString(s:String):TargetType {
 		if (s == null || allValues.indexOf(s) >= 0) return cast s;
 		else throw "Invalid TargetType: '" + s + "'";
 	}

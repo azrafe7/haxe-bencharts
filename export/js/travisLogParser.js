@@ -105,10 +105,10 @@ StringTools.rtrim = function(s) {
 StringTools.trim = function(s) {
 	return StringTools.ltrim(StringTools.rtrim(s));
 };
-var _$TargetType_TargetType_$Impl_$ = {};
-_$TargetType_TargetType_$Impl_$.__name__ = true;
-_$TargetType_TargetType_$Impl_$.fromString = function(s) {
-	if(s == null || _$TargetType_TargetType_$Impl_$.allValues.indexOf(s) >= 0) {
+var TargetType = $hx_exports["TargetType"] = {};
+TargetType.__name__ = true;
+TargetType.fromString = function(s) {
+	if(s == null || TargetType.allValues.indexOf(s) >= 0) {
 		return s;
 	} else {
 		throw new js__$Boot_HaxeError("Invalid TargetType: '" + s + "'");
@@ -175,12 +175,12 @@ TravisLogParser.prototype = {
 				foundHaxeVersionCmd = false;
 			}
 			if(!insideBenchFold && BENCH_FOLD_START_REGEXP.match(line1)) {
-				target = _$TargetType_TargetType_$Impl_$.fromString(StringTools.trim(BENCH_FOLD_START_REGEXP.matched(1)));
+				target = TargetType.fromString(StringTools.trim(BENCH_FOLD_START_REGEXP.matched(1)));
 				insideBenchFold = true;
 			} else if(insideBenchFold) {
 				if(BENCH_FOLD_END_REGEXP.match(line1)) {
 					var endTarget = StringTools.trim(BENCH_FOLD_END_REGEXP.matched(1));
-					if(_$TargetType_TargetType_$Impl_$.fromString(endTarget) != target) {
+					if(TargetType.fromString(endTarget) != target) {
 						throw new js__$Boot_HaxeError("LogParser error: Invalid bench-fold closing (expected: " + target + " vs actual: " + endTarget + ")");
 					}
 					insideBenchFold = false;
@@ -368,19 +368,19 @@ Array.__name__ = true;
 Object.defineProperty(js__$Boot_HaxeError.prototype,"message",{ get : function() {
 	return String(this.val);
 }});
-_$TargetType_TargetType_$Impl_$.EVAL = "eval";
-_$TargetType_TargetType_$Impl_$.MACRO = "macro";
-_$TargetType_TargetType_$Impl_$.FLASH = "flash";
-_$TargetType_TargetType_$Impl_$.NODEJS = "nodejs";
-_$TargetType_TargetType_$Impl_$.JS = "js";
-_$TargetType_TargetType_$Impl_$.CPP = "cpp";
-_$TargetType_TargetType_$Impl_$.NEKO = "neko";
-_$TargetType_TargetType_$Impl_$.HL = "hl";
-_$TargetType_TargetType_$Impl_$.CS = "cs";
-_$TargetType_TargetType_$Impl_$.JAVA = "java";
-_$TargetType_TargetType_$Impl_$.PYTHON = "python";
-_$TargetType_TargetType_$Impl_$.PHP = "php";
-_$TargetType_TargetType_$Impl_$.LUA = "lua";
-_$TargetType_TargetType_$Impl_$.UNKNOWN = "unknown";
-_$TargetType_TargetType_$Impl_$.allValues = ["eval","macro","flash","nodejs","js","cpp","neko","hl","cs","java","python","php","lua","unknown"];
+TargetType.EVAL = "eval";
+TargetType.MACRO = "macro";
+TargetType.FLASH = "flash";
+TargetType.NODEJS = "nodejs";
+TargetType.JS = "js";
+TargetType.CPP = "cpp";
+TargetType.NEKO = "neko";
+TargetType.HL = "hl";
+TargetType.CS = "cs";
+TargetType.JAVA = "java";
+TargetType.PYTHON = "python";
+TargetType.PHP = "php";
+TargetType.LUA = "lua";
+TargetType.UNKNOWN = "unknown";
+TargetType.allValues = ["eval","macro","flash","nodejs","js","cpp","neko","hl","cs","java","python","php","lua","unknown"];
 })(typeof exports != "undefined" ? exports : typeof window != "undefined" ? window : typeof self != "undefined" ? self : this);
