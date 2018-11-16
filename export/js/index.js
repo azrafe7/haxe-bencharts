@@ -110,7 +110,7 @@ function addSearchFeature($tree, $input) {
   function searchWrapper(e) {
     
     if (e.keyCode == 13) return; // enter
-    if (e.keyCode == 38 || e.keyCode == 40) $input.blur(); // blur on up/down
+    //if (e.keyCode == 38 || e.keyCode == 40) $input.blur(); // blur on up/down
     if (e.keyCode == 27 || $input.val() == "") { // esc
       $input.val("");
       $tree.treeview('collapseAll', { silent: true });
