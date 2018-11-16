@@ -1,5 +1,4 @@
-;
-$(document).ready(function(){
+;$(document).ready(function() {
 "use strict";
 
 console.log("ready");
@@ -182,29 +181,27 @@ function collectTreeData(testCases) {
   let benchs = { };
   let suites = { };
   
+  let idx = 0;
   testCases.map(t => {
     if (benchs[t.benchName] === undefined) {
       let node = createNode(t.benchName);
       benchs[t.benchName] = node;
       nodes.push(node);
     }
-  });
-  testCases.map(t => {
-    if (suites[t.suiteName] === undefined) {
+    let bench = benchs[t.benchName];
+    let suiteId = t.benchName + t.suiteName;
+    if (suites[suiteId] === undefined) {
       let node = createNode(t.suiteName);
-      suites[t.suiteName] = node;
-      benchs[t.benchName].nodes.push(node);
+      suites[suiteId] = node;
+      bench.nodes.push(node);
     }
-  });
-  
-  let idx = 0;
-  testCases.map(t => {
+    let suite = suites[suiteId];
     let node = createNode(t.caseName, {arrayIdx: idx++, icon: testCaseClass});
     node.nodes = undefined;
-    suites[t.suiteName].nodes.push(node);
+    suite.nodes.push(node);
   });
   
-  // fix some props
+  // add some props
   traverse(nodes, (node, id) => {
     let numChildren = node.nodes ? node.nodes.length : 0;
     node.selectable = numChildren == 0;
@@ -246,8 +243,8 @@ function main() {
   if (travisParams.buildId) apiEndPoint = "build/" + travisParams.buildId;
   else if (travisParams.jobId) apiEndPoint = "job/" + travisParams.jobId;
   else {
-    trace("No data!");
-    throw "No data!";
+    handleError("No end-point!");
+    throw "No end-point!";
   }
   
   fetchJson(TRAVIS_API + apiEndPoint)
@@ -256,7 +253,7 @@ function main() {
     updateInfoOnPage(apiEndPoint);
     
     let promises = [];
-    if (travisInfo.build) {
+    if (travisParams.buildId) {
       for (let job of json.jobs.splice(0, 1)) { // should be splice 3 for haxe tests!
         console.log("job " + job);
         let promise = fetchLogForJob(job.id);
