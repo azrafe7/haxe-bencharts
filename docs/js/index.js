@@ -427,19 +427,19 @@ function main() {
 
   let parser = new TravisLogParser();
 
-  if (!(urlParams["build"] || urlParams["job"])) {
-    //travisParams.jobId = TEST_JOB_ID;
-    travisParams.buildId = TEST_BUILD_ID;
-  }
+  travisParams.buildId = urlParams["build"];
+  travisParams.jobId = urlParams["job"];
 
   //return;
   
+  if (!(travisParams.buildId || travisParams.jobId)) {
+    //travisParams.jobId = TEST_JOB_ID;
+    travisParams.buildId = TEST_BUILD_ID;
+    handleError("No end-point! Using a test one.");
+  } 
+  
   if (travisParams.buildId) apiEndPoint = "build/" + travisParams.buildId;
   else if (travisParams.jobId) apiEndPoint = "job/" + travisParams.jobId;
-  else {
-    handleError("No end-point!");
-    throw "No end-point!";
-  }
   
   fetchJson(TRAVIS_API + apiEndPoint)
   .then(json => {
@@ -475,7 +475,8 @@ function main() {
       
       $search.focus();
       echart = echarts.init($chart[0]);
-    });
+    })
+    .catch(err => handleError(err));
   });
 }
 
