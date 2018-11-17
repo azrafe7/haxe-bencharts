@@ -475,6 +475,7 @@ function main() {
       
       $search.focus();
       echart = echarts.init($chart[0]);
+      window.onresize = () => echart.resize();
     })
     .catch(err => handleError(err));
   });
