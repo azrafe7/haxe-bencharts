@@ -21,6 +21,7 @@ let treeData = [];      // test cases in tree form (passed to treeview)
 let apiEndPoint = "";   // travis api endpoint
 let travisUrl = "";     // link to travis logs
 let travisInfo = { };   // collected info about owner/repo/branch and commit
+let consoleMessageQueue = [];
 
 const targetPill = '•'; // •❚●○⚪⚫⦿▐
 
@@ -412,6 +413,17 @@ function plotChart(nodeData) {
   echart.setOption(options, true);
 }
 
+function enqueueConsoleMessage(message, method) {
+  consoleMessageQueue.push({text: message, method: method || "log"});
+}
+
+function flushConsoleMessageQueue() {
+  let msg;
+  while (msg = consoleMessageQueue.shift()) {
+    console[msg.method].call(null, msg.text);
+  }
+}
+
 
 // main entry point
 function main() {
@@ -435,7 +447,9 @@ function main() {
   if (!(travisParams.buildId || travisParams.jobId)) {
     //travisParams.jobId = TEST_JOB_ID;
     travisParams.buildId = TEST_BUILD_ID;
-    handleError("No end-point! Using a test one.");
+    handleError("No specific endPoint. Using a test one (see console).");
+    enqueueConsoleMessage("No specific endPoint. Using a test one (see console).", "warn");
+    enqueueConsoleMessage("Try '?build=<BUILD_ID>' or '?job=<JOB_ID>'", "warn");
   } 
   
   if (travisParams.buildId) apiEndPoint = "build/" + travisParams.buildId;
@@ -477,7 +491,8 @@ function main() {
       echart = echarts.init($chart[0]);
       window.onresize = () => echart.resize();
     })
-    .catch(err => handleError(err));
+    .catch(err => handleError(err))
+    .then(() => flushConsoleMessageQueue());
   });
 }
 
