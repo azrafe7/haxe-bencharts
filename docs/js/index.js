@@ -258,9 +258,9 @@ function collectTreeData(testCases) {
     }
     let caseNode = cases[caseId];
     
-    // python (f.e.) runs the same tests on both python3 and pypy. This ensure we only keep which ever comes first from the parsed log.
+    // python (f.e.) runs the same tests on both python3 and pypy. This ensures we only keep whichever comes first from the parsed log.
     if (caseNode.targets.filter(targetObj => targetObj.name == t.target).length > 0) return;
-    
+
     caseNode.test = t;
     caseNode.targets.push({name: t.target, index: idx++});
     caseNode.nodes = undefined;
@@ -321,6 +321,10 @@ function plotChart(nodeData) {
     let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName;
     if (ok) {
       if (!byTarget[t.target]) byTarget[t.target] = { };
+      
+      // python (f.e.) runs the same tests on both python3 and pypy. This ensures we only keep whichever comes first from the parsed log.
+      if (byTarget[t.target][t.caseName]) return;
+      
       byTarget[t.target][t.caseName] = t;
       
       if (uniqueCaseNames.indexOf(t.caseName) < 0) uniqueCaseNames.push(t.caseName);
@@ -480,6 +484,7 @@ function main() {
       for (let rawLog of rawLogs) {
         testCases = testCases.concat(parser.parse(rawLog));
       }
+      //hxutils.download("testcases.json", JSON.stringify(testCases));
       $info.find("#haxe").text(parser.info.haxeVersion); 
       console.log("testCases: " + testCases.length);
       treeData = collectTreeData(testCases);
