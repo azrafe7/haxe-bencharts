@@ -22,6 +22,7 @@ let apiEndPoint = "";   // travis api endpoint
 let travisUrl = "";     // link to travis logs
 let travisInfo = { };   // collected info about owner/repo/branch and commit
 let consoleMessageQueue = [];
+let selectedNode = null;
 
 const targetPill = '•'; // •❚●○⚪⚫⦿▐
 
@@ -154,6 +155,7 @@ function addSearchFeature($tree, $input) {
     if (e.keyCode == 27 || $input.val() == "") { // esc
       $input.val("");
       $tree.treeview('collapseAll', { silent: true });
+      if (selectedNode) $tree.treeview('revealNode', [ selectedNode, { silent: true } ]);
     }
     
     return function search(e) {
@@ -202,6 +204,7 @@ function createNode(text, options) {
 
 function bindTreeEvents() {
   $tree.on('nodeSelected', onNodeSelected);
+  $tree.on('nodeUnselected', onNodeUnselected);
   $("#search-expand").on('click', () => $tree.treeview('expandAll', { silent: true }));
   $("#search-collapse").on('click', () => $tree.treeview('collapseAll', { silent: true }));
   $("#search-reset").on('click', () => $tree.treeview('clearSearch', { silent: true }));
@@ -291,8 +294,14 @@ function collectTreeData(testCases) {
 
 function onNodeSelected(evt, data) {
   console.log("selected: ", data);
+  selectedNode = data;
   //$("#chart").html("<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>");
   plotChart(data);
+}
+
+function onNodeUnselected(evt, data) {
+  console.log("unselected: ", data);
+  selectedNode = undefined;
 }
 
 function plotChart(nodeData) {
