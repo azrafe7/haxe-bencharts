@@ -228,7 +228,7 @@ function createTree(el, treeData) {
 
 function collectTreeData(testCases) {
   //testCases = testCases.splice(0, 10); // test a small sample
-  let testCaseClass = "fas fa-suitcase";
+  let testCaseClass = ""; // "fas fa-suitcase";
   let nodes = [];
   let benchs = { };
   let suites = { };

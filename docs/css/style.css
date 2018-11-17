@@ -38,3 +38,13 @@
 .treeview .node-leaf span.glyphicon {
   display: none;
 }
+
+.treeview {
+  /*font-family: monospace;
+  font-size: small;*/
+  font-weight: bold;
+}
+
+.treeview .node-leaf {
+  font-weight: normal;
+}
