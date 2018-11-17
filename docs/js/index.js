@@ -409,7 +409,7 @@ function plotChart(nodeData) {
 
   console.log("chart data:", options);
   
-  echart.setOption(options);
+  echart.setOption(options, true);
 }
 
 
