@@ -444,7 +444,7 @@ function plotChart(nodeData) {
       {
         name: 'numSamples',
         nameLocation: 'center',
-        nameGap: 80,
+        nameGap: 120,
         nameTextStyle: {
           fontWeight: 'bold',
           fontSize: 14
