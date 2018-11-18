@@ -374,6 +374,7 @@ function plotChart(nodeData, singleCase) {
     if (ok) {
       if (!byTarget[t.target]) byTarget[t.target] = { };
       
+      // FIXME: this should only be done once (see collectTreeData())
       // python (f.e.) runs the same tests on both python3 and pypy. This ensures we only keep whichever comes first from the parsed log.
       if (byTarget[t.target][t.caseName]) return;
       
@@ -419,8 +420,8 @@ function plotChart(nodeData, singleCase) {
     let axisData = options.xAxis[0].data;
     let series = options.series;
 
-    let heading = '<h4>' + options.title[0].text + '</h4>'
-                  + '<h5 class="text-muted">' + options.title[0].subtext + '</h5>';
+    let heading = '<div id="dataview-heading"><div>' + options.title[0].text + '</div>'
+                  + '<div class="small text-muted">' + options.title[0].subtext + '</div></div>';
     
     let thead = '<thead><tr>'
                 + '<th>' + options.xAxis[0].name + '/' + options.yAxis[0].name + '</th>';
@@ -440,7 +441,7 @@ function plotChart(nodeData, singleCase) {
     }
     tbody += '</tbody>';
     
-    let table = '<table class="table table-striped table-hover table-condensed" style="width:100%;font-family:monospace;">'
+    let table = '<table class="table small table-striped table-hover table-condensed" style="width:100%;font-family:monospace;">'
                 + thead + tbody + '</table>';
                 
     return heading + table;
@@ -473,7 +474,22 @@ function plotChart(nodeData, singleCase) {
           readOnly: true,
           optionToContent: optionToContent
         },
-        magicType: {show: true, type: ['stack', 'tiled']},
+        magicType: {
+          show: true, 
+          type: ['stack', 'tiled'],
+          title: { // override titles
+            stack: "Stacked Bar Chart",
+            tiled: "Bar Chart",
+          },
+          icon: {
+            tiled: 'path://' + 'M6.7,22.9h10V48h-10V22.9zM24.9,13h10v35h-10V13zM43.2,2h10v46h-10V2zM3.1,58h53.7', // override tiled icon to look like the bar icon
+          },
+          option: {
+            stack: {
+              // TODO: show data labels inside the related bar portion insted of jumbled-on-top
+            }
+          }
+        },
         saveAsImage: {show: true}
       }
     },

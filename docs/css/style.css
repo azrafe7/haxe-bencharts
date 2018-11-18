@@ -70,3 +70,20 @@
 #chart th {
   text-align: left;
 }
+
+/* dataview */
+#chart > div > h4:first-of-type {
+  color: #777 !important; /* text-muted */
+  margin-left: 0 !important;
+  font-size: smaller;
+  font-weight: 700;
+  text-transform: uppercase;
+  
+  display: none; /* forget what I said, just hide it */
+}
+
+#chart #dataview-heading {
+  font-family: monospace;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
