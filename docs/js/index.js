@@ -318,6 +318,10 @@ function onNodeSelected(evt, data) {
   console.log("selected: ", data);
   selectedNode = data;
   //$("#chart").html("<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>");
+  if (!echart) {
+    echart = echarts.init($chart[0]);
+    window.onresize = () => echart.resize();
+  }
   plotChart(data);
 }
 
@@ -542,8 +546,6 @@ function main() {
       bindKeyEvents();
       
       $search.focus();
-      echart = echarts.init($chart[0]);
-      window.onresize = () => echart.resize();
     })
     .catch(err => handleError(err))
     .then(() => flushConsoleMessageQueue());
