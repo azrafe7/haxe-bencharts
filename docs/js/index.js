@@ -223,14 +223,18 @@ function bindTreeEvents() {
   $("#search-reset").on('click', () => $tree.treeview('clearSearch', { silent: true }));
 }
 
+function closeDataView() { // returns false if no dataview is open
+  let $dataViewCloseBtn = $("#chart > div:nth-child(3) > div:nth-child(3) > div");
+  let isOpen = $dataViewCloseBtn.length > 0;
+  if (isOpen) $dataViewCloseBtn.trigger('click');
+  return isOpen;
+}
+
 function bindKeyEvents() {
   function onKeyUp(e) {
     // close chart data view if open, else reset search and give it focus
     if (e.keyCode == 27) {
-      let $dataViewCloseBtn = $("#chart > div:nth-child(3) > div:nth-child(3) > div");
-      if ($dataViewCloseBtn.length) {
-        $dataViewCloseBtn.trigger('click');
-      } else {
+      if (!closeDataView()) {
         $search.val("").trigger('keyup').focus();
       }
     }
@@ -248,8 +252,8 @@ function createTree(el, treeData) {
     //enableLinks: true,
     searchResultColor: '#337AB8', //1565c0
     selectedColor: '#FFFFFF',
-    expandIcon: "glyphicon glyphicon-chevron-right",
-    collapseIcon: "glyphicon glyphicon-chevron-down",
+    expandIcon: "glyphicon glyphicon-chevron-right", // glyphicon-triangle-right
+    collapseIcon: "glyphicon glyphicon-chevron-down", // glyphicon-triangle-bottom
     data: treeData
   };
   
@@ -342,6 +346,8 @@ function plotChart(nodeData, singleCase) {
     echart = echarts.init($chart[0]);
     window.onresize = () => echart.resize();
   }
+  closeDataView();
+  
   let labelOptions = {
     normal: {
       show: true,
@@ -408,6 +414,38 @@ function plotChart(nodeData, singleCase) {
     });
   }
 
+  // converts data into html table representation (shown in dataview)
+  function optionToContent(options) {
+    let axisData = options.xAxis[0].data;
+    let series = options.series;
+
+    let heading = '<h4>' + options.title[0].text + '</h4>'
+                  + '<h5 class="text-muted">' + options.title[0].subtext + '</h5>';
+    
+    let thead = '<thead><tr>'
+                + '<th>' + options.xAxis[0].name + '/' + options.yAxis[0].name + '</th>';
+    for (let serie of series) {
+      thead += '<th>' + serie.name + '</th>';
+    }
+    thead += '</tr></thead>';
+    
+    let tbody = '<tbody>';
+    for (let i = 0, len = axisData.length; i < len; i++) {
+      let caseName = axisData[i];
+      tbody += '<tr><td>' + caseName + '</td>';
+      for (let serie of series) {
+        tbody += '<td>' + serie.data[i] + '</td>';
+      }
+      tbody += '</tr>';
+    }
+    tbody += '</tbody>';
+    
+    let table = '<table class="table table-striped table-hover table-condensed" style="width:100%;font-family:monospace;">'
+                + thead + tbody + '</table>';
+                
+    return heading + table;
+  }
+  
   let options = {
     title: {
       text: nodeData.test.benchName,
@@ -428,8 +466,13 @@ function plotChart(nodeData, singleCase) {
       orient: 'vertical',
       right: 38,
       top: 50,
+      itemGap: 20,
       feature: {
-        dataView: {show: true, readOnly: true},
+        dataView: {
+          show: true, 
+          readOnly: true,
+          optionToContent: optionToContent
+        },
         magicType: {show: true, type: ['stack', 'tiled']},
         saveAsImage: {show: true}
       }
