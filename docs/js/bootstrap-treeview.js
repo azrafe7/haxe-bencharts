@@ -323,7 +323,7 @@
 
 	Tree.prototype.clickHandler = function (event) {
 
-		if (!this.options.enableLinks) event.preventDefault();
+    //if (!this.options.enableLinks) event.preventDefault();
 
 		var target = $(event.target);
 
