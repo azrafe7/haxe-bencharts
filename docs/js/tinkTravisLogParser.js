@@ -36,96 +36,6 @@ EReg.prototype = {
 		return s.replace(this.r,d).split(d);
 	}
 };
-var ILogParser = function() { };
-ILogParser.__name__ = true;
-var HaxeTravisLogParser = $hx_exports["HaxeTravisLogParser"] = function() {
-	this.name = "HaxeTravisLogParser";
-};
-HaxeTravisLogParser.__name__ = true;
-HaxeTravisLogParser.__interfaces__ = [ILogParser];
-HaxeTravisLogParser.prototype = {
-	parse: function(log) {
-		var toNumber = function(str) {
-			return Std.parseInt(str.split(",").join(""));
-		};
-		this.info = { haxeVersion : "", owner : "", repo : "", branch : ""};
-		var results = [];
-		var foundHaxeVersionCmd = false;
-		var insideBenchFold = false;
-		var target = null;
-		var benchName = null;
-		var suiteName = null;
-		var caseName = null;
-		var numSamples = null;
-		var lines = [];
-		var match = hxutils.matchBetween(log,HaxeTravisLogParser.CHECKOUT_FOLD_START_REGEXP,HaxeTravisLogParser.CHECKOUT_FOLD_END_REGEXP);
-		if(match.matched) {
-			lines = new EReg("\r?\n","g").split(match.matchedString);
-			var _g = 0;
-			while(_g < lines.length) {
-				var line = lines[_g];
-				++_g;
-				line = line.replace(HaxeTravisLogParser.ANSI_COLORING_REGEXP.r,"");
-				if(HaxeTravisLogParser.BRANCH_OWNER_REPO_REGEXP.match(line)) {
-					this.info.owner = HaxeTravisLogParser.BRANCH_OWNER_REPO_REGEXP.matched(2);
-					this.info.repo = HaxeTravisLogParser.BRANCH_OWNER_REPO_REGEXP.matched(3);
-					this.info.branch = HaxeTravisLogParser.BRANCH_OWNER_REPO_REGEXP.matched(1);
-				}
-			}
-		}
-		lines = new EReg("\r?\n","g").split(log);
-		var _g1 = 0;
-		while(_g1 < lines.length) {
-			var line1 = lines[_g1];
-			++_g1;
-			line1 = line1.replace(HaxeTravisLogParser.ANSI_COLORING_REGEXP.r,"");
-			if(!foundHaxeVersionCmd && this.info.haxeVersion == "") {
-				if(HaxeTravisLogParser.HAXE_VERSION_CMD_REGEXP.match(line1)) {
-					foundHaxeVersionCmd = true;
-					continue;
-				}
-			}
-			if(foundHaxeVersionCmd) {
-				this.info.haxeVersion = line1;
-				foundHaxeVersionCmd = false;
-			}
-			if(!insideBenchFold && HaxeTravisLogParser.BENCH_FOLD_START_REGEXP.match(line1)) {
-				target = TargetType.fromString(StringTools.trim(HaxeTravisLogParser.BENCH_FOLD_START_REGEXP.matched(1)));
-				insideBenchFold = true;
-			} else if(insideBenchFold) {
-				if(HaxeTravisLogParser.BENCH_FOLD_END_REGEXP.match(line1)) {
-					var endTarget = StringTools.trim(HaxeTravisLogParser.BENCH_FOLD_END_REGEXP.matched(1));
-					if(TargetType.fromString(endTarget) != target) {
-						throw new js__$Boot_HaxeError("LogParser error: Invalid bench-fold closing (expected: " + target + " vs actual: " + endTarget + ")");
-					}
-					insideBenchFold = false;
-					target = null;
-					caseName = null;
-					suiteName = caseName;
-					benchName = suiteName;
-				} else if(HaxeTravisLogParser.BENCH_NAME_REGEXP.match(line1)) {
-					benchName = StringTools.trim(HaxeTravisLogParser.BENCH_NAME_REGEXP.matched(1));
-					caseName = null;
-					suiteName = caseName;
-				} else if(HaxeTravisLogParser.SUITE_NAME_REGEXP.match(line1)) {
-					suiteName = StringTools.trim(HaxeTravisLogParser.SUITE_NAME_REGEXP.matched(1));
-				} else if(HaxeTravisLogParser.TESTCASE_REGEXP.match(line1)) {
-					caseName = HxOverrides.substr(StringTools.trim(HaxeTravisLogParser.TESTCASE_REGEXP.matched(1)),0,-1);
-					numSamples = toNumber(StringTools.trim(HaxeTravisLogParser.TESTCASE_REGEXP.matched(2)));
-					var caseInfo = { target : target, benchName : benchName, suiteName : suiteName, caseName : caseName, numSamples : numSamples};
-					if(target == null || benchName == null || suiteName == null || caseName == null || numSamples == null) {
-						throw new js__$Boot_HaxeError("LogParser error: Invalid testcase #" + results.length + " (" + Std.string(caseInfo) + ")");
-					}
-					results.push(caseInfo);
-				}
-			}
-		}
-		if(insideBenchFold) {
-			throw new js__$Boot_HaxeError("LogParser error: Bench-fold for " + target + " never closed");
-		}
-		return results;
-	}
-};
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
 HxOverrides.cca = function(s,index) {
@@ -147,6 +57,15 @@ HxOverrides.substr = function(s,pos,len) {
 	}
 	return s.substr(pos,len);
 };
+HxOverrides.iter = function(a) {
+	return { cur : 0, arr : a, hasNext : function() {
+		return this.cur < this.arr.length;
+	}, next : function() {
+		return this.arr[this.cur++];
+	}};
+};
+var ILogParser = function() { };
+ILogParser.__name__ = true;
 Math.__name__ = true;
 var Std = function() { };
 Std.__name__ = true;
@@ -162,6 +81,13 @@ Std.parseInt = function(x) {
 };
 var StringTools = function() { };
 StringTools.__name__ = true;
+StringTools.startsWith = function(s,start) {
+	if(s.length >= start.length) {
+		return HxOverrides.substr(s,0,start.length) == start;
+	} else {
+		return false;
+	}
+};
 StringTools.isSpace = function(s,pos) {
 	var c = HxOverrides.cca(s,pos);
 	if(!(c > 8 && c < 14)) {
@@ -202,6 +128,105 @@ TargetType.fromString = function(s) {
 		throw new js__$Boot_HaxeError("Invalid TargetType: \"" + s + "\" (should be one of " + Std.string(TargetType.allValues.map(function(v) {
 			return "\"" + v + "\"";
 		})) + ")");
+	}
+};
+var TinkTravisLogParser = $hx_exports["TinkTravisLogParser"] = function() {
+	this.name = "TinkTravisLogParser";
+};
+TinkTravisLogParser.__name__ = true;
+TinkTravisLogParser.__interfaces__ = [ILogParser];
+TinkTravisLogParser.prototype = {
+	parse: function(log) {
+		this.info = { haxeVersion : "", owner : "", repo : "", branch : ""};
+		var results = [];
+		var lines = [];
+		var match = hxutils.matchBetween(log,TinkTravisLogParser.CHECKOUT_FOLD_START_REGEXP,TinkTravisLogParser.CHECKOUT_FOLD_END_REGEXP);
+		if(match.matched) {
+			lines = new EReg("\r?\n","g").split(match.matchedString);
+			var _g = 0;
+			while(_g < lines.length) {
+				var line = lines[_g];
+				++_g;
+				line = line.replace(TinkTravisLogParser.ANSI_COLORING_REGEXP.r,"");
+				if(TinkTravisLogParser.BRANCH_OWNER_REPO_REGEXP.match(line)) {
+					this.info.owner = TinkTravisLogParser.BRANCH_OWNER_REPO_REGEXP.matched(2);
+					this.info.repo = TinkTravisLogParser.BRANCH_OWNER_REPO_REGEXP.matched(3);
+					this.info.branch = TinkTravisLogParser.BRANCH_OWNER_REPO_REGEXP.matched(1);
+				}
+			}
+		}
+		lines = new EReg("\r?\n","g").split(log);
+		var targets = new haxe_ds_StringMap();
+		var target = null;
+		var started = false;
+		var current = [];
+		var section = null;
+		var haxeVer = null;
+		var i = 0;
+		var _g1 = 0;
+		var _g11 = lines.length;
+		while(_g1 < _g11) {
+			var i1 = _g1++;
+			var line1 = lines[i1];
+			if(this.info.haxeVersion == "" && StringTools.startsWith(line1,"$ export HAXE_VERSION=")) {
+				this.info.haxeVersion = HxOverrides.substr(line1,"$ export HAXE_VERSION=".length,null);
+			}
+			if(line1 == ">> Haxe Benchmark Log End <<") {
+				started = false;
+				if(__map_reserved[target] != null) {
+					targets.setReserved(target,current);
+				} else {
+					targets.h[target] = current;
+				}
+				current = [];
+			}
+			if(started) {
+				if(TinkTravisLogParser.REGEX_SECTION.match(line1)) {
+					section = TinkTravisLogParser.REGEX_SECTION.matched(1);
+				} else {
+					var sanitized = line1.replace(TinkTravisLogParser.REGEX_FORMAT.r,"");
+					if(TinkTravisLogParser.REGEX_RESULT.match(sanitized)) {
+						var iterations = Std.parseInt(TinkTravisLogParser.REGEX_RESULT.matched(1));
+						var time = parseFloat(TinkTravisLogParser.REGEX_RESULT.matched(2));
+						var perSecond = iterations / (time / 1000);
+						var _this = TinkTravisLogParser.REGEX_TITLE;
+						var title = StringTools.trim(lines[i1 - 1].replace(TinkTravisLogParser.REGEX_FORMAT.r,"").replace(_this.r,""));
+						current.push({ section : section, title : title, iterations : iterations, time : time, perSecond : perSecond});
+					}
+				}
+			}
+			if(StringTools.startsWith(line1,"travis_fold:start:build-")) {
+				target = line1.substring("travis_fold:start:build-".length,line1.indexOf("."));
+				if(target.indexOf("interp") >= 0) {
+					target = "eval";
+				}
+			}
+			if(line1 == ">> Haxe Benchmark Log Start <<") {
+				started = true;
+			}
+		}
+		var tryConvertingToTargetType = function(s) {
+			if(StringTools.startsWith(s,"node")) {
+				return "nodejs";
+			} else if(StringTools.startsWith(s,"php")) {
+				return "php";
+			} else {
+				return s;
+			}
+		};
+		var k = targets.keys();
+		while(k.hasNext()) {
+			var k1 = k.next();
+			var _g2 = 0;
+			var _g3 = __map_reserved[k1] != null ? targets.getReserved(k1) : targets.h[k1];
+			while(_g2 < _g3.length) {
+				var result = _g3[_g2];
+				++_g2;
+				var caseInfo = { target : TargetType.fromString(tryConvertingToTargetType(k1)), benchName : "Benchmarks", suiteName : result.section, caseName : result.title, numSamples : Math.round(result.perSecond)};
+				results.push(caseInfo);
+			}
+		}
+		return results;
 	}
 };
 var hxutils = $hx_exports["hxutils"] = function() { };
@@ -253,6 +278,47 @@ hxutils.matchBetween = function(str,startRegexp,endRegexp) {
 		}
 	}
 	return res;
+};
+var haxe_IMap = function() { };
+haxe_IMap.__name__ = true;
+var haxe_ds_StringMap = function() {
+	this.h = { };
+};
+haxe_ds_StringMap.__name__ = true;
+haxe_ds_StringMap.__interfaces__ = [haxe_IMap];
+haxe_ds_StringMap.prototype = {
+	setReserved: function(key,value) {
+		if(this.rh == null) {
+			this.rh = { };
+		}
+		this.rh["$" + key] = value;
+	}
+	,getReserved: function(key) {
+		if(this.rh == null) {
+			return null;
+		} else {
+			return this.rh["$" + key];
+		}
+	}
+	,keys: function() {
+		return HxOverrides.iter(this.arrayKeys());
+	}
+	,arrayKeys: function() {
+		var out = [];
+		for( var key in this.h ) {
+		if(this.h.hasOwnProperty(key)) {
+			out.push(key);
+		}
+		}
+		if(this.rh != null) {
+			for( var key in this.rh ) {
+			if(key.charCodeAt(0) == 36) {
+				out.push(key.substr(1));
+			}
+			}
+		}
+		return out;
+	}
 };
 var js__$Boot_HaxeError = function(val) {
 	Error.call(this);
@@ -358,19 +424,10 @@ var macro_Macro = function() { };
 macro_Macro.__name__ = true;
 String.__name__ = true;
 Array.__name__ = true;
+var __map_reserved = {};
 Object.defineProperty(js__$Boot_HaxeError.prototype,"message",{ get : function() {
 	return String(this.val);
 }});
-HaxeTravisLogParser.CHECKOUT_FOLD_START_REGEXP = new EReg("^travis_fold:start:git.checkout","gm");
-HaxeTravisLogParser.CHECKOUT_FOLD_END_REGEXP = new EReg("^travis_fold:end:git.checkout","gm");
-HaxeTravisLogParser.BRANCH_OWNER_REPO_REGEXP = new EReg("^[\\s\\S]+git clone[\\s\\S]+--branch=([^\\s]+)\\s[\\s\\S]+.git ([^/]+)/([^s]+)","gm");
-HaxeTravisLogParser.ANSI_COLORING_REGEXP = new EReg("\\x1B\\[\\d*m","g");
-HaxeTravisLogParser.HAXE_VERSION_CMD_REGEXP = new EReg("haxe -version$","gm");
-HaxeTravisLogParser.BENCH_FOLD_START_REGEXP = new EReg("^travis_fold:start:bench-([\\s\\S]+)","gm");
-HaxeTravisLogParser.BENCH_FOLD_END_REGEXP = new EReg("^travis_fold:end:bench-([\\s\\S]+)","gm");
-HaxeTravisLogParser.BENCH_NAME_REGEXP = new EReg("^Case: ([\\s\\S]+)","gm");
-HaxeTravisLogParser.SUITE_NAME_REGEXP = new EReg("^\\s+Suite: ([\\s\\S]+)","gm");
-HaxeTravisLogParser.TESTCASE_REGEXP = new EReg("^\\s+((?:[^:]+:)+)\\s+((?:\\d+,?)+)","gm");
 TargetType.EVAL = "eval";
 TargetType.MACRO = "macro";
 TargetType.FLASH = "flash";
@@ -386,4 +443,15 @@ TargetType.PHP = "php";
 TargetType.LUA = "lua";
 TargetType.UNKNOWN = "unknown";
 TargetType.allValues = ["eval","macro","flash","nodejs","js","cpp","neko","hl","cs","java","python","php","lua","unknown"];
+TinkTravisLogParser.CHECKOUT_FOLD_START_REGEXP = new EReg("^travis_fold:start:git.checkout","gm");
+TinkTravisLogParser.CHECKOUT_FOLD_END_REGEXP = new EReg("^travis_fold:end:git.checkout","gm");
+TinkTravisLogParser.BRANCH_OWNER_REPO_REGEXP = new EReg("^[\\s\\S]+git clone[\\s\\S]+--branch=([^\\s]+)\\s[\\s\\S]+.git ([^/]+)/([^s]+)","gm");
+TinkTravisLogParser.ANSI_COLORING_REGEXP = new EReg("\\x1B\\[\\d*m","g");
+TinkTravisLogParser.START = ">> Haxe Benchmark Log Start <<";
+TinkTravisLogParser.END = ">> Haxe Benchmark Log End <<";
+TinkTravisLogParser.BUILD_FOLD = "travis_fold:start:build-";
+TinkTravisLogParser.REGEX_FORMAT = new EReg("\\x1B\\[\\d*m","g");
+TinkTravisLogParser.REGEX_SECTION = new EReg("^\\x1B\\[33m(\\w*)\\x1B\\[39m$","");
+TinkTravisLogParser.REGEX_TITLE = new EReg(" \\[.*\\] ","g");
+TinkTravisLogParser.REGEX_RESULT = new EReg("Benchmark: (\\d*) iterations = ([\\d\\.]*) ms","g");
 })(typeof exports != "undefined" ? exports : typeof window != "undefined" ? window : typeof self != "undefined" ? self : this);

@@ -20,6 +20,6 @@
 
 	@:from static public function fromString(s:String):TargetType {
 		if (s == null || allValues.indexOf(s) >= 0) return cast s;
-		else throw "Invalid TargetType: '" + s + "'";
+		else throw 'Invalid TargetType: "$s" (should be one of ' + allValues.map(v -> '"$v"') + ')';
 	}
 }

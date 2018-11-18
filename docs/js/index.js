@@ -86,9 +86,13 @@ function regexpEscape(s) {
   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
 
+function log(msg) {
+  $log.html(msg);
+}
+
 function handleError(e) {
   console.error(e);
-  $log.html(e);
+  log(e);
 }
 
 function updateInfoOnPage(endPoint) {
@@ -100,7 +104,7 @@ function updateInfoOnPage(endPoint) {
   $info.find("#repo").attr("href", GITHUB_URL + travisInfo.repo + "/tree/" + travisInfo.branch).text(travisInfo.repo + "/" + travisInfo.branch).attr("title", "github repo branch");
   let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
   $info.find("#commit").html('"' + travisInfo.commit.message + '" (').append($shaAnchor).append(")");
-  $info.find("#travis").attr("href", travisUrl).attr("title", "travis-ci logs");//.text(travisUrl); 
+  $info.find("#travis").attr("href", travisUrl).attr("title", "travis-ci logs").append(endPoint.lastIndexOf('jobs') >= 0 ? ' job' : ' build'); 
 }
 
 function extractTravisInfo(json) {
@@ -461,10 +465,10 @@ function main() {
   
   if (!(travisParams.buildId || travisParams.jobId)) {
     //travisParams.jobId = TEST_JOB_ID;
-    travisParams.jobId = TEST_TINK_JOB_ID;
-    //travisParams.buildId = TEST_BUILD_ID;
-    handleError("No specific endPoint. Using a test one (see console).");
-    enqueueConsoleMessage("No specific endPoint. Using a test one (see console).", "warn");
+    //travisParams.jobId = TEST_TINK_JOB_ID;
+    travisParams.buildId = TEST_BUILD_ID;
+    handleError("No specific endPoint (using a test one - see console)");
+    enqueueConsoleMessage("No specific endPoint (using a test one - see console)", "warn");
     enqueueConsoleMessage("Try '?build=<BUILD_ID>' or '?job=<JOB_ID>'", "warn");
   } 
   
@@ -481,7 +485,7 @@ function main() {
     // build up requests
     let promises = [];
     if (travisParams.buildId) {
-      for (let i = 0, jobs = json.jobs.splice(1, 2); i < jobs.length; i++) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
+      for (let i = 0, jobs = json.jobs.splice(0, 3); i < jobs.length; i++) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
         let job = jobs[i];
         console.log("job " + i);
         let promise = fetchLogForJob(job.id);
@@ -499,6 +503,8 @@ function main() {
         testCases = testCases.concat(parser.parse(rawLog));
       }
       //hxutils.download("testcases.json", JSON.stringify(testCases));
+      console.log("travisInfo: ", parser.info);
+      log("Parsed " + testCases.length + " test cases");
       $info.find("#haxe").text(parser.info.haxeVersion); 
       console.log("testCases: " + testCases.length);
       treeData = collectTreeData(testCases);
