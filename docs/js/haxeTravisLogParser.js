@@ -36,89 +36,14 @@ EReg.prototype = {
 		return s.replace(this.r,d).split(d);
 	}
 };
-var HxOverrides = function() { };
-HxOverrides.__name__ = true;
-HxOverrides.cca = function(s,index) {
-	var x = s.charCodeAt(index);
-	if(x != x) {
-		return undefined;
-	}
-	return x;
-};
-HxOverrides.substr = function(s,pos,len) {
-	if(len == null) {
-		len = s.length;
-	} else if(len < 0) {
-		if(pos == 0) {
-			len = s.length + len;
-		} else {
-			return "";
-		}
-	}
-	return s.substr(pos,len);
-};
 var ILogParser = function() { };
 ILogParser.__name__ = true;
-Math.__name__ = true;
-var Std = function() { };
-Std.__name__ = true;
-Std.string = function(s) {
-	return js_Boot.__string_rec(s,"");
+var HaxeTravisLogParser = $hx_exports["HaxeTravisLogParser"] = function() {
+	this.name = "HaxeTravisLogParser";
 };
-Std.parseInt = function(x) {
-	var v = parseInt(x, x && x[0]=="0" && (x[1]=="x" || x[1]=="X") ? 16 : 10);
-	if(isNaN(v)) {
-		return null;
-	}
-	return v;
-};
-var StringTools = function() { };
-StringTools.__name__ = true;
-StringTools.isSpace = function(s,pos) {
-	var c = HxOverrides.cca(s,pos);
-	if(!(c > 8 && c < 14)) {
-		return c == 32;
-	} else {
-		return true;
-	}
-};
-StringTools.ltrim = function(s) {
-	var l = s.length;
-	var r = 0;
-	while(r < l && StringTools.isSpace(s,r)) ++r;
-	if(r > 0) {
-		return HxOverrides.substr(s,r,l - r);
-	} else {
-		return s;
-	}
-};
-StringTools.rtrim = function(s) {
-	var l = s.length;
-	var r = 0;
-	while(r < l && StringTools.isSpace(s,l - r - 1)) ++r;
-	if(r > 0) {
-		return HxOverrides.substr(s,0,l - r);
-	} else {
-		return s;
-	}
-};
-StringTools.trim = function(s) {
-	return StringTools.ltrim(StringTools.rtrim(s));
-};
-var TargetType = $hx_exports["TargetType"] = {};
-TargetType.__name__ = true;
-TargetType.fromString = function(s) {
-	if(s == null || TargetType.allValues.indexOf(s) >= 0) {
-		return s;
-	} else {
-		throw new js__$Boot_HaxeError("Invalid TargetType: '" + s + "'");
-	}
-};
-var TravisLogParser = $hx_exports["TravisLogParser"] = function() {
-};
-TravisLogParser.__name__ = true;
-TravisLogParser.__interfaces__ = [ILogParser];
-TravisLogParser.prototype = {
+HaxeTravisLogParser.__name__ = true;
+HaxeTravisLogParser.__interfaces__ = [ILogParser];
+HaxeTravisLogParser.prototype = {
 	parse: function(log) {
 		var toNumber = function(str) {
 			return Std.parseInt(str.split(",").join(""));
@@ -209,6 +134,82 @@ TravisLogParser.prototype = {
 			throw new js__$Boot_HaxeError("LogParser error: Bench-fold for " + target + " never closed");
 		}
 		return results;
+	}
+};
+var HxOverrides = function() { };
+HxOverrides.__name__ = true;
+HxOverrides.cca = function(s,index) {
+	var x = s.charCodeAt(index);
+	if(x != x) {
+		return undefined;
+	}
+	return x;
+};
+HxOverrides.substr = function(s,pos,len) {
+	if(len == null) {
+		len = s.length;
+	} else if(len < 0) {
+		if(pos == 0) {
+			len = s.length + len;
+		} else {
+			return "";
+		}
+	}
+	return s.substr(pos,len);
+};
+Math.__name__ = true;
+var Std = function() { };
+Std.__name__ = true;
+Std.string = function(s) {
+	return js_Boot.__string_rec(s,"");
+};
+Std.parseInt = function(x) {
+	var v = parseInt(x, x && x[0]=="0" && (x[1]=="x" || x[1]=="X") ? 16 : 10);
+	if(isNaN(v)) {
+		return null;
+	}
+	return v;
+};
+var StringTools = function() { };
+StringTools.__name__ = true;
+StringTools.isSpace = function(s,pos) {
+	var c = HxOverrides.cca(s,pos);
+	if(!(c > 8 && c < 14)) {
+		return c == 32;
+	} else {
+		return true;
+	}
+};
+StringTools.ltrim = function(s) {
+	var l = s.length;
+	var r = 0;
+	while(r < l && StringTools.isSpace(s,r)) ++r;
+	if(r > 0) {
+		return HxOverrides.substr(s,r,l - r);
+	} else {
+		return s;
+	}
+};
+StringTools.rtrim = function(s) {
+	var l = s.length;
+	var r = 0;
+	while(r < l && StringTools.isSpace(s,l - r - 1)) ++r;
+	if(r > 0) {
+		return HxOverrides.substr(s,0,l - r);
+	} else {
+		return s;
+	}
+};
+StringTools.trim = function(s) {
+	return StringTools.ltrim(StringTools.rtrim(s));
+};
+var TargetType = $hx_exports["TargetType"] = {};
+TargetType.__name__ = true;
+TargetType.fromString = function(s) {
+	if(s == null || TargetType.allValues.indexOf(s) >= 0) {
+		return s;
+	} else {
+		throw new js__$Boot_HaxeError("Invalid TargetType: '" + s + "'");
 	}
 };
 var hxutils = $hx_exports["hxutils"] = function() { };

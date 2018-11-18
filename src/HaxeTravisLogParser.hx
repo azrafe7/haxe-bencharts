@@ -5,9 +5,10 @@ using StringTools;
 
 // this is a regex-based parser, it will break! (:
 @:expose
-@:native("TravisLogParser")
-class TravisLogParser implements ILogParser {
+@:native("HaxeTravisLogParser")
+class HaxeTravisLogParser implements ILogParser {
 
+	public var name:String = "HaxeTravisLogParser";
 	public var info:TravisLogInfo;
 
 	public function new() {}

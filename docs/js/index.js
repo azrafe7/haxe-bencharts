@@ -8,6 +8,7 @@ const TRAVIS_URL = "https://travis-ci.org/";
 const GITHUB_URL = "https://github.com/";
 const TEST_BUILD_ID = 454856167;
 const TEST_JOB_ID = 454856168;
+const TEST_TINK_JOB_ID = 434644243; // https://travis-ci.org/kevinresol/haxe_benchmark/jobs/434644243
 
 const $log = $('#log');
 const $info = $('#info');
@@ -97,7 +98,8 @@ function updateInfoOnPage(endPoint) {
   travisUrl = TRAVIS_URL + travisInfo.repo + "/" + endPoint;
   let commitUrl = GITHUB_URL + travisInfo.repo + "/commit/" + travisInfo.commit.sha;
   $info.find("#repo").attr("href", GITHUB_URL + travisInfo.repo + "/tree/" + travisInfo.branch).text(travisInfo.repo + "/" + travisInfo.branch).attr("title", "github repo branch");
-  $info.find("#commit").attr("href", commitUrl).text('"' + travisInfo.commit.message + '"').attr("title", "sha: " + travisInfo.commit.sha.substr(0, 8) + "…");
+  let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
+  $info.find("#commit").html('"' + travisInfo.commit.message + '" (').append($shaAnchor).append(")");
   $info.find("#travis").attr("href", travisUrl).attr("title", "travis-ci logs");//.text(travisUrl); 
 }
 
@@ -450,7 +452,7 @@ function main() {
     jobId: false
   };
 
-  let parser = new TravisLogParser();
+  let parser = new HaxeTravisLogParser();
 
   travisParams.buildId = urlParams["build"];
   travisParams.jobId = urlParams["job"];
@@ -459,7 +461,8 @@ function main() {
   
   if (!(travisParams.buildId || travisParams.jobId)) {
     //travisParams.jobId = TEST_JOB_ID;
-    travisParams.buildId = TEST_BUILD_ID;
+    travisParams.jobId = TEST_TINK_JOB_ID;
+    //travisParams.buildId = TEST_BUILD_ID;
     handleError("No specific endPoint. Using a test one (see console).");
     enqueueConsoleMessage("No specific endPoint. Using a test one (see console).", "warn");
     enqueueConsoleMessage("Try '?build=<BUILD_ID>' or '?job=<JOB_ID>'", "warn");
@@ -472,6 +475,8 @@ function main() {
   .then(json => {
     travisInfo = extractTravisInfo(json);
     updateInfoOnPage(apiEndPoint);
+    
+    //return;
     
     // build up requests
     let promises = [];

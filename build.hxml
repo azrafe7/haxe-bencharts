@@ -1,5 +1,14 @@
--cp src
-TravisLogParser
--js docs/js/travisLogParser.js
-
 #-debug
+
+--next
+
+-cp src
+HaxeTravisLogParser
+-js docs/js/haxeTravisLogParser.js
+
+--next
+
+-cp src
+TinkTravisLogParser
+-js docs/js/tinkTravisLogParser.js
+

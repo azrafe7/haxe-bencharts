@@ -1,5 +1,6 @@
 
 interface ILogParser {
+	public var name:String;
 	public var info:TravisLogInfo;
 	public function parse(log:String):Array<TestCaseInfo>;
 }
