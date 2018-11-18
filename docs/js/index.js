@@ -209,6 +209,13 @@ function createNode(text, options) {
 }
 
 function bindTreeEvents() {
+  $tree.on('click', '.open-suite-chart', (evt) => {
+    let nodeId = $(evt.target).closest('li.list-group-item').attr('data-nodeid');
+    let node = $tree.treeview('getNode', +nodeId);
+    console.log('open chart suite:', node);
+    plotChart(node.nodes[0], false);
+    evt.stopPropagation();
+  });
   $tree.on('nodeSelected', onNodeSelected);
   $tree.on('nodeUnselected', onNodeUnselected);
   $("#search-expand").on('click', () => $tree.treeview('expandAll', { silent: true }));
@@ -269,7 +276,7 @@ function collectTreeData(testCases) {
     let bench = benchs[t.benchName];
     let suiteId = t.benchName + t.suiteName;
     if (suites[suiteId] === undefined) {
-      let node = createNode(t.suiteName);
+      let node = createNode(t.suiteName, {isSuite:true});
       suites[suiteId] = node;
       bench.nodes.push(node);
     }
@@ -307,6 +314,10 @@ function collectTreeData(testCases) {
       });
       node.floatRightHtml = spans.join("");
     }
+    if (node.isSuite) {
+      let chartSpan = '<span class="btn-link glyphicon glyphicon-stats open-suite-chart" title="plot all"></span>';
+      node.floatRightHtml = chartSpan;
+    }
   });
 
   console.log("nodes: ", nodes);
@@ -318,11 +329,7 @@ function onNodeSelected(evt, data) {
   console.log("selected: ", data);
   selectedNode = data;
   //$("#chart").html("<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>");
-  if (!echart) {
-    echart = echarts.init($chart[0]);
-    window.onresize = () => echart.resize();
-  }
-  plotChart(data);
+  plotChart(data, true);
 }
 
 function onNodeUnselected(evt, data) {
@@ -330,7 +337,11 @@ function onNodeUnselected(evt, data) {
   selectedNode = undefined;
 }
 
-function plotChart(nodeData) {
+function plotChart(nodeData, singleCase) {
+  if (!echart) {
+    echart = echarts.init($chart[0]);
+    window.onresize = () => echart.resize();
+  }
   let labelOptions = {
     normal: {
       show: true,
@@ -353,7 +364,7 @@ function plotChart(nodeData) {
   let byTarget = { };
   let uniqueCaseNames = [];
   let tests = testCases.filter(t => {
-    let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName;
+    let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName && (!singleCase || (singleCase && t.caseName == nodeData.test.caseName));
     if (ok) {
       if (!byTarget[t.target]) byTarget[t.target] = { };
       
@@ -423,7 +434,7 @@ function plotChart(nodeData) {
         saveAsImage: {show: true}
       }
     },
-    calculable: true,
+    //calculable: true,
     legend: {
       data: labelNames
     },
@@ -499,7 +510,7 @@ function main() {
     //travisParams.jobId = TEST_JOB_ID;
     //travisParams.jobId = TEST_TINK_JOB_ID;
     travisParams.buildId = TEST_BUILD_ID;
-    handleError("No specific endPoint (using a test one - see console)");
+    log("No specific endPoint (using a test one - see console)");
     enqueueConsoleMessage("No specific endPoint (using a test one - see console)", "warn");
     enqueueConsoleMessage("Try '?build=<BUILD_ID>' or '?job=<JOB_ID>'", "warn");
   } 

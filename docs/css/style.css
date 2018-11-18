@@ -30,6 +30,19 @@
   margin-right: 0;
 }
 
+.treeview .glyphicon {
+  vertical-align: text-top;
+}
+
+.treeview .open-suite-chart {
+  padding-right: 5px;
+  color: #FF5722;
+}
+
+.treeview .open-suite-chart:hover {
+  color: #F44336;
+}
+
 .treeview .list-group-item {
   font-size: .9em;
   padding: 8px 10px;
