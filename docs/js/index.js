@@ -499,7 +499,8 @@ function main() {
     jobId: false
   };
 
-  let parser = new HaxeTravisLogParser();
+  let parser; // this will be assigned the last parser used (in Promise.all().then())
+  let parsers = [new HaxeTravisLogParser(), new TinkTravisLogParser()];
 
   travisParams.buildId = urlParams["build"];
   travisParams.jobId = urlParams["job"];
@@ -541,9 +542,12 @@ function main() {
     
     // act when all of them complete
     Promise.all(promises).then(rawLogs => {
-      console.log("parsing " + rawLogs.length + " logs");
-      for (let rawLog of rawLogs) {
-        testCases = testCases.concat(parser.parse(rawLog));
+      for (parser of parsers) {
+        console.log("try parsing " + rawLogs.length + " logs with " + parser.name);
+        for (let rawLog of rawLogs) {
+          testCases = testCases.concat(parser.parse(rawLog));
+        }
+        if (testCases.length > 0) break;
       }
       //hxutils.download("testcases.json", JSON.stringify(testCases));
       console.log("travisInfo: ", parser.info);
