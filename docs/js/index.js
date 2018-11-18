@@ -392,14 +392,26 @@ function plotChart(nodeData) {
         type: 'shadow'
       }
     },
+    toolbox: {
+      show: true,
+      orient: 'vertical',
+      right: 38,
+      top: 50,
+      feature: {
+        dataView: {show: true, readOnly: true},
+        magicType: {show: true, type: ['stack', 'tiled']},
+        saveAsImage: {show: true}
+      }
+    },
+    calculable: true,
     legend: {
       data: labelNames
     },
     xAxis: [
       {
         name: 'cases',
-        nameLocation: 'center',
-        nameGap: 50,
+        //nameLocation: 'center',
+        //nameGap: 50,
         nameTextStyle: {
           fontWeight: 'bold',
           fontSize: 14
