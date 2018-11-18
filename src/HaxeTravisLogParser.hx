@@ -102,7 +102,7 @@ class HaxeTravisLogParser implements ILogParser {
 						numSamples = toNumber(TESTCASE_REGEXP.matched(2).trim());
 
 						var caseInfo:TestCaseInfo = {
-							target: target,
+							target: target == "macro" ? "eval" : target,
 							benchName: benchName,
 							suiteName: suiteName,
 							caseName: caseName,

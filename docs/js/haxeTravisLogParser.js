@@ -112,7 +112,7 @@ HaxeTravisLogParser.prototype = {
 				} else if(HaxeTravisLogParser.TESTCASE_REGEXP.match(line1)) {
 					caseName = HxOverrides.substr(StringTools.trim(HaxeTravisLogParser.TESTCASE_REGEXP.matched(1)),0,-1);
 					numSamples = toNumber(StringTools.trim(HaxeTravisLogParser.TESTCASE_REGEXP.matched(2)));
-					var caseInfo = { target : target, benchName : benchName, suiteName : suiteName, caseName : caseName, numSamples : numSamples};
+					var caseInfo = { target : target == "macro" ? TargetType.fromString("eval") : target, benchName : benchName, suiteName : suiteName, caseName : caseName, numSamples : numSamples};
 					if(target == null || benchName == null || suiteName == null || caseName == null || numSamples == null) {
 						throw new js__$Boot_HaxeError("LogParser error: Invalid testcase #" + results.length + " (" + Std.string(caseInfo) + ")");
 					}
