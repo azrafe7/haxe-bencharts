@@ -353,7 +353,7 @@ function plotChart(nodeData) {
   let byTarget = { };
   let uniqueCaseNames = [];
   let tests = testCases.filter(t => {
-    let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName;
+    let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName && t.caseName == nodeData.test.caseName;
     if (ok) {
       if (!byTarget[t.target]) byTarget[t.target] = { };
       
