@@ -216,6 +216,22 @@ function bindTreeEvents() {
   $("#search-reset").on('click', () => $tree.treeview('clearSearch', { silent: true }));
 }
 
+function bindKeyEvents() {
+  function onKeyUp(e) {
+    // close chart data view if open, else reset search and give it focus
+    if (e.keyCode == 27) {
+      let $dataViewCloseBtn = $("#chart > div:nth-child(3) > div:nth-child(3) > div");
+      if ($dataViewCloseBtn.length) {
+        $dataViewCloseBtn.trigger('click');
+      } else {
+        $search.val("").trigger('keyup').focus();
+      }
+    }
+  }
+  
+  $(document).on('keyup', onKeyUp);
+}
+
 function createTree(el, treeData) {
   let options = {
     bootstrap2: false, 
@@ -523,6 +539,7 @@ function main() {
       createTree($tree, treeData);
       addSearchFeature($tree, $search);
       bindTreeEvents();
+      bindKeyEvents();
       
       $search.focus();
       echart = echarts.init($chart[0]);
