@@ -6,8 +6,8 @@ console.log("ready");
 const TRAVIS_API = "https://api.travis-ci.org/v3/";
 const TRAVIS_URL = "https://travis-ci.org/";
 const GITHUB_URL = "https://github.com/";
-const TEST_BUILD_ID = 454856167;
-const TEST_JOB_ID = 454856168;
+const TEST_BUILD_ID = 456755801;
+const TEST_JOB_ID = 456755803;
 const TEST_TINK_JOB_ID = 434644243; // https://travis-ci.org/kevinresol/haxe_benchmark/jobs/434644243
 
 const $log = $('#log');
@@ -101,10 +101,11 @@ function updateInfoOnPage(endPoint) {
   endPoint = endPoint.replace(regexp, "$1s$2");
   travisUrl = TRAVIS_URL + travisInfo.repo + "/" + endPoint;
   let commitUrl = GITHUB_URL + travisInfo.repo + "/commit/" + travisInfo.commit.sha;
-  $info.find("#repo").attr("href", GITHUB_URL + travisInfo.repo + "/tree/" + travisInfo.branch).text(travisInfo.repo + "/" + travisInfo.branch).attr("title", "github repo branch");
+  $info.find("#repo").attr("href", GITHUB_URL + travisInfo.repo + "/tree/" + travisInfo.branch).text(travisInfo.repo + "/" + travisInfo.branch).attr("title", "github repo");
   let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
   $info.find("#commit").html('"' + travisInfo.commit.message + '" (').append($shaAnchor).append(")");
-  $info.find("#travis").attr("href", travisUrl).attr("title", "travis-ci logs").append(endPoint.lastIndexOf('jobs') >= 0 ? ' job' : ' build'); 
+  let $travisAnchor = $("<a>").attr({href: travisUrl, target: "_blank", title: "travis-ci logs"}).text(endPoint.substr(endPoint.lastIndexOf('/') + 1));
+  $info.find("#travis").append(endPoint.lastIndexOf('jobs') >= 0 ? ' job (' : ' build (').append($travisAnchor).append(")"); 
 }
 
 function extractTravisInfo(json) {
@@ -450,6 +451,7 @@ function plotChart(nodeData, singleCase) {
   let options = {
     title: {
       text: nodeData.test.benchName,
+      itemGap: 5,
       subtext: nodeData.test.suiteName
     },
     grid: {
