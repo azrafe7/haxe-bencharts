@@ -6,8 +6,8 @@ console.log("ready");
 const TRAVIS_API = "https://api.travis-ci.org/v3/";
 const TRAVIS_URL = "https://travis-ci.org/";
 const GITHUB_URL = "https://github.com/";
-const TEST_BUILD_ID = 456815836;
-const TEST_JOB_ID = 456815837;
+const TEST_BUILD_ID = 456815836; // 456755801
+const TEST_JOB_ID = 456815838; // 456755803
 const TEST_TINK_JOB_ID = 434644243; // https://travis-ci.org/kevinresol/haxe_benchmark/jobs/434644243
 
 const $log = $('#log');
@@ -106,10 +106,10 @@ function updateInfoOnPage(endPoint) {
   let commitUrl = GITHUB_URL + travisInfo.repo + "/commit/" + travisInfo.commit.sha;
   let pullUrl = GITHUB_URL + travisInfo.repo + "/" + travisInfo.pull.url;
   if (travisInfo.pull.title) {
-    let $pullAnchor = $("<a>").attr({href: pullUrl, target: "_blank"}).text(travisInfo.pull.url);
+    let $pullAnchor = $("<a>").attr({href: pullUrl, target: "_blank", title: "pull request: " + travisInfo.pull.url.split('/').pop()}).text(travisInfo.pull.url);
     $info.find("#code-ref").html('"' + travisInfo.pull.title + '" (').append($pullAnchor).append(")");
   } else {
-    let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
+    let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: "commit: " + travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
     $info.find("#code-ref").html('"' + travisInfo.commit.message + '" (').append($shaAnchor).append(")");
   }
   
@@ -595,7 +595,7 @@ function main() {
   
   fetchJson(TRAVIS_API + apiEndPoint)
   .then(json => {
-    if (travisParams.jobId) { // fetch the build json (so we can properly extract some info)
+    if (travisParams.jobId) { // fetch the build json (so we can properly extract info)
       return fetchJson(TRAVIS_API + "build/" + json.build.id)
              .then(buildJson => Promise.resolve([json, buildJson]));
     }
@@ -604,7 +604,6 @@ function main() {
   .then(jsons => {
     let originalJson = jsons[0];
     let buildJson = jsons[1];
-    console.log(buildJson, originalJson);
     travisInfo = extractTravisInfo(buildJson, originalJson);
     updateInfoOnPage(apiEndPoint);
     
