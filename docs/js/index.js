@@ -509,7 +509,7 @@ function plotChart(nodeData, singleCase) {
         type: 'category',
         axisTick: {show: false},
         axisLabel: {
-          rotate: singleCase ? 0 : 90
+          rotate: (singleCase || uniqueCaseNames.length <= 3) ? 0 : 90
         },
         data: uniqueCaseNames,
       }
