@@ -501,7 +501,7 @@ function plotChart(nodeData, singleCase) {
     },
     xAxis: [
       {
-        name: 'cases',
+        name: 'tests',
         //nameLocation: 'center',
         //nameGap: 50,
         nameTextStyle: {
@@ -518,7 +518,7 @@ function plotChart(nodeData, singleCase) {
     ],
     yAxis: [
       {
-        name: 'numSamples',
+        name: 'ops',
         nameLocation: 'center',
         nameGap: 100,
         nameTextStyle: {
