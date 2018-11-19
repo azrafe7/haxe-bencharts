@@ -599,13 +599,13 @@
 				treeItem
 					.append($(_this.template.link)
 						.attr('href', node.href)
-						.append(node.text)
+						.append(document.createTextNode(node.text))
 					);
 			}
 			else {
 				// otherwise just text
 				treeItem
-					.append(node.text);
+					.append(document.createTextNode(node.text));
 			}
 
 			// Add tags as badges
