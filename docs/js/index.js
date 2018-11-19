@@ -6,8 +6,8 @@ console.log("ready");
 const TRAVIS_API = "https://api.travis-ci.org/v3/";
 const TRAVIS_URL = "https://travis-ci.org/";
 const GITHUB_URL = "https://github.com/";
-const TEST_BUILD_ID = 456755801;
-const TEST_JOB_ID = 456755803;
+const TEST_BUILD_ID = 456815836;
+const TEST_JOB_ID = 456815837;
 const TEST_TINK_JOB_ID = 434644243; // https://travis-ci.org/kevinresol/haxe_benchmark/jobs/434644243
 
 const $log = $('#log');
@@ -21,7 +21,7 @@ let testCases = [];     // test cases as parsed from the log
 let treeData = [];      // test cases in tree form (passed to treeview)
 let apiEndPoint = "";   // travis api endpoint
 let travisUrl = "";     // link to travis logs
-let travisInfo = { };   // collected info about owner/repo/branch and commit
+let travisInfo = { };   // collected info about owner/repo/branch, commit/pr, etc.
 let consoleMessageQueue = [];
 let selectedNode = null;
 
@@ -100,23 +100,36 @@ function updateInfoOnPage(endPoint) {
   if (!regexp.test(endPoint)) throw "Endpoint '" + endPoint + "' doesn't match regexp";
   endPoint = endPoint.replace(regexp, "$1s$2");
   travisUrl = TRAVIS_URL + travisInfo.repo + "/" + endPoint;
-  let commitUrl = GITHUB_URL + travisInfo.repo + "/commit/" + travisInfo.commit.sha;
+  
   $info.find("#repo").attr("href", GITHUB_URL + travisInfo.repo + "/tree/" + travisInfo.branch).text(travisInfo.repo + "/" + travisInfo.branch).attr("title", "github repo");
-  let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
-  $info.find("#commit").html('"' + travisInfo.commit.message + '" (').append($shaAnchor).append(")");
+  
+  let commitUrl = GITHUB_URL + travisInfo.repo + "/commit/" + travisInfo.commit.sha;
+  let pullUrl = GITHUB_URL + travisInfo.repo + "/" + travisInfo.pull.url;
+  if (travisInfo.pull.title) {
+    let $pullAnchor = $("<a>").attr({href: pullUrl, target: "_blank"}).text(travisInfo.pull.url);
+    $info.find("#code-ref").html('"' + travisInfo.pull.title + '" (').append($pullAnchor).append(")");
+  } else {
+    let $shaAnchor = $("<a>").attr({href: commitUrl, target: "_blank", title: travisInfo.commit.sha}).text(travisInfo.commit.sha.substr(0, 8));
+    $info.find("#code-ref").html('"' + travisInfo.commit.message + '" (').append($shaAnchor).append(")");
+  }
+  
   let $travisAnchor = $("<a>").attr({href: travisUrl, target: "_blank", title: "travis-ci logs"}).text(endPoint.substr(endPoint.lastIndexOf('/') + 1));
   $info.find("#travis").append(endPoint.lastIndexOf('jobs') >= 0 ? ' job (' : ' build (').append($travisAnchor).append(")"); 
 }
 
-function extractTravisInfo(json) {
+function extractTravisInfo(buildJson, json) {
   let travisInfo = { };
   travisInfo.repo = json.repository.slug;
-  travisInfo.branch = json.commit.ref.split("/").pop();
+  travisInfo.branch = buildJson.branch ? buildJson.branch.name : "";
   travisInfo.commit = {
     sha: json.commit.sha,
     message: json.commit.message
   };
-  console.log(travisInfo);
+  travisInfo.pull = {
+    title: buildJson.pull_request_title || "",
+    url: buildJson.pull_request_number != null ? "pull/" + buildJson.pull_request_number : ""
+  };
+  console.log("travisInfo:", travisInfo);
   
   return travisInfo;
 }
@@ -582,7 +595,17 @@ function main() {
   
   fetchJson(TRAVIS_API + apiEndPoint)
   .then(json => {
-    travisInfo = extractTravisInfo(json);
+    if (travisParams.jobId) { // fetch the build json (so we can properly extract some info)
+      return fetchJson(TRAVIS_API + "build/" + json.build.id)
+             .then(buildJson => Promise.resolve([json, buildJson]));
+    }
+    else return Promise.resolve([json, json]);
+  })
+  .then(jsons => {
+    let originalJson = jsons[0];
+    let buildJson = jsons[1];
+    console.log(buildJson, originalJson);
+    travisInfo = extractTravisInfo(buildJson, originalJson);
     updateInfoOnPage(apiEndPoint);
     
     //return;
@@ -590,7 +613,7 @@ function main() {
     // build up requests
     let promises = [];
     if (travisParams.buildId) {
-      for (let i = 0, jobs = json.jobs.splice(0, 3); i < jobs.length; i++) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
+      for (let i = 0, jobs = originalJson.jobs.splice(0, 3); i < jobs.length; i++) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
         let job = jobs[i];
         console.log("job " + i);
         let promise = fetchLogForJob(job.id);
@@ -611,7 +634,7 @@ function main() {
         if (testCases.length > 0) break;
       }
       //hxutils.download("testcases.json", JSON.stringify(testCases));
-      console.log("travisInfo: ", parser.info);
+      console.log("parserInfo: ", parser.info);
       log("Parsed " + testCases.length + " test cases");
       $info.find("#haxe").text(parser.info.haxeVersion); 
       console.log("testCases: " + testCases.length);
