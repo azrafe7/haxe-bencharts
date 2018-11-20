@@ -285,7 +285,7 @@ function collectTreeData(testCases) {
   let cases = { };
   
   let idx = 0;
-  testCases.map(t => {
+  testCases.forEach(t => {
     if (benchs[t.benchName] === undefined) {
       let node = createNode(t.benchName);
       benchs[t.benchName] = node;
