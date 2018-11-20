@@ -276,6 +276,33 @@ function createTree(el, treeData) {
   return treeview;
 }
 
+/** Removes duplicate test cases (same target, benchName, suiteName, caseName) and returns a new filtered array (order is preserved)
+    if keepLast is false then then the first encountered test will be kept, otherwise the last one
+    
+    python (f.e.) runs the same tests on both python3 and pypy. This ensures we only keep whichever comes first (or last)
+ */
+function filterOutDups(testCases, keepLast) {
+  function createTestId(t) {
+    return [t.target, t.benchName, t.suiteName, t.caseName].join('/');
+  }
+  
+  let orderedTestIds = [];
+  let testsById = { };
+
+  testCases.forEach(t => {
+    let id = createTestId(t);
+    let idExists = testsById[id] !== undefined;
+    if (!idExists) {
+      orderedTestIds.push(id);
+    }
+    if (keepLast || (!keepLast && !idExists)) {
+      testsById[id] = t;
+    }
+  });
+  
+  return orderedTestIds.map(id => testsById[id]);
+}
+
 function collectTreeData(testCases) {
   //testCases = testCases.splice(0, 10); // test a small sample
   let testCaseClass = ""; // "fas fa-suitcase";
@@ -307,9 +334,6 @@ function collectTreeData(testCases) {
       node.targets = [];
     }
     let caseNode = cases[caseId];
-    
-    // python (f.e.) runs the same tests on both python3 and pypy. This ensures we only keep whichever comes first from the parsed log.
-    if (caseNode.targets.filter(targetObj => targetObj.name == t.target).length > 0) return;
 
     caseNode.test = t;
     caseNode.targets.push({name: t.target, index: idx++});
@@ -387,11 +411,7 @@ function plotChart(nodeData, singleCase) {
     let ok = t.benchName == nodeData.test.benchName && t.suiteName == nodeData.test.suiteName && (!singleCase || (singleCase && t.caseName == nodeData.test.caseName));
     if (ok) {
       if (!byTarget[t.target]) byTarget[t.target] = { };
-      
-      // FIXME: this should only be done once (see collectTreeData())
-      // python (f.e.) runs the same tests on both python3 and pypy. This ensures we only keep whichever comes first from the parsed log.
-      if (byTarget[t.target][t.caseName]) return;
-      
+
       byTarget[t.target][t.caseName] = t;
       
       if (uniqueCaseNames.indexOf(t.caseName) < 0) uniqueCaseNames.push(t.caseName);
@@ -637,6 +657,9 @@ function main() {
       log("Parsed " + testCases.length + " test cases");
       $info.find("#haxe").text(parser.info.haxeVersion); 
       console.log("testCases: " + testCases.length);
+      let filteredTestCases = filterOutDups(testCases, false);
+      console.log("duplicateTestCases: " + (testCases.length - filteredTestCases.length));
+      testCases = filteredTestCases;
       treeData = collectTreeData(testCases);
       createTree($tree, treeData);
       addSearchFeature($tree, $search);
