@@ -9,6 +9,7 @@ const GITHUB_URL = "https://github.com/";
 const TEST_BUILD_ID = 456815836; // 456755801
 const TEST_JOB_ID = 456815838; // 456755803
 const TEST_TINK_JOB_ID = 434644243; // https://travis-ci.org/kevinresol/haxe_benchmark/jobs/434644243
+const TEST_REPO = "azrfe7/hxOrderedMap"; // latest build from this repo (fetched via https://api.travis-ci.org/v3/azrafe7%2FhxOrderedMap/builds?limit=1)
 
 const $log = $('#log');
 const $info = $('#info');
@@ -119,6 +120,7 @@ function updateInfoOnPage(endPoint) {
 
 function extractTravisInfo(buildJson, json) {
   let travisInfo = { };
+  if (!json.repository && buildJson.repository) json = buildJson;
   travisInfo.repo = json.repository.slug;
   travisInfo.branch = buildJson.branch ? buildJson.branch.name : "";
   travisInfo.commit = {
@@ -598,25 +600,29 @@ function main() {
 
   travisParams.buildId = urlParams["build"];
   travisParams.jobId = urlParams["job"];
+  travisParams.repo = urlParams["repo"];
 
   //return;
   
-  if (!(travisParams.buildId || travisParams.jobId)) {
+  if (!(travisParams.buildId || travisParams.jobId || travisParams.repo)) {
     //travisParams.jobId = TEST_JOB_ID;
     //travisParams.jobId = TEST_TINK_JOB_ID;
+    //travisParams.repo = TEST_REPO;
     travisParams.buildId = TEST_BUILD_ID;
     log("No specific endPoint (using a test one - see console)");
     enqueueConsoleMessage("No specific endPoint (using a test one - see console)", "warn");
-    enqueueConsoleMessage("Try '?build=<BUILD_ID>' or '?job=<JOB_ID>'", "warn");
+    enqueueConsoleMessage("Try '?build=<BUILD_ID>' or '?job=<JOB_ID>' or '?repo=<OWNER/REPO_NAME>'", "warn");
   } 
   
   if (travisParams.buildId) apiEndPoint = "build/" + travisParams.buildId;
   else if (travisParams.jobId) apiEndPoint = "job/" + travisParams.jobId;
+  else if (travisParams.repo) apiEndPoint = "repo/" + encodeURIComponent(travisParams.repo) + "/builds?limit=1";
   
   fetchJson(TRAVIS_API + apiEndPoint)
   .then(json => {
-    if (travisParams.jobId) { // fetch the build json (so we can properly extract info)
-      return fetchJson(TRAVIS_API + "build/" + json.build.id)
+    if (!travisParams.buildId) { // fetch the build json (so we can properly extract info)
+      let buildId = json.build ? json.build.id : json.builds[0].id;
+      return fetchJson(TRAVIS_API + "build/" + buildId)
              .then(buildJson => Promise.resolve([json, buildJson]));
     }
     else return Promise.resolve([json, json]);
@@ -625,13 +631,17 @@ function main() {
     let originalJson = jsons[0];
     let buildJson = jsons[1];
     travisInfo = extractTravisInfo(buildJson, originalJson);
+    if (travisParams.repo) {
+      apiEndPoint = "build/" + buildJson.id;
+      originalJson.jobs = buildJson.jobs;
+    }
     updateInfoOnPage(apiEndPoint);
     
     //return;
     
     // build up requests
     let promises = [];
-    if (travisParams.buildId) {
+    if (travisParams.buildId || travisParams.repo) {
       for (let i = 0, jobs = originalJson.jobs.splice(0, 3); i < jobs.length; i++) { // should be splice(0, 3) for haxe tests (0:neko, 1:all-but-cpp, 2:cpp)!
         let job = jobs[i];
         console.log("job " + i);
