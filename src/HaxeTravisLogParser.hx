@@ -12,7 +12,7 @@ class HaxeTravisLogParser implements ILogParser {
 	static var CHECKOUT_FOLD_END_REGEXP = ~/^travis_fold:end:git.checkout/gm;
 	static var BRANCH_OWNER_REPO_REGEXP = ~/^[\s\S]+git clone[\s\S]+--branch=([^\s]+)\s[\s\S]+.git ([^\/]+)\/([^s]+)/gm;
 	static var ANSI_COLORING_REGEXP = ~/\x1B\[\d*m/g;
-	static var HAXE_VERSION_CMD_REGEXP = ~/haxe -version$/gm;
+	static var HAXE_VERSION_CMD_REGEXP = ~/haxe -version/gm;
 
 	static var BENCH_FOLD_START_REGEXP = ~/^travis_fold:start:bench-([\s\S]+)/gm;
 	static var BENCH_FOLD_END_REGEXP = ~/^travis_fold:end:bench-([\s\S]+)/gm;
